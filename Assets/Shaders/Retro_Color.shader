@@ -1,19 +1,17 @@
-Shader "Custom/Retro"
+Shader "Custom/Retro_Color"
 {
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
         _Delta ("Delta", float) = 0
         _Threshold ("Threshold", float) = 0
-        _RED ("Red", float) = 0
-        _GREEN ("Green", float) = 0
-        _BLUE ("Blue", float) = 0
     }
 
     SubShader
     {
-        Tags { "RenderType"="Opaque" }
+        Tags { "RenderType"="Overlay" }
         LOD 200
+        Blend SrcAlpha OneMinusSrcAlpha
 
         CGINCLUDE
         #include "UnityCG.cginc"
@@ -65,15 +63,16 @@ Shader "Custom/Retro"
             return ceil(brightness - threshold);
         }
 
-        float4 frag (v2f_img IN) : COLOR 
+        float4 frag (v2f_img IN) : COLOR
         {
-            float4 COLOR = float4(_RED, _GREEN, _BLUE, 1);
+            float4 OBJ_COLOR = tex2D(_MainTex, IN.uv);
 
             float edge = sobel(_MainTex, IN.uv, _Delta, _Threshold);
             float dither = bayer(_MainTex, IN, _Delta, 3);
-            float4 ret = (1 - edge) * (1 - dither) * (COLOR / 255);
+            float4 ret = (1 - edge) * (1 - dither) * (OBJ_COLOR);
+            float4 e = edge * float4(0, 0, 0, 1);
             
-            return ret;
+            return ret + e;
         }
 
         ENDCG
