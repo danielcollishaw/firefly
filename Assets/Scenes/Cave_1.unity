@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18379131, g: 0.22912171, b: 0.3042378, a: 1}
+  m_IndirectSpecularColor: {r: 0.18379089, g: 0.22912118, b: 0.3042368, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -962,6 +962,7 @@ GameObject:
   - component: {fileID: 581263570}
   - component: {fileID: 581263569}
   - component: {fileID: 581263568}
+  - component: {fileID: 581263574}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -1081,6 +1082,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &581263574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581263567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aa0f2bcba2122241a7bcd6f9ac37298, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stretchAction:
+    m_Name: Stretch
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: 11ad68b4-4586-44d7-a9db-a0f23e1f0e6b
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 739e49c8-caf3-4100-ad4b-3b4d554ee335
+      m_Path: <Keyboard>/p
+      m_Interactions: Press(behavior=2)
+      m_Processors: 
+      m_Groups: 
+      m_Action: Stretch
+      m_Flags: 0
+    m_Flags: 0
+  MaxHeight: 8
+  StretchSpeed: 1
+  Collision: {fileID: 581263570}
+  MeshInstance: {fileID: 581263572}
 --- !u!1 &600525418
 GameObject:
   m_ObjectHideFlags: 0
@@ -1912,7 +1946,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dd1038f376fa33408ea5b60032a9968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 95bdaff5732356343aafbfdb4a8c8498, type: 2}
 --- !u!1 &1044344161
 GameObject:
   m_ObjectHideFlags: 0
