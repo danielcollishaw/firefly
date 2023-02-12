@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public readonly UnityEvent EventJump = new UnityEvent();
+
     public Rigidbody player;
     public float speed = 5f;
     public float jumpSpeed = 20f;
@@ -12,6 +15,11 @@ public class PlayerMovement : MonoBehaviour
     
     private float x, z;
     private bool jumped;
+
+    void Start()
+    {
+        EventJump.AddListener(OnJump);
+    }
 
     // Update is called once per frame
     void Update()
@@ -47,5 +55,9 @@ public class PlayerMovement : MonoBehaviour
             player.velocity = player.velocity + new Vector3(0, jumpSpeed, 0);
             jumped = false;
         }
+    }
+    private void OnJump()
+    {
+        jumped = true;
     }
 }

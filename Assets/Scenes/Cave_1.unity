@@ -1112,9 +1112,10 @@ MonoBehaviour:
       m_Flags: 0
     m_Flags: 0
   MaxHeight: 8
-  StretchSpeed: 1
+  StretchSpeed: 3
   Collision: {fileID: 581263570}
   MeshInstance: {fileID: 581263572}
+  PlayerMovement: {fileID: 581263568}
 --- !u!1 &600525418
 GameObject:
   m_ObjectHideFlags: 0
@@ -1860,7 +1861,6 @@ GameObject:
   - component: {fileID: 1039199241}
   - component: {fileID: 1039199240}
   - component: {fileID: 1039199239}
-  - component: {fileID: 1039199242}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1934,18 +1934,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 32.903, y: -311.454, z: 0}
---- !u!114 &1039199242
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1039199238}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8dd1038f376fa33408ea5b60032a9968, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1044344161
 GameObject:
   m_ObjectHideFlags: 0
