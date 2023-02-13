@@ -3,7 +3,7 @@
 /*        File: StretchMechanic.cs                               */
 /*        Firefly                                                */
 /*        AI For Game Programming - CAP 4053                     */
-/*        Copyright © 2023 Serenity Studios                      */
+/*        Copyright ï¿½ 2023 Serenity Studios                      */
 /*        All rights reserved.                                   */
 /*        Made with love, by Justin Sasso.                       */
 /*---------------------------------------------------------------*/
@@ -75,7 +75,7 @@ public class StretchMechanic : MonoBehaviour
     {
         // When the stretching value is 0, the button is not being pressed.
         // When it's 1, the button is being pressed.
-        float stretchInput = stretchAction.ReadValue<float>();
+        float stretchInput = Input.GetAxisRaw("Power");
         if (stretchInput == 1) IncreaseHeight();
         else DecreaseHeight();
 
