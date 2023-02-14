@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public readonly UnityEvent EventJump = new UnityEvent();
 
     public Rigidbody player;
+    public Animator animator;
     public float speed = 5f;
     public float jumpSpeed = 20f;
     public float moveLimiter = 0.7f;
@@ -47,13 +48,23 @@ public class PlayerMovement : MonoBehaviour
         // we want friction to handle this for smoother feeling (See rigid body drag)
         if (x != 0 || z != 0)
         {
+            animator.SetBool("IsRunning", true);
             player.velocity = new Vector3(x * speed, player.velocity.y, z * speed);
+        }
+        else
+        {
+            animator.SetBool("IsRunning", false);
         }
 
         if (jumped)
         {
             player.velocity = player.velocity + new Vector3(0, jumpSpeed, 0);
             jumped = false;
+            animator.SetBool("IsJumping", true);
+        }
+        else
+        {
+            animator.SetBool("IsJumping", false);
         }
     }
     private void OnJump()
