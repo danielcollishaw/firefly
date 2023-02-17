@@ -29,8 +29,9 @@ public class PlayerMovement : MonoBehaviour
         x = Input.GetAxisRaw("Horizontal");
         z = Input.GetAxisRaw("Vertical");
 
-        if (!jumped)
-            jumped = Input.GetButtonDown("Jump");
+        if (Input.GetButtonDown("Jump") && OnGround())
+            jumped = true;
+            
     }
 
     // FixedUpdate is called on physic updates
@@ -50,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("IsRunning", true);
             player.velocity = new Vector3(x * speed, player.velocity.y, z * speed);
+            player.rotation = Quaternion.LookRotation(new Vector3(-x, 0f, -z));
         }
         else
         {
@@ -67,8 +69,33 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("IsJumping", false);
         }
     }
+
     private void OnJump()
     {
         jumped = true;
+    }
+
+    // Checks if player is grounded by shooting a sphere to check for collisions
+    private bool OnGround()
+    {
+        Vector3 offset = new Vector3(0, .7f, 0);
+        RaycastHit hit;
+        float radius = .5f;
+        float dist = .75f;
+
+        //return Physics.Raycast(transform.position + offset, Vector3.down, dist);
+        
+        return Physics.SphereCast(transform.position + offset, radius, Vector3.down, out hit, dist);
+    }
+
+    // Visualize raycast when gizmos show is selected
+    void OnDrawGizmos()
+    {
+        Vector3 offset = new Vector3(0, .7f, 0);
+        float radius = .5f;
+        float dist = .75f;
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position + offset + Vector3.down * dist, radius);
     }
 }
