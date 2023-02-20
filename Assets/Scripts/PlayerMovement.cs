@@ -1,13 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public readonly UnityEvent EventJump = new UnityEvent();
+
     public Rigidbody player;
+
     public float acceleration;
     public float normalAcceleration; 
     public Vector3 movementInput; 
+
+    public Animator animator;
     public float speed = 5f;
     public float jumpSpeed = 20f;
     public float moveLimiter = 0.7f;
@@ -16,9 +22,10 @@ public class PlayerMovement : MonoBehaviour
     private float x, z;
     private bool jumped;
 
-    void Start() {
-        player = GetComponent<Rigidbody>();
+    void Start() 
+    {
         acceleration = normalAcceleration;
+        EventJump.AddListener(OnJump);
     }
 
     // Update is called once per frame
@@ -30,12 +37,13 @@ public class PlayerMovement : MonoBehaviour
         x = Input.GetAxisRaw("Horizontal");
         z = Input.GetAxisRaw("Vertical");
 
+
         movementInput = new Vector3(x, player.velocity.y, z) * speed; 
-      //  player.AddForce(movementInput * speed);
+        //  player.AddForce(movementInput * speed);
         // Creates velocity in direction of value equal to keypress (WASD). rb.velocity.y deals with falling + jumping by setting velocity to y. 
 
-        if (!jumped)
-            jumped = Input.GetButtonDown("Jump");
+        if (Input.GetButtonDown("Jump") && OnGround())
+            jumped = true;
     }
 
     // FixedUpdate is called on physic updates
@@ -53,13 +61,53 @@ public class PlayerMovement : MonoBehaviour
         // we want friction to handle this for smoother feeling (See rigid body drag)
         if (x != 0 || z != 0)
         {
+            animator.SetBool("IsRunning", true);
             player.velocity = new Vector3(x * speed, player.velocity.y, z * speed);
+            player.rotation = Quaternion.LookRotation(new Vector3(-x, 0f, -z));
+        }
+        else
+        {
+            animator.SetBool("IsRunning", false);
         }
 
         if (jumped)
         {
             player.velocity = player.velocity + new Vector3(0, jumpSpeed, 0);
             jumped = false;
+            animator.SetBool("IsJumping", true);
         }
+        else
+        {
+            animator.SetBool("IsJumping", false);
+        }
+    }
+
+    private void OnJump()
+    {
+        jumped = true;
+    }
+
+    // Checks if player is grounded by shooting a sphere to check for collisions
+    private bool OnGround()
+    {
+        Vector3 offset = new Vector3(0, .7f, 0);
+        RaycastHit hit;
+        float radius = .5f;
+        float dist = .75f;
+
+        //return Physics.Raycast(transform.position + offset, Vector3.down, dist);
+        
+        return Physics.SphereCast(transform.position + offset, radius, Vector3.down, out hit, dist);
+    }
+
+    // Visualize raycast when gizmos show is selected
+    void OnDrawGizmos()
+    {
+        Vector3 offset = new Vector3(0, .7f, 0);
+        float radius = .5f;
+        float dist = .75f;
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position + offset + Vector3.down * dist, radius);
     }
 }
