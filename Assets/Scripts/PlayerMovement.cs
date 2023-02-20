@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody player;
+    public float acceleration;
+    public float normalAcceleration; 
+    public Vector3 movementInput; 
     public float speed = 5f;
     public float jumpSpeed = 20f;
     public float moveLimiter = 0.7f;
@@ -13,12 +16,23 @@ public class PlayerMovement : MonoBehaviour
     private float x, z;
     private bool jumped;
 
+    void Start() {
+        player = GetComponent<Rigidbody>();
+        acceleration = normalAcceleration;
+    }
+
     // Update is called once per frame
     void Update()
     {
         // Takes current input direction vector values [-1, 1];
+
+        
         x = Input.GetAxisRaw("Horizontal");
         z = Input.GetAxisRaw("Vertical");
+
+        movementInput = new Vector3(x, player.velocity.y, z) * speed; 
+      //  player.AddForce(movementInput * speed);
+        // Creates velocity in direction of value equal to keypress (WASD). rb.velocity.y deals with falling + jumping by setting velocity to y. 
 
         if (!jumped)
             jumped = Input.GetButtonDown("Jump");
