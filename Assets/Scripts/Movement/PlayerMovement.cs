@@ -8,23 +8,23 @@ public class PlayerMovement : MonoBehaviour
     public readonly UnityEvent EventJump = new UnityEvent();
 
     public Rigidbody player;
-
-    public float acceleration;
-    public float normalAcceleration; 
-    public Vector3 movementInput; 
-
     public Animator animator;
+
     public float speed = 5f;
+    public float speedDecrement = 10f;
     public float jumpSpeed = 20f;
     public float moveLimiter = 0.7f;
     public float gravityScale = 3f;
     
+    private float originalSpeed;
     private float x, z;
     private bool jumped;
 
     void Start() 
     {
-        acceleration = normalAcceleration;
+        originalSpeed = speed;
+        
+        player.GetComponent<Rigidbody>();
         EventJump.AddListener(OnJump);
     }
 
@@ -32,24 +32,21 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         // Takes current input direction vector values [-1, 1];
-
-        
         x = Input.GetAxisRaw("Horizontal");
         z = Input.GetAxisRaw("Vertical");
 
-
-        movementInput = new Vector3(x, player.velocity.y, z) * speed; 
-        //  player.AddForce(movementInput * speed);
-        // Creates velocity in direction of value equal to keypress (WASD). rb.velocity.y deals with falling + jumping by setting velocity to y. 
-
         if (Input.GetButtonDown("Jump") && OnGround())
             jumped = true;
+
+        NormalizeSpeed();
     }
 
     // FixedUpdate is called on physic updates
     private void FixedUpdate()
     {
+        // Makes gravity stronger
         player.AddForce(Physics.gravity * gravityScale, ForceMode.Acceleration);
+
          // Limit diagonal movement by avoiding compounding of speed when the a keyboard input.
         if (x != 0 && z != 0)
         {
@@ -62,23 +59,56 @@ public class PlayerMovement : MonoBehaviour
         if (x != 0 || z != 0)
         {
             animator.SetBool("IsRunning", true);
-            player.velocity = new Vector3(x * speed, player.velocity.y, z * speed);
-            player.rotation = Quaternion.LookRotation(new Vector3(-x, 0f, -z));
+            SetVelocity(new Vector3(x * speed, GetVelocity().y, z * speed));
+            SetLookRotation(new Vector3(-x, 0f, -z));
         }
         else
         {
             animator.SetBool("IsRunning", false);
+            SetSpeed(originalSpeed);
         }
 
         if (jumped)
         {
-            player.velocity = player.velocity + new Vector3(0, jumpSpeed, 0);
+            SetVelocity(GetVelocity() + new Vector3(0, jumpSpeed, 0));
             jumped = false;
             animator.SetBool("IsJumping", true);
         }
         else
         {
             animator.SetBool("IsJumping", false);
+        }
+    }
+
+    public void SetSpeed(float s)
+    {
+        speed = s;
+    }
+
+    public Vector3 GetVelocity()
+    {
+        return player.velocity;
+    }
+
+    public void SetVelocity(Vector3 velocity)
+    {
+        player.velocity = velocity;
+    }
+
+    private void SetLookRotation(Vector3 direction)
+    {
+        player.rotation = Quaternion.LookRotation(direction);
+    }
+
+    private void NormalizeSpeed()
+    {
+        if (speed > originalSpeed)
+        {
+            speed -= speedDecrement * Time.deltaTime;
+        }
+        else if (speed < originalSpeed)
+        {
+            speed = originalSpeed;
         }
     }
 

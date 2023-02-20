@@ -16,4 +16,4 @@ MonoBehaviour:
   cooldownTime: 2
   activeTime: 0.5
   dashVelocity: 50
-  speed: 100
+  dashSpeed: 20

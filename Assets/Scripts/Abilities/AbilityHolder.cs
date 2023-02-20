@@ -17,14 +17,12 @@ public class AbilityHolder : MonoBehaviour
     }
     AbilityState state = AbilityState.ready; 
 
-    public KeyCode key; 
-
     // Update is called once per frame
     void Update()
     {
         switch (state) {
             case AbilityState.ready:
-                if (Input.GetKeyDown(key)) {
+                if (Input.GetButtonDown("Power")) {
                 ability.Activate(gameObject);
                 state = AbilityState.active;
                 activeTime = ability.activeTime;
