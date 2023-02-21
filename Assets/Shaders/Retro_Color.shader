@@ -69,7 +69,7 @@ Shader "Custom/Retro_Color"
 
             float edge = sobel(_MainTex, IN.uv, _Delta, _Threshold);
             float dither = bayer(_MainTex, IN, _Delta, 3);
-            float4 ret = (1 - edge) * (1 - dither) * (OBJ_COLOR);
+            float4 ret = (dither) * (OBJ_COLOR);
             float4 e = edge * float4(0, 0, 0, 1);
             
             return ret + e;
