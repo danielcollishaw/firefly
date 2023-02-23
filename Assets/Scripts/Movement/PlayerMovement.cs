@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -10,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody player;
     public Animator animator;
 
+    private int collectableCount; 
+    public TextMeshProUGUI countText;
     public float speed = 5f;
     public float speedDecrement = 10f;
     public float jumpSpeed = 20f;
@@ -26,6 +30,10 @@ public class PlayerMovement : MonoBehaviour
         
         player.GetComponent<Rigidbody>();
         EventJump.AddListener(OnJump);
+
+        collectableCount = 0;
+
+        SetCountText();
     }
 
     // Update is called once per frame
@@ -39,6 +47,11 @@ public class PlayerMovement : MonoBehaviour
             jumped = true;
 
         NormalizeSpeed();
+    }
+
+    void SetCountText() 
+    {
+        countText.text = "Count: " + collectableCount.ToString();
     }
 
     // FixedUpdate is called on physic updates
@@ -86,7 +99,11 @@ public class PlayerMovement : MonoBehaviour
         if(other.gameObject.CompareTag("Collectable"))
         {
             other.gameObject.SetActive(false);
+            collectableCount++;
+            Debug.Log(collectableCount);
             //called everytime it touches collider 
+
+            SetCountText();
         }
         // using TAGS to correctly disable the collectables and not other objects 
     }
