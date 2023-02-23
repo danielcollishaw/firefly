@@ -19,7 +19,6 @@ Shader "Custom/Retro_Color"
         sampler2D _MainTex;
         float _Delta;
         float _Threshold;
-        float _RED, _GREEN, _BLUE;
 
         float toGray(float4 pixel)
         {
