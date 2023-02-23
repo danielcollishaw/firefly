@@ -80,6 +80,17 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        // will be called when the player first touches a trigger collider (i.e the collectables)
+        if(other.gameObject.CompareTag("Collectable"))
+        {
+            other.gameObject.SetActive(false);
+            //called everytime it touches collider 
+        }
+        // using TAGS to correctly disable the collectables and not other objects 
+    }
+
     public void SetSpeed(float s)
     {
         speed = s;
