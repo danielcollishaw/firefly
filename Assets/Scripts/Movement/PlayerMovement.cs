@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
 
     private int collectableCount; 
     public TextMeshProUGUI countText;
+    public GameObject winTextObject;
+    public int numberOfCollectableFireflies;
     public float speed = 5f;
     public float speedDecrement = 10f;
     public float jumpSpeed = 20f;
@@ -34,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
         collectableCount = 0;
 
         SetCountText();
+        winTextObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -52,6 +55,10 @@ public class PlayerMovement : MonoBehaviour
     void SetCountText() 
     {
         countText.text = "Count: " + collectableCount.ToString();
+        if(collectableCount >= numberOfCollectableFireflies) 
+        {
+            winTextObject.SetActive(true);
+        }
     }
 
     // FixedUpdate is called on physic updates
