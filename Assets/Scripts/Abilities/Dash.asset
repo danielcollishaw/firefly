@@ -15,4 +15,4 @@ MonoBehaviour:
   abilityName: Dash
   cooldownTime: 0.5
   activeTime: 0.5
-  dashSpeed: 20
+  dashSpeed: 30

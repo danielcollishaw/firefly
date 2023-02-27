@@ -19,7 +19,6 @@ Shader "Custom/Retro_Color"
         sampler2D _MainTex;
         float _Delta;
         float _Threshold;
-        float _RED, _GREEN, _BLUE;
 
         float toGray(float4 pixel)
         {
@@ -67,12 +66,10 @@ Shader "Custom/Retro_Color"
         {
             float4 OBJ_COLOR = tex2D(_MainTex, IN.uv);
 
-            float edge = sobel(_MainTex, IN.uv, _Delta, _Threshold);
             float dither = bayer(_MainTex, IN, _Delta, 3);
-            float4 ret = (1 - edge) * (1 - dither) * (OBJ_COLOR);
-            float4 e = edge * float4(0, 0, 0, 1);
+            float4 ret = dither * (OBJ_COLOR);
             
-            return ret + e;
+            return ret;
         }
 
         ENDCG
