@@ -60,6 +60,7 @@ public class AbilityHolder : MonoBehaviour
                 {
                     state = AbilityState.Cooldown;
                     cooldownTime = ability.CooldownTime;
+                    ability.Deactivate(gameObject);
                 }
                 break;
             case AbilityState.Cooldown:

@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private CapsuleCollider playerCollisionFix;
 
-    public float BaseSpeed { get; set; } = 5.0f;
+    public float BaseSpeed { get; set; } = 10f;
     public float BaseHeight
     {
         get => baseHeight;
@@ -23,7 +23,6 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody player;
     public Animator animator;
 
-    public float speed = 5f;
     public float speedDecrement = 10f;
     public float jumpSpeed = 20f;
     public float moveLimiter = 0.7f;
@@ -38,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
         originalSpeed = BaseSpeed;
         baseHeight = playerCollision.height;
         
-        player.GetComponent<Rigidbody>();
+        player = gameObject.GetComponent<Rigidbody>();
         EventJump.AddListener(OnJump);
     }
 
@@ -98,11 +97,10 @@ public class PlayerMovement : MonoBehaviour
     {
         BaseSpeed = s;
     }
-    public void SetHeight(float height)
+    public void MultHeight(float height)
     {
-        baseHeight = height;
-        playerCollision.height = baseHeight;
-        playerCollisionFix.height = baseHeight;
+        playerCollision.height *= height;
+        playerCollisionFix.height *= height;
     }
 
     public Vector3 GetVelocity()
@@ -140,7 +138,7 @@ public class PlayerMovement : MonoBehaviour
     // Checks if player is grounded by shooting a sphere to check for collisions
     private bool OnGround()
     {
-        Vector3 offset = new Vector3(0, .7f, 0);
+        Vector3 offset = new Vector3(0, .7f, 0)  / (playerCollision.height / baseHeight);
         RaycastHit hit;
         float radius = .5f;
         float dist = .75f;
@@ -153,7 +151,8 @@ public class PlayerMovement : MonoBehaviour
     // Visualize raycast when gizmos show is selected
     void OnDrawGizmos()
     {
-        Vector3 offset = new Vector3(0, .7f, 0);
+        
+        Vector3 offset = new Vector3(0, .7f, 0)  / (playerCollision.height / baseHeight);
         float radius = .5f;
         float dist = .75f;
 

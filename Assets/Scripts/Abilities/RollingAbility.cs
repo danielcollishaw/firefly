@@ -31,7 +31,7 @@ public class RollingAbility : Ability
         activeSpeed = movement.BaseSpeed;
         activeHeight = movement.BaseHeight;
         movement.SetSpeed(activeSpeed * speedMultiplier);
-        movement.SetHeight(activeHeight * heightMultiplier);
+        movement.MultHeight(heightMultiplier);
 
         Debug.Log($"Height: {movement.BaseHeight}, Speed: {movement.BaseSpeed}"); // DEBUG
     }
@@ -42,7 +42,7 @@ public class RollingAbility : Ability
         activeSpeed = movement.BaseSpeed;
         activeHeight = movement.BaseHeight;
         movement.SetSpeed(activeSpeed / speedMultiplier);
-        movement.SetHeight(activeHeight / heightMultiplier);
+        movement.MultHeight(1 / heightMultiplier);
 
         Debug.Log($"Height: {movement.BaseHeight}, Speed: {movement.BaseSpeed}"); // DEBUG
     }
