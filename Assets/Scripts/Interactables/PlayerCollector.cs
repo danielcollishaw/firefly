@@ -9,6 +9,7 @@ public class PlayerCollector : MonoBehaviour
     private int collectableCount; 
     public TextMeshProUGUI countText;
     public GameObject winTextObject;
+    public GameObject finalJar;
     public GameObject firefly;
     public int numberOfCollectableFireflies;
 
@@ -19,6 +20,7 @@ public class PlayerCollector : MonoBehaviour
 
         SetCountText();
         winTextObject.SetActive(false);
+        finalJar.SetActive(false);
     }
 
     // Update is called once per frame
@@ -49,6 +51,7 @@ public class PlayerCollector : MonoBehaviour
         {
             winTextObject.SetActive(true);
             firefly.SetActive(true);
+            finalJar.SetActive(true);
         }
     }
 }
