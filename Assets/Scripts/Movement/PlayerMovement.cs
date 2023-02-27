@@ -1,16 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
+
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public readonly UnityEvent EventJump = new UnityEvent();
+    public readonly UnityEvent EventJump = new();
+
+    [SerializeField]
+    private CapsuleCollider playerCollision;
+    [SerializeField]
+    private CapsuleCollider playerCollisionFix;
+
+    public float BaseSpeed { get; set; } = 10f;
+    public float BaseHeight
+    {
+        get => baseHeight;
+    }
+
+    private float baseHeight;
 
     public Rigidbody player;
     public Animator animator;
 
-    public float speed = 5f;
     public float speedDecrement = 10f;
     public float jumpSpeed = 20f;
     public float moveLimiter = 0.7f;
@@ -22,9 +34,10 @@ public class PlayerMovement : MonoBehaviour
 
     void Start() 
     {
-        originalSpeed = speed;
+        originalSpeed = BaseSpeed;
+        baseHeight = playerCollision.height;
         
-        player.GetComponent<Rigidbody>();
+        player = gameObject.GetComponent<Rigidbody>();
         EventJump.AddListener(OnJump);
     }
 
@@ -59,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
         if (x != 0 || z != 0)
         {
             animator.SetBool("IsRunning", true);
-            SetVelocity(new Vector3(x * speed, GetVelocity().y, z * speed));
+            SetVelocity(new Vector3(x * BaseSpeed, GetVelocity().y, z * BaseSpeed));
             SetLookRotation(new Vector3(-x, 0f, -z));
         }
         else
@@ -82,7 +95,12 @@ public class PlayerMovement : MonoBehaviour
 
     public void SetSpeed(float s)
     {
-        speed = s;
+        BaseSpeed = s;
+    }
+    public void MultHeight(float height)
+    {
+        playerCollision.height *= height;
+        playerCollisionFix.height *= height;
     }
 
     public Vector3 GetVelocity()
@@ -102,13 +120,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void NormalizeSpeed()
     {
-        if (speed > originalSpeed)
+        if (BaseSpeed > originalSpeed)
         {
-            speed -= speedDecrement * Time.deltaTime;
+            BaseSpeed -= speedDecrement * Time.deltaTime;
         }
-        else if (speed < originalSpeed)
+        else if (BaseSpeed < originalSpeed)
         {
-            speed = originalSpeed;
+            BaseSpeed = originalSpeed;
         }
     }
 
@@ -120,7 +138,7 @@ public class PlayerMovement : MonoBehaviour
     // Checks if player is grounded by shooting a sphere to check for collisions
     private bool OnGround()
     {
-        Vector3 offset = new Vector3(0, .7f, 0);
+        Vector3 offset = new Vector3(0, .7f, 0)  / (playerCollision.height / baseHeight);
         RaycastHit hit;
         float radius = .5f;
         float dist = .75f;
@@ -133,7 +151,8 @@ public class PlayerMovement : MonoBehaviour
     // Visualize raycast when gizmos show is selected
     void OnDrawGizmos()
     {
-        Vector3 offset = new Vector3(0, .7f, 0);
+        
+        Vector3 offset = new Vector3(0, .7f, 0)  / (playerCollision.height / baseHeight);
         float radius = .5f;
         float dist = .75f;
 

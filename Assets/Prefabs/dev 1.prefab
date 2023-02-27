@@ -504,6 +504,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abc2e9734aa173a47b9af60537622a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerCollision: {fileID: 0}
+  playerCollisionFix: {fileID: 0}
   player: {fileID: 3700301245921573601}
   animator: {fileID: 3700301245921573600}
   speed: 5
@@ -551,7 +553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9514f8390dc99c7468f6a6d77968cbd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ability: {fileID: 11400000, guid: b15f18bcc470ab24ab7a11f10dfe9906, type: 2}
+  ability: {fileID: 11400000, guid: 739394f01e5f1484691390e56165782e, type: 2}
 --- !u!1 &5355476565309950169
 GameObject:
   m_ObjectHideFlags: 0

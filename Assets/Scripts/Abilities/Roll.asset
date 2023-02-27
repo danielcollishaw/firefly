@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44c453a84d9ec6c43b25d30e67c4870b, type: 3}
-  m_Name: Dash
+  m_Script: {fileID: 11500000, guid: 156c6360db48ff044be3f7f9f3e1b435, type: 3}
+  m_Name: Roll
   m_EditorClassIdentifier: 
-  abilityName: Dash
-  cooldownTime: 0.5
-  activeTime: 0.5
-  dashSpeed: 30
+  abilityName: Rolling!
+  cooldownTime: -1
+  activeTime: 1
+  heightMultiplier: 0.5
+  speedMultiplier: 3

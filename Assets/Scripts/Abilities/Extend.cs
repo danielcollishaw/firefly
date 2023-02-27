@@ -3,7 +3,7 @@
 /*        File: Extend.cs                                        */
 /*        Firefly                                                */
 /*        AI For Game Programming - CAP 4053                     */
-/*        Copyright © 2023 Serenity Studios                      */
+/*        Copyright (c) 2023 Serenity Studios                    */
 /*        All rights reserved.                                   */
 /*        Made with love, by Justin Sasso.                       */
 /*---------------------------------------------------------------*/
@@ -11,7 +11,7 @@
 
 using System;
 
-public static class Extend 
+public static class Extend
 {
     public static double MapRangeClamped(double value, double inRangeA, double inRangeB, double outRangeA = 0.0, double outRangeB = 1.0)
     {
