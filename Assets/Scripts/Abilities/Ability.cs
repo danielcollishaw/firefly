@@ -4,9 +4,22 @@ using UnityEngine;
 
 public class Ability : ScriptableObject
 {
-  public new string name;
-  public float cooldownTime;
-  public float activeTime;
+    public float CooldownTime
+    {
+        get => cooldownTime;
+    }
+    public float ActiveTime
+    {
+        get => activeTime;
+    }
+   
+    [SerializeField]
+    private string abilityName;
+    [SerializeField]
+    private float cooldownTime;
+    [SerializeField]
+    private float activeTime;
 
-  public virtual void Activate(GameObject parent) {}
+    public virtual void Activate(GameObject parent) {  }
+    public virtual void Deactivate(GameObject parent) {  }
 }

@@ -3,7 +3,7 @@
 /*        File: StretchMechanic.cs                               */
 /*        Firefly                                                */
 /*        AI For Game Programming - CAP 4053                     */
-/*        Copyright � 2023 Serenity Studios                      */
+/*        Copyright (c) 2023 Serenity Studios                    */
 /*        All rights reserved.                                   */
 /*        Made with love, by Justin Sasso.                       */
 /*---------------------------------------------------------------*/
@@ -12,13 +12,11 @@
 using System;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.InputSystem;
-using System.Collections.Generic;
 
 public class StretchMechanic : MonoBehaviour
 {
     [Tooltip("Assign the stretch action to an input mapping.")]
-    public InputAction stretchAction;
+    public string stretchAction;
 
     [Tooltip("How much the player can stretch as the capsule's height.")]
     public float MaxHeight = 8.0f;
@@ -35,10 +33,10 @@ public class StretchMechanic : MonoBehaviour
     [Tooltip("Needed to connect jumping event signal.")]
     public PlayerMovement PlayerMovement;
 
-    public readonly UnityEvent EventStretchBegin = new UnityEvent();
-    public readonly UnityEvent EventStretchEnd = new UnityEvent();
-    public readonly UnityEvent EventShrinkBegin = new UnityEvent();
-    public readonly UnityEvent EventShrinkEnd = new UnityEvent();
+    public readonly UnityEvent EventStretchBegin = new();
+    public readonly UnityEvent EventStretchEnd = new();
+    public readonly UnityEvent EventShrinkBegin = new();
+    public readonly UnityEvent EventShrinkEnd = new();
 
     public float StretchOffset
     {
@@ -62,7 +60,6 @@ public class StretchMechanic : MonoBehaviour
     void Start()
     {
         originalHeight = Collision.height;
-        stretchAction.Enable();
 
         EventStretchBegin.AddListener(OnStretchBegin);
         EventStretchEnd.AddListener(OnStretchEnd);
@@ -75,8 +72,9 @@ public class StretchMechanic : MonoBehaviour
     {
         // When the stretching value is 0, the button is not being pressed.
         // When it's 1, the button is being pressed.
-        float stretchInput = Input.GetAxisRaw("Power");
-        if (stretchInput == 1) IncreaseHeight();
+
+        bool stretchInput = Input.GetKey(stretchAction);
+        if (stretchInput) IncreaseHeight();
         else DecreaseHeight();
 
         if (stretchingAndShrinking)
@@ -167,5 +165,5 @@ public class StretchMechanic : MonoBehaviour
 
             shrinkBeginGate = true;
         }
-    } 
+    }
 }

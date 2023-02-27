@@ -1,53 +1,77 @@
-using System.Collections;
-using System.Collections.Generic;
+
+using System;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class AbilityHolder : MonoBehaviour
 {
-    public Ability ability;
-    float cooldownTime; 
-    float activeTime; 
+    private const string POWER_BUTTON = "ActivatePower";
 
-    //which state ability is currently in 
+    [SerializeField]
+    private Ability ability;
 
-    enum AbilityState {
-        ready, 
-        active,
-        cooldown
+    private float cooldownTime; 
+    private float activeTime; 
+
+    // Which state ability is currently in.
+    enum AbilityState 
+    {
+        Activate, 
+        Deactivate,
+        Active,
+        Cooldown,
     }
-    AbilityState state = AbilityState.ready; 
+
+    private AbilityState state = AbilityState.Activate; 
 
     // Update is called once per frame
     void Update()
     {
-        switch (state) {
-            case AbilityState.ready:
-                if (Input.GetButtonDown("Power")) {
-                ability.Activate(gameObject);
-                state = AbilityState.active;
-                activeTime = ability.activeTime;
+        switch (state) 
+        {
+            case AbilityState.Activate:
+                if (Input.GetButtonDown(POWER_BUTTON)) 
+                {
+                    ability.Activate(gameObject);
+                    state = AbilityState.Active;
+                    activeTime = ability.ActiveTime;
                 }
-            break;
-
-            case AbilityState.active:
-                if (activeTime > 0) {
-                    activeTime -= Time.deltaTime;
-                }
-                else {
-                    state = AbilityState.cooldown;
-                    cooldownTime = ability.cooldownTime;
-                }
-            break;
-
-            case AbilityState.cooldown:
-                if (cooldownTime > 0) {
-                        cooldownTime -= Time.deltaTime;
+                break;
+            case AbilityState.Deactivate:
+                ability.Deactivate(gameObject);
+                state = AbilityState.Activate;
+                break;
+            case AbilityState.Active:
+                // If the ability has no cooldown, set activeTime to -1.
+                // That means the ability stops only when the player 
+                // lifts the specified button.
+                if (activeTime == -1)
+                {
+                    if (Input.GetButtonUp(POWER_BUTTON))
+                    {
+                        state = AbilityState.Deactivate;
                     }
-                else {
-                     state = AbilityState.ready;
                 }
-            break;
-        }
-        
+                else if (activeTime > 0) 
+                {
+                    activeTime -= Time.deltaTime;
+                }   
+                else 
+                {
+                    state = AbilityState.Cooldown;
+                    cooldownTime = ability.CooldownTime;
+                }
+                break;
+            case AbilityState.Cooldown:
+                if (cooldownTime > 0) 
+                {
+                    cooldownTime -= Time.deltaTime;
+                }
+                else 
+                {
+                    state = AbilityState.Activate;
+                }
+                break;
+        } 
     }
 }
