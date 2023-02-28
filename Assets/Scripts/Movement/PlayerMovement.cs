@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
         originalSpeed = BaseSpeed;
         baseHeight = playerCollision.height;
         
-        player = gameObject.GetComponent<Rigidbody>();
+        
         EventJump.AddListener(OnJump);
     }
 
