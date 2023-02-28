@@ -1,7 +1,9 @@
 
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -31,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
     private float originalSpeed;
     private float x, z;
     private bool jumped;
+    private bool canJump = true;
 
     void Start() 
     {
@@ -81,16 +84,23 @@ public class PlayerMovement : MonoBehaviour
             SetSpeed(originalSpeed);
         }
 
-        if (jumped)
+        if (jumped && canJump)
         {
             SetVelocity(GetVelocity() + new Vector3(0, jumpSpeed, 0));
             jumped = false;
             animator.SetBool("IsJumping", true);
+            StartCoroutine(JumpDelay());
         }
         else
         {
             animator.SetBool("IsJumping", false);
         }
+    }
+
+    private IEnumerator JumpDelay()
+    {
+        yield return new WaitForSeconds(2.0f); // Change this delay to suit your needs
+        canJump = true;
     }
 
     public void SetSpeed(float s)
