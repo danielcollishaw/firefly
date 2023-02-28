@@ -39,8 +39,7 @@ public class PlayerMovement : MonoBehaviour
     {
         originalSpeed = BaseSpeed;
         baseHeight = playerCollision.height;
-        
-        
+       
         EventJump.AddListener(OnJump);
     }
 
@@ -88,6 +87,7 @@ public class PlayerMovement : MonoBehaviour
         {
             SetVelocity(GetVelocity() + new Vector3(0, jumpSpeed, 0));
             jumped = false;
+            canJump = false;
             animator.SetBool("IsJumping", true);
             StartCoroutine(JumpDelay());
         }
@@ -99,7 +99,7 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator JumpDelay()
     {
-        yield return new WaitForSeconds(2.0f); // Change this delay to suit your needs
+        yield return new WaitForSeconds(0.8f); // Change this delay to suit your needs
         canJump = true;
     }
 
