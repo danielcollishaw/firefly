@@ -9,6 +9,9 @@ public class PlayerCollector : MonoBehaviour
     private int collectableCount; 
     public TextMeshProUGUI countText;
     public GameObject winTextObject;
+
+    public float textTimer = 5;
+    private bool timerStarted = false; 
     public GameObject finalJar;
     public GameObject firefly;
     public int numberOfCollectableFireflies;
@@ -26,6 +29,28 @@ public class PlayerCollector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if(collectableCount >= numberOfCollectableFireflies) 
+        {
+
+            timerStarted = true; 
+            
+            if (textTimer < 1)
+            {
+              winTextObject.SetActive(false);
+              timerStarted = false;
+              Debug.Log("Timer reached 0");
+
+            }
+            else if (textTimer > 0)
+            {
+                textTimer -= Time.deltaTime;
+                  Debug.Log("Timer has this many seconds " + textTimer);
+            }
+
+
+        }
+        
         
     }
 
