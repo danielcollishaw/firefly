@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Roll
   m_EditorClassIdentifier: 
   abilityName: Rolling!
-  cooldownTime: -1
+  cooldownTime: 1
   activeTime: 1
   heightMultiplier: 0.5
-  speedMultiplier: 3
+  speedMultiplier: 2.5
