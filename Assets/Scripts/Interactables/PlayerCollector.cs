@@ -46,12 +46,13 @@ public class PlayerCollector : MonoBehaviour
 
     private void SetCountText() 
     {
-        countText.text = "Count: " + collectableCount.ToString();
+        countText.text = "Fireflies Collected: \t\t" + collectableCount.ToString() + "/" + numberOfCollectableFireflies.ToString();
         if(collectableCount >= numberOfCollectableFireflies) 
         {
             winTextObject.SetActive(true);
             firefly.SetActive(true);
             finalJar.SetActive(true);
+            countText.text = "";
         }
     }
 }

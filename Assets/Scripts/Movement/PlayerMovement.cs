@@ -99,7 +99,7 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator JumpDelay()
     {
-        yield return new WaitForSeconds(0.8f); // Change this delay to suit your needs
+        yield return new WaitForSeconds(1.0f); // Change this delay to suit your needs
         canJump = true;
     }
 
