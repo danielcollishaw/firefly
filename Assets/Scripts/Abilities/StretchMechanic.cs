@@ -16,22 +16,30 @@ using UnityEngine.Events;
 public class StretchMechanic : MonoBehaviour
 {
     [Tooltip("Assign the stretch action to an input mapping.")]
-    public string stretchAction;
+    [SerializeField]
+    private string stretchAction;
 
     [Tooltip("How much the player can stretch as the capsule's height.")]
-    public float MaxHeight = 8.0f;
+    [SerializeField]
+    private float maxHeight = 8.0f;
 
     [Tooltip("How fast the player increases in height and decreases in height.")]
-    public float StretchSpeed = 1.5f;
+    [SerializeField]
+    private float stretchSpeed = 1.5f;
 
     [Tooltip("The player collision that stretches.")]
-    public CapsuleCollider Collision;
+    [SerializeField]
+    private CapsuleCollider mainCollision;
+    [SerializeField]
+    private CapsuleCollider collisionFix;
 
     [Tooltip("The visual instance of the player that will stretch.")]
-    public MeshFilter MeshInstance;
+    [SerializeField]
+    private MeshFilter meshInstance;
 
     [Tooltip("Needed to connect jumping event signal.")]
-    public PlayerMovement PlayerMovement;
+    [SerializeField]
+    private PlayerMovement playerMovement;
 
     public readonly UnityEvent EventStretchBegin = new();
     public readonly UnityEvent EventStretchEnd = new();
@@ -59,7 +67,7 @@ public class StretchMechanic : MonoBehaviour
 
     void Start()
     {
-        originalHeight = Collision.height;
+        originalHeight = mainCollision.height;
 
         EventStretchBegin.AddListener(OnStretchBegin);
         EventStretchEnd.AddListener(OnStretchEnd);
@@ -73,7 +81,7 @@ public class StretchMechanic : MonoBehaviour
         // When the stretching value is 0, the button is not being pressed.
         // When it's 1, the button is being pressed.
 
-        bool stretchInput = Input.GetKey(stretchAction);
+        bool stretchInput = Input.GetKey("p");
         if (stretchInput) IncreaseHeight();
         else DecreaseHeight();
 
@@ -96,7 +104,7 @@ public class StretchMechanic : MonoBehaviour
     }
     private void OnShrinkBegin()
     {
-        PlayerMovement.EventJump?.Invoke();
+        playerMovement.EventJump?.Invoke();
         Debug.Log("Shrink began.");
     }
     private void OnShrinkEnd()
@@ -106,7 +114,8 @@ public class StretchMechanic : MonoBehaviour
     }
     private void IncreaseHeight()
     {
-        if (!Mathf.Approximately(Collision.height, MaxHeight))
+        if (mainCollision.height <= maxHeight)
+        //if (!Mathf.Approximately(Collision.height, MaxHeight))
         {
             stretchEndGate = true;
 
@@ -118,10 +127,12 @@ public class StretchMechanic : MonoBehaviour
 
             // I need to check if this is necessary since Update()
             // might already be running at a fixed rate.
-            float calc = StretchSpeed * Time.fixedDeltaTime;
-            Collision.height += calc;
+            float calc = stretchSpeed * Time.fixedDeltaTime;
 
-            stretchOffset = (float)Extend.MapRangeClamped(Collision.height, originalHeight, MaxHeight);
+            mainCollision.height += calc;
+            collisionFix.height += calc;
+
+            stretchOffset = (float)Extend.MapRangeClamped(mainCollision.height, originalHeight, maxHeight);
 
             //Debug.Log($"Height is increasing: {Collision.height} |");
         }
@@ -138,7 +149,8 @@ public class StretchMechanic : MonoBehaviour
     }
     private void DecreaseHeight()
     {
-        if (!Mathf.Approximately(Collision.height, originalHeight))
+        if (mainCollision.height >= originalHeight)
+        //if (!Mathf.Approximately(Collision.height, originalHeight))
         {
             shrinkEndGate = true;
 
@@ -148,10 +160,11 @@ public class StretchMechanic : MonoBehaviour
                 EventShrinkBegin.Invoke();
             }
 
-            float calc = StretchSpeed * Time.fixedDeltaTime;
-            Collision.height -= calc;
+            float calc = stretchSpeed * Time.fixedDeltaTime;
+            mainCollision.height -= calc;
+            collisionFix.height -= calc;
 
-            stretchOffset = (float)Extend.MapRangeClamped(Collision.height, originalHeight, MaxHeight);
+            stretchOffset = (float)Extend.MapRangeClamped(mainCollision.height, originalHeight, maxHeight);
 
             //Debug.Log($"Height is decreasing: {Collision.height} |");
         }
