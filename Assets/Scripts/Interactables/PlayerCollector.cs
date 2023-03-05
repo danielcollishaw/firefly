@@ -6,22 +6,29 @@ using TMPro;
 
 public class PlayerCollector : MonoBehaviour
 {
-    private int collectableCount; 
-    public TextMeshProUGUI countText;
-    public GameObject winTextObject;
+    private int collectableCount;     
+    private bool timerStarted = false;
+    private bool levelCompleted = false;
+    private float timeLeft;
 
-    public float textTimer = 5;
-    private bool timerStarted = false; 
+    public TextMeshProUGUI countText;
+    public TextMeshProUGUI fireflycountText;
+    public GameObject winTextObject;
     public GameObject finalJar;
     public GameObject firefly;
+
     public int numberOfCollectableFireflies;
+
+    public float totalTimeTrial = 20.0f;
+    public float textTimer = 5;
+
 
     // Start is called before the first frame update
     void Start()
     {
         collectableCount = 0;
 
-        SetCountText();
+        //SetCountText();
         winTextObject.SetActive(false);
         finalJar.SetActive(false);
     }
@@ -32,52 +39,73 @@ public class PlayerCollector : MonoBehaviour
 
         if(collectableCount >= numberOfCollectableFireflies) 
         {
+            levelCompleted = true;
 
-            timerStarted = true; 
-            
-            if (textTimer < 1)
+            if (textTimer <= 0)
             {
               winTextObject.SetActive(false);
-              timerStarted = false;
-              Debug.Log("Timer reached 0");
-
             }
             else if (textTimer > 0)
             {
                 textTimer -= Time.deltaTime;
-                  Debug.Log("Timer has this many seconds " + textTimer);
             }
-
-
         }
         
-        
+        // Began countdown if level mechanic is triggered
+        if(timerStarted)
+        {
+            timeLeft -= Time.deltaTime;
+            countText.text = "Time Left: " + Mathf.Round(timeLeft).ToString();
+
+            // Remove timer if level is completed
+            if(levelCompleted)
+            {
+                countText.text = "";
+            }
+            // FIXME!!!: Restart level
+            else if (timeLeft <= 0)
+            {
+                // Countdown has finished
+                // No need to keep this line once scene restarts
+                countText.text = "Time's up!";
+            }
+        }
+             
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        // Check if green firefly has been activate and begin time trial 
+        // Add roll mechanic as well
+        if(other.gameObject.CompareTag("GreenFF"))
+        {
+            other.gameObject.SetActive(false);
+            timeLeft = totalTimeTrial;
+            timerStarted = true;
+            SetCountText();
+        }
         // will be called when the player first touches a trigger collider (i.e the collectables)
-        if(other.gameObject.CompareTag("Collectable"))
+        else if(other.gameObject.CompareTag("Collectable"))
         {
             other.gameObject.SetActive(false);
             collectableCount++;
-            Debug.Log(collectableCount);
             //called everytime it touches collider 
-
             SetCountText();
         }
+
         // using TAGS to correctly disable the collectables and not other objects 
     }
 
     private void SetCountText() 
     {
-        countText.text = "Fireflies Collected: \t\t" + collectableCount.ToString() + "/" + numberOfCollectableFireflies.ToString();
+        fireflycountText.text = "Fireflies Collected: \t\t" + collectableCount.ToString() + "/" + numberOfCollectableFireflies.ToString();
+
         if(collectableCount >= numberOfCollectableFireflies) 
         {
             winTextObject.SetActive(true);
             firefly.SetActive(true);
             finalJar.SetActive(true);
-            countText.text = "";
+            fireflycountText.text = "";
         }
     }
 }
