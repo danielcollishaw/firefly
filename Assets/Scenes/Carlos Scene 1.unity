@@ -2114,7 +2114,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 22fe3de1ed5183a44ba7467a1220de2f, type: 3}
       propertyPath: m_Name
-      value: Dwarf Idle
+      value: Devin
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 22fe3de1ed5183a44ba7467a1220de2f, type: 3}
       propertyPath: m_Layer
@@ -16387,7 +16387,7 @@ GameObject:
   - component: {fileID: 1513282794}
   - component: {fileID: 1513282793}
   m_Layer: 5
-  m_Name: CountText
+  m_Name: Firefly countText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21427,12 +21427,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e348b1324d212494c855a12fbbb7a1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countText: {fileID: 1513282793}
+  fireflycountText: {fileID: 1513282793}
   winTextObject: {fileID: 36212367}
-  textTimer: 5
   finalJar: {fileID: 1145961929}
   firefly: {fileID: 2843234968580044483, guid: 83e68e0c877faaa4790ff415bd175697, type: 3}
   numberOfCollectableFireflies: 5
+  levelCompleted: 0
+  totalTimeTrial: 20
+  textTimer: 5
 --- !u!114 &2029289361
 MonoBehaviour:
   m_ObjectHideFlags: 0
