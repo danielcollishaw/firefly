@@ -33,7 +33,7 @@ public class RollingAbility : Ability
         movement.SetSpeed(activeSpeed * speedMultiplier);
         movement.MultHeight(heightMultiplier);
 
-        Debug.Log($"Height: {movement.BaseHeight}, Speed: {movement.BaseSpeed}"); // DEBUG
+        //Debug.Log($"Height: {movement.BaseHeight}, Speed: {movement.BaseSpeed}"); // DEBUG
     }
     public override void Deactivate(GameObject parent)
     {
@@ -44,6 +44,6 @@ public class RollingAbility : Ability
         movement.SetSpeed(activeSpeed / speedMultiplier);
         movement.MultHeight(1 / heightMultiplier);
 
-        Debug.Log($"Height: {movement.BaseHeight}, Speed: {movement.BaseSpeed}"); // DEBUG
+        //Debug.Log($"Height: {movement.BaseHeight}, Speed: {movement.BaseSpeed}"); // DEBUG
     }
 }

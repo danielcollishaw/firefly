@@ -31,9 +31,11 @@ public class PlayerMovement : MonoBehaviour
     public float gravityScale = 3f;
     
     private float originalSpeed;
+    private float glideRate = 0;
     private float x, z;
     private bool jumped;
     private bool canJump = true;
+    private bool glide = false;
 
     void Start() 
     {
@@ -52,6 +54,9 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && OnGround())
             jumped = true;
+
+        if (OnGround())
+            SetGlide(false);
 
         NormalizeSpeed();
     }
@@ -95,6 +100,12 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("IsJumping", false);
         }
+
+        if (glide)
+        {
+            if (!(player.velocity.y > 0))
+            player.AddForce(Physics.gravity * gravityScale * -glideRate);
+        }
     }
 
     private IEnumerator JumpDelay()
@@ -123,6 +134,16 @@ public class PlayerMovement : MonoBehaviour
         player.velocity = velocity;
     }
 
+    public void SetGlide(bool state)
+    {
+        glide = state;
+    }
+
+    public void SetGlideRate(float rate)
+    {
+        glideRate = rate;
+    }
+
     private void SetLookRotation(Vector3 direction)
     {
         player.rotation = Quaternion.LookRotation(direction);
@@ -143,6 +164,18 @@ public class PlayerMovement : MonoBehaviour
     private void OnJump()
     {
         jumped = true;
+    }
+
+    private void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject.tag.Equals("Platform"))
+            gameObject.transform.parent = col.transform;
+    }
+
+    private void OnTriggerExit(Collider col)
+    {
+        if (col.gameObject.tag.Equals("Platform"))
+            gameObject.transform.parent = null;
     }
 
     // Checks if player is grounded by shooting a sphere to check for collisions
