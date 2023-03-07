@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Collectable
   - GreenFF
+  - SceneTransitioner
   layers:
   - Default
   - TransparentFX
