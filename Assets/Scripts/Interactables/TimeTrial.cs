@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class TimeTrial : MonoBehaviour
@@ -47,6 +48,7 @@ public class TimeTrial : MonoBehaviour
                 // Countdown has finished
                 // No need to keep this line once scene restarts
                 countdownTimer.text = "Time's up!";
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
         }
     }
