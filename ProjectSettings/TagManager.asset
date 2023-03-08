@@ -9,6 +9,7 @@ TagManager:
   - Platform
   - Roll
   - Glide
+  - Grow
   layers:
   - Default
   - TransparentFX

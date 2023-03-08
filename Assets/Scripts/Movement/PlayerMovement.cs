@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private CapsuleCollider playerCollisionFix;
 
-    public float BaseSpeed { get; set; } = 10f;
+    public float BaseSpeed { get; set; } = 15f;
     public float BaseHeight
     {
         get => baseHeight;
@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
 
     public Rigidbody player;
     public Animator animator;
+    public GameObject camera;
 
     public float speedDecrement = 10f;
     public float jumpSpeed = 20f;
@@ -78,9 +79,14 @@ public class PlayerMovement : MonoBehaviour
         // we want friction to handle this for smoother feeling (See rigid body drag)
         if (x != 0 || z != 0)
         {
+            Vector3 move = new Vector3(x * BaseSpeed, 0, z * BaseSpeed);
+            move = camera.transform.TransformDirection(move);
+            move = Vector3.ProjectOnPlane(move, Vector3.up);
+            move = move + new Vector3(0, GetVelocity().y, 0);
+            SetVelocity(move);
+            SetLookRotation(new Vector3(-move.x, 0f, -move.z));
+
             animator.SetBool("IsRunning", true);
-            SetVelocity(new Vector3(x * BaseSpeed, GetVelocity().y, z * BaseSpeed));
-            SetLookRotation(new Vector3(-x, 0f, -z));
         }
         else
         {

@@ -9,8 +9,10 @@ public class AbilityHolder : MonoBehaviour
 
     public Ability roll;
     public Ability glide;
-
+    public Ability grow;
     public Ability ability;
+
+    private GameObject firefly = null;
 
     private float cooldownTime; 
     private float activeTime; 
@@ -80,18 +82,37 @@ public class AbilityHolder : MonoBehaviour
 
     private void OnTriggerEnter(Collider col)
     {
+        bool wasFirefly = false;
+
         if (col.gameObject.tag.Equals("Roll"))
         {
             ability = roll;
-            col.gameObject.transform.parent = gameObject.transform;
-            col.gameObject.SetActive(false);
+            // col.gameObject.transform.parent = gameObject.transform;
+            wasFirefly = true;
         }
 
         if (col.gameObject.tag.Equals("Glide"))
         {
             ability = glide;
-            col.gameObject.transform.parent = gameObject.transform;
-            col.gameObject.SetActive(false);
+            // col.gameObject.transform.parent = gameObject.transform;
+            wasFirefly = true;
         }
+
+        if (col.gameObject.tag.Equals("Grow"))
+        {
+            ability = grow;
+            wasFirefly = true;
+        }
+
+        if (!wasFirefly)
+            return;
+
+        // Freeing past firefly and storing new one
+        if (firefly != null)
+        {
+            firefly.SetActive(true);
+        }
+        col.gameObject.SetActive(false);
+        firefly = col.gameObject;
     }
 }

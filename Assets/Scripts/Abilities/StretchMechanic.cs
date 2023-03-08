@@ -35,7 +35,7 @@ public class StretchMechanic : MonoBehaviour
 
     [Tooltip("The visual instance of the player that will stretch.")]
     [SerializeField]
-    private MeshFilter meshInstance;
+    private MeshFilter meshInstance = null;
 
     [Tooltip("Needed to connect jumping event signal.")]
     [SerializeField]
@@ -62,6 +62,7 @@ public class StretchMechanic : MonoBehaviour
     private bool stretchEndGate = true;
     private bool shrinkBeginGate = false;
     private bool shrinkEndGate = false;
+    private bool stretchInput;
 
     private float originalHeight;
 
@@ -80,8 +81,6 @@ public class StretchMechanic : MonoBehaviour
     {
         // When the stretching value is 0, the button is not being pressed.
         // When it's 1, the button is being pressed.
-
-        bool stretchInput = Input.GetKey("p");
         if (stretchInput) IncreaseHeight();
         else DecreaseHeight();
 
@@ -178,5 +177,9 @@ public class StretchMechanic : MonoBehaviour
 
             shrinkBeginGate = true;
         }
+    }
+    public void SetInput(bool state)
+    {
+        stretchInput = state;
     }
 }

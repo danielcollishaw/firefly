@@ -208,6 +208,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -2596456022292172781, guid: 61c07b096512e62458b5a394f144ff13, type: 3}
+      propertyPath: speed
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: -2596456022292172781, guid: 61c07b096512e62458b5a394f144ff13, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1550971783}
@@ -633,11 +637,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 22fe3de1ed5183a44ba7467a1220de2f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.89
+      value: 0.41
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 22fe3de1ed5183a44ba7467a1220de2f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 18.2
+      value: 17.48
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 22fe3de1ed5183a44ba7467a1220de2f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1353,6 +1357,7 @@ MonoBehaviour:
   playerCollisionFix: {fileID: 1550971788}
   player: {fileID: 1550971789}
   animator: {fileID: 1550971790}
+  camera: {fileID: 1730425511}
   speedDecrement: 10
   jumpSpeed: 20
   moveLimiter: 0.7
@@ -1371,6 +1376,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roll: {fileID: 11400000, guid: 739394f01e5f1484691390e56165782e, type: 2}
   glide: {fileID: 11400000, guid: 9e0e8259990f6c6498e645a7680ffbde, type: 2}
+  grow: {fileID: 11400000, guid: d4b0d25f3c3a8654ca26f73c15193be7, type: 2}
   ability: {fileID: 11400000, guid: 701ccf6c35f9bda488aa8352bb0cfc81, type: 2}
 --- !u!114 &1550971786
 MonoBehaviour:
@@ -1399,7 +1405,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1550971783}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 5183edd7f93fe914bbcae1ef772b670d, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.8
@@ -1441,6 +1447,25 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 22fe3de1ed5183a44ba7467a1220de2f, type: 3}
   m_PrefabInstance: {fileID: 875433765}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1550971791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550971783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aa0f2bcba2122241a7bcd6f9ac37298, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stretchAction: 
+  maxHeight: 10
+  stretchSpeed: 1.5
+  mainCollision: {fileID: 1550971787}
+  collisionFix: {fileID: 1550971788}
+  meshInstance: {fileID: 0}
+  playerMovement: {fileID: 1550971784}
 --- !u!1001 &1593563963
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1599,6 +1624,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 7030073787162373675, guid: 485fc736b00cdda40b8176bdcca094cc, type: 3}
   m_PrefabInstance: {fileID: 1331059096}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1730425511 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6571707043561662977, guid: 61c07b096512e62458b5a394f144ff13, type: 3}
+  m_PrefabInstance: {fileID: 231891876}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1780569690 stripped
 Transform:

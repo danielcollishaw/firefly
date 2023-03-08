@@ -2570,6 +2570,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -2596456022292172781, guid: 61c07b096512e62458b5a394f144ff13, type: 3}
+      propertyPath: speed
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: -2596456022292172781, guid: 61c07b096512e62458b5a394f144ff13, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 2029289359}
@@ -2599,15 +2603,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6571707043561662990, guid: 61c07b096512e62458b5a394f144ff13, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -43.8
+      value: -43.76
       objectReference: {fileID: 0}
     - target: {fileID: 6571707043561662990, guid: 61c07b096512e62458b5a394f144ff13, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 17.47
+      value: 13.09
       objectReference: {fileID: 0}
     - target: {fileID: 6571707043561662990, guid: 61c07b096512e62458b5a394f144ff13, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -45.7
+      value: -47.71
       objectReference: {fileID: 0}
     - target: {fileID: 6571707043561662990, guid: 61c07b096512e62458b5a394f144ff13, type: 3}
       propertyPath: m_LocalRotation.w
@@ -12787,6 +12791,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6075155838382831309, guid: 273b8f4150121d249ac7e2fd11da7005, type: 3}
   m_PrefabInstance: {fileID: 812847298}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1212249532 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6571707043561662977, guid: 61c07b096512e62458b5a394f144ff13, type: 3}
+  m_PrefabInstance: {fileID: 231891876}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1216942335
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21447,6 +21456,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9514f8390dc99c7468f6a6d77968cbd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roll: {fileID: 0}
+  glide: {fileID: 0}
+  grow: {fileID: 0}
   ability: {fileID: 11400000, guid: 739394f01e5f1484691390e56165782e, type: 2}
 --- !u!136 &2029289362
 CapsuleCollider:
@@ -21469,7 +21481,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2029289359}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 5183edd7f93fe914bbcae1ef772b670d, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.8
@@ -21492,6 +21504,7 @@ MonoBehaviour:
   playerCollisionFix: {fileID: 2029289362}
   player: {fileID: 2029289365}
   animator: {fileID: 2029289366}
+  camera: {fileID: 1212249532}
   speedDecrement: 10
   jumpSpeed: 20
   moveLimiter: 0.7
