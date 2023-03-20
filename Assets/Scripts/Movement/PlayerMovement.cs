@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpSpeed = 20f;
     public float moveLimiter = 0.7f;
     public float gravityScale = 3f;
+    public float friction = 0.9f;
     
     private float originalSpeed;
     private float glideRate = 0;
@@ -90,6 +91,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
+            SetVelocity(new Vector3(GetVelocity().x * friction, GetVelocity().y, GetVelocity().z * friction));
             animator.SetBool("IsRunning", false);
             SetSpeed(originalSpeed);
         }
