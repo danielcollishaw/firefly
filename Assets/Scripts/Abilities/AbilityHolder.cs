@@ -53,7 +53,9 @@ public class AbilityHolder : MonoBehaviour
                 {
                     if (Input.GetButtonUp(POWER_BUTTON))
                     {
-                        state = AbilityState.Deactivate;
+                        state = AbilityState.Cooldown;
+                        cooldownTime = ability.CooldownTime;
+                        ability.Deactivate(gameObject);
                     }
                 }
                 else if (activeTime > 0) 

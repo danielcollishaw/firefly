@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Glide
   m_EditorClassIdentifier: 
   abilityName: Glide
-  cooldownTime: 3
+  cooldownTime: 1
   activeTime: -1
   glideRate: 1.3

@@ -57,8 +57,11 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && OnGround())
             jumped = true;
 
-        if (OnGround())
+        if (OnGround()) {
             SetGlide(false);
+            animator.SetBool("IsGliding", false);
+        }
+            
 
         NormalizeSpeed();
     }
@@ -112,7 +115,7 @@ public class PlayerMovement : MonoBehaviour
         if (glide)
         {
             if (!(player.velocity.y > 0))
-            player.AddForce(Physics.gravity * gravityScale * -glideRate);
+                player.AddForce(Physics.gravity * gravityScale * -glideRate);    
         }
     }
 
