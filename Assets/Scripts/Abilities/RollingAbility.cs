@@ -27,6 +27,8 @@ public class RollingAbility : Ability
     public override void Activate(GameObject parent)
     {
         PlayerMovement movement = parent.GetComponent<PlayerMovement>();
+        Animator animator = parent.GetComponent<Animator>();
+        animator.SetBool("IsRolling", true);
        
         activeSpeed = movement.BaseSpeed;
         activeHeight = movement.BaseHeight;
@@ -38,12 +40,13 @@ public class RollingAbility : Ability
     public override void Deactivate(GameObject parent)
     {
         PlayerMovement movement = parent.GetComponent<PlayerMovement>();
-
+        Animator animator = parent.GetComponent<Animator>();
+        animator.SetBool("IsRolling", false);
+        
         activeSpeed = movement.BaseSpeed;
         activeHeight = movement.BaseHeight;
         movement.SetSpeed(activeSpeed / speedMultiplier);
         movement.MultHeight(1 / heightMultiplier);
-
         //Debug.Log($"Height: {movement.BaseHeight}, Speed: {movement.BaseSpeed}"); // DEBUG
     }
 }
