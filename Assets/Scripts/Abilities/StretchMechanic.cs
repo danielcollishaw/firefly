@@ -21,7 +21,7 @@ public class StretchMechanic : MonoBehaviour
 
     [Tooltip("How much the player can stretch as the capsule's height.")]
     [SerializeField]
-    private float maxHeight = 8.0f;
+    private float maxHeight = 30.0f;
 
     [Tooltip("How fast the player increases in height and decreases in height.")]
     [SerializeField]
