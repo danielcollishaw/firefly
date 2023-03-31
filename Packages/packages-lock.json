@@ -50,9 +50,9 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.2d.sprite": {
-      "version": "file:C:/Program Files/Unity/Hub/Editor/2021.3.16f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.2d.sprite",
-      "depth": 0,
-      "source": "local",
+      "version": "1.0.0",
+      "depth": 1,
+      "source": "builtin",
       "dependencies": {}
     },
     "com.unity.2d.spriteshape": {

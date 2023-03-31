@@ -35,8 +35,15 @@ public class PlayerMovement : MonoBehaviour
     private float originalSpeed;
     private float glideRate = 0;
     private float x, z;
-    private bool jumped;
+
+    private bool jumped = false;
     private bool canJump = true;
+
+    private bool doubleJumped = false;
+    private bool canDoubleJump = false;
+    private bool doubleJumpDelay = true;
+    private bool doubleJumpIsOnGround = true;
+
     private bool glide = false;
 
     void Start() 
@@ -54,10 +61,28 @@ public class PlayerMovement : MonoBehaviour
         x = Input.GetAxisRaw("Horizontal");
         z = Input.GetAxisRaw("Vertical");
 
-        if (Input.GetButtonDown("Jump") && OnGround())
-            jumped = true;
+        if (Input.GetButtonDown("Jump"))
+        {
+            if (OnGround())
+            {
+                jumped = true; 
+            }
+            else
+            {
+                doubleJumped = true;
+            }
+        }
 
-        if (OnGround()) {
+        if (doubleJumpDelay)
+        {
+            if (OnGround())
+            {
+                doubleJumpIsOnGround = true;
+            }
+        }
+            
+        if (OnGround()) 
+        {
             SetGlide(false);
             animator.SetBool("IsGliding", false);
         }
@@ -107,6 +132,16 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("IsJumping", true);
             StartCoroutine(JumpDelay());
         }
+        //else if (canDoubleJump && doubleJumped && doubleJumpDelay)
+        else if (canDoubleJump && doubleJumped && doubleJumpDelay && doubleJumpIsOnGround)
+        {
+            SetVelocity(GetVelocity() + new Vector3(0, jumpSpeed * 1.15f, 0));
+            doubleJumped = false;
+            doubleJumpDelay = false;
+            doubleJumpIsOnGround = false;
+            animator.SetBool("IsJumping", true);
+            StartCoroutine(StartDoubleJumpDelay());
+        }
         else
         {
             animator.SetBool("IsJumping", false);
@@ -123,6 +158,11 @@ public class PlayerMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(1.0f); // Change this delay to suit your needs
         canJump = true;
+    }
+    private IEnumerator StartDoubleJumpDelay()
+    {
+        yield return new WaitForSeconds(0.5f);
+        doubleJumpDelay = true;
     }
 
     public void SetSpeed(float s)
@@ -154,7 +194,10 @@ public class PlayerMovement : MonoBehaviour
     {
         glideRate = rate;
     }
-
+    public void ToggleDoubleJump(bool activated)
+    {
+        canDoubleJump = activated;
+    }
     private void SetLookRotation(Vector3 direction)
     {
         player.rotation = Quaternion.LookRotation(direction);

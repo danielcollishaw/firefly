@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "com.unity.2d.sprite": "file:C:/Program Files/Unity/Hub/Editor/2021.3.16f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.2d.sprite",
     "com.unity.collab-proxy": "1.17.7",
     "com.unity.feature.2d": "1.0.0",
     "com.unity.feature.development": "1.0.1",

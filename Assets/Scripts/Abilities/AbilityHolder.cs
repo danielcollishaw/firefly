@@ -7,10 +7,16 @@ public class AbilityHolder : MonoBehaviour
 {
     private const string POWER_BUTTON = "ActivatePower";
 
-    public Ability roll;
-    public Ability glide;
-    public Ability grow;
-    public Ability ability;
+    [SerializeField]
+    private Ability roll;
+    [SerializeField]
+    private Ability glide;
+    [SerializeField]
+    private Ability grow;
+    [SerializeField]
+    private Ability doubleJump;
+    [SerializeField]
+    private Ability ability;
 
     private GameObject firefly = null;
 
@@ -92,28 +98,31 @@ public class AbilityHolder : MonoBehaviour
             // col.gameObject.transform.parent = gameObject.transform;
             wasFirefly = true;
         }
-
-        if (col.gameObject.tag.Equals("Glide"))
+        else if (col.gameObject.tag.Equals("Glide"))
         {
             ability = glide;
             // col.gameObject.transform.parent = gameObject.transform;
             wasFirefly = true;
         }
-
-        if (col.gameObject.tag.Equals("Grow"))
+        else if (col.gameObject.tag.Equals("Grow"))
         {
             ability = grow;
             wasFirefly = true;
         }
+        else if (col.gameObject.tag.Equals("DoubleJump"))
+        {
+            ability = doubleJump;
+            wasFirefly = true;
+        }
 
-        if (!wasFirefly)
-            return;
+        if (!wasFirefly) return;
 
         // Freeing past firefly and storing new one
         if (firefly != null)
         {
             firefly.SetActive(true);
         }
+
         col.gameObject.SetActive(false);
         firefly = col.gameObject;
     }

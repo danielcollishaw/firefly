@@ -10,6 +10,7 @@ TagManager:
   - Roll
   - Glide
   - Grow
+  - DoubleJump
   layers:
   - Default
   - TransparentFX
