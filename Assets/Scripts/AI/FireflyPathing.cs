@@ -24,7 +24,8 @@ public class FireflyPathing : MonoBehaviour
 
     private void GoToRandomDestination()
     {
-        agent.destination = RandomNavSphere(transform.position, randomDist, -1);   
+        // Causing an error to appear in the console every frame, so there's a bug here.
+        //agent.destination = RandomNavSphere(transform.position, randomDist, -1);   
     }
 
     private Vector3 RandomNavSphere(Vector3 origin, float distance, int layermask)
