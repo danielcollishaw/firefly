@@ -10,6 +10,7 @@ public class AbilityHolder : MonoBehaviour
     public Ability roll;
     public Ability glide;
     public Ability grow;
+    public Ability none;
     public Ability ability;
 
     private GameObject firefly = null;
@@ -109,12 +110,24 @@ public class AbilityHolder : MonoBehaviour
         if (!wasFirefly)
             return;
 
-        // Freeing past firefly and storing new one
+        // Freeing past firefly
+        removeFirefly();
+        // Storing new one
+        col.gameObject.SetActive(false);
+        firefly = col.gameObject;
+    }
+
+    private void removeFirefly()
+    {
         if (firefly != null)
         {
             firefly.SetActive(true);
         }
-        col.gameObject.SetActive(false);
-        firefly = col.gameObject;
+    }
+
+    public void removePower()
+    {
+        removeFirefly();
+        ability = none;
     }
 }
