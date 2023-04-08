@@ -7,7 +7,6 @@ public class AbilityHolder : MonoBehaviour
 {
     private const string POWER_BUTTON = "ActivatePower";
 
-<<<<<<< HEAD
     [SerializeField]
     private Ability roll;
     [SerializeField]
@@ -17,14 +16,9 @@ public class AbilityHolder : MonoBehaviour
     [SerializeField]
     private Ability doubleJump;
     [SerializeField]
+    private Ability none;
+    [SerializeField]
     private Ability ability;
-=======
-    public Ability roll;
-    public Ability glide;
-    public Ability grow;
-    public Ability none;
-    public Ability ability;
->>>>>>> levels
 
     private GameObject firefly = null;
 
