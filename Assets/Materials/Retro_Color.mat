@@ -61,7 +61,7 @@ Material:
     - _BLUE: 153
     - _BumpScale: 1
     - _Cutoff: 0.5
-    - _Delta: 0.000043
+    - _Delta: 0.0003
     - _DeltaX: 0.01
     - _DeltaY: 0.01
     - _DetailNormalMapScale: 1
@@ -78,7 +78,7 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _Threshold: 0.1
+    - _Threshold: 6
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
