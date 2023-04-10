@@ -3030,6 +3030,8 @@ MonoBehaviour:
   roll: {fileID: 11400000, guid: 739394f01e5f1484691390e56165782e, type: 2}
   glide: {fileID: 11400000, guid: 9e0e8259990f6c6498e645a7680ffbde, type: 2}
   grow: {fileID: 11400000, guid: d4b0d25f3c3a8654ca26f73c15193be7, type: 2}
+  doubleJump: {fileID: 0}
+  none: {fileID: 0}
   ability: {fileID: 11400000, guid: 701ccf6c35f9bda488aa8352bb0cfc81, type: 2}
 --- !u!114 &1550971786
 MonoBehaviour:
@@ -3112,13 +3114,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aa0f2bcba2122241a7bcd6f9ac37298, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stretchAction: 
-  maxHeight: 10
-  stretchSpeed: 1.5
+  maxHeight: 4
+  minHeight: 1
+  stretchSpeed: 1
   mainCollision: {fileID: 1550971787}
   collisionFix: {fileID: 1550971788}
-  meshInstance: {fileID: 0}
+  meshInstance: {fileID: 1550971792}
   playerMovement: {fileID: 1550971784}
+--- !u!4 &1550971792 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 22fe3de1ed5183a44ba7467a1220de2f, type: 3}
+  m_PrefabInstance: {fileID: 875433765}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1562203187 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1025681519537473006, guid: aa99a810914c5b84b9bc5d51f95dd05c, type: 3}
