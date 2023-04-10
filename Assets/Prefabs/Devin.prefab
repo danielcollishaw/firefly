@@ -1151,12 +1151,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aa0f2bcba2122241a7bcd6f9ac37298, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stretchAction: 
-  maxHeight: 10
-  stretchSpeed: 5
+  maxHeight: 4
+  minHeight: 1
+  stretchSpeed: 1
   mainCollision: {fileID: 4438788216329241455}
   collisionFix: {fileID: 4438788216329241448}
-  meshInstance: {fileID: 0}
+  meshInstance: {fileID: 4184696314482399274}
   playerMovement: {fileID: 4438788216329241452}
 --- !u!1 &3646999537140998603
 GameObject:

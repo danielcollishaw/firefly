@@ -21,6 +21,7 @@ public class AbilityHolder : MonoBehaviour
     private Ability ability;
 
     private GameObject firefly = null;
+    private Vector3 returnPoint = Vector3.zero;
 
     private float cooldownTime; 
     private float activeTime; 
@@ -123,15 +124,16 @@ public class AbilityHolder : MonoBehaviour
         removeFirefly();
         
         // Storing new one
-        col.gameObject.SetActive(false);
         firefly = col.gameObject;
+        returnPoint = firefly.transform.position;
+        firefly.GetComponent<FireflyPathing>().EnableTargetting();
     }
 
     private void removeFirefly()
     {
         if (firefly != null)
         {
-            firefly.SetActive(true);
+            firefly.GetComponent<FireflyPathing>().Return(returnPoint);
         }
 
         firefly = null;
