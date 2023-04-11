@@ -20,20 +20,24 @@ public class GravityField : MonoBehaviour
     //  if(other.gameObject.CompareTag("Collectable"))
 
     void OnTriggerStay(Collider other)
+	{
+		if (other.gameObject.CompareTag("Player"))
 		{
-			if (other.gameObject.CompareTag("Player"))
+			if (other.TryGetComponent<PlayerMovement>(out var player))
 			{
-				if (other.TryGetComponent<PlayerMovement>(out var player))
+				if (player.OnGround())
 				{
-					if (player.OnGround())
-					{
-					//	player.SetVelocity() = Vector3.zero;
-					}
-
-					// player.velocity += transform.up * force * Time.deltaTime;
+					player.SetVelocity(Vector3.zero);
+					//player.SetVelocity() = Vector3.zero;
 				}
+
+				Vector3 currentVelocity = player.GetVelocity();
+				player.SetVelocity(currentVelocity + (transform.up * force * Time.deltaTime));
+
+				//player.velocity += transform.up * force * Time.deltaTime;
 			}
 		}
+	}
 
     // Update is called once per frame
     void Update()
