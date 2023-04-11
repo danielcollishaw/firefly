@@ -16,21 +16,24 @@ public class GravityField : MonoBehaviour
 		m_collider.isTrigger = true;
     }
 
-    // protected virtual void OnTriggerStay(Collider other)
-	// 	{
-	// 		if (other.CompareTag(GameTags.Player))
-	// 		{
-	// 			if (other.TryGetComponent<Player>(out var player))
-	// 			{
-	// 				if (player.isGrounded)
-	// 				{
-	// 					player.verticalVelocity = Vector3.zero;
-	// 				}
 
-	// 				player.velocity += transform.up * force * Time.deltaTime;
-	// 			}
-	// 		}
-	// 	}
+    //  if(other.gameObject.CompareTag("Collectable"))
+
+    void OnTriggerStay(Collider other)
+		{
+			if (other.gameObject.CompareTag("Player"))
+			{
+				if (other.TryGetComponent<PlayerMovement>(out var player))
+				{
+					if (player.OnGround())
+					{
+					//	player.SetVelocity() = Vector3.zero;
+					}
+
+					// player.velocity += transform.up * force * Time.deltaTime;
+				}
+			}
+		}
 
     // Update is called once per frame
     void Update()
