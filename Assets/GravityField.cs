@@ -31,8 +31,8 @@ public class GravityField : MonoBehaviour
 					//player.SetVelocity() = Vector3.zero;
 				}
 
-				Vector3 currentVelocity = player.GetVelocity();
-				player.SetVelocity(currentVelocity + (transform.up * force * Time.deltaTime));
+				// Vector3 currentVelocity = player.GetVelocity();
+				player.SetVelocity(transform.up * force * Time.deltaTime);
 
 				//player.velocity += transform.up * force * Time.deltaTime;
 			}
