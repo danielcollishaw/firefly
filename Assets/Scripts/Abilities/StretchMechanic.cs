@@ -112,6 +112,7 @@ public class StretchMechanic : MonoBehaviour
 
             if (stretchBeginGate)
             {
+                AudioManager.instance.PlayOneShot(FMODEvents.instance.Grow, this.transform.position);
                 stretchBeginGate = false;
                 EventStretchBegin.Invoke();
             }
@@ -157,6 +158,7 @@ public class StretchMechanic : MonoBehaviour
 
             if (shrinkBeginGate)
             {
+                AudioManager.instance.PlayOneShot(FMODEvents.instance.Shrink, this.transform.position);
                 shrinkBeginGate = false;
                 EventShrinkBegin.Invoke();
             }
