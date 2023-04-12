@@ -6,16 +6,28 @@ using FMODUnity;
 public class FMODEvents : MonoBehaviour
 {
     [field: Header("Firefly Interact SFX")]
-    [field: SerializeField] public EventReference Firefly_Interact { get; private set; }
+    [field: SerializeField] public EventReference FireflyInteractSFX { get; private set; }
+
+    [field: Header("Firefly Interact 2 SFX")]
+    [field: SerializeField] public EventReference FireflyInteract2SFX { get; private set; }
+
+    [field: Header("Running SFX")]
+    [field: SerializeField] public EventReference runSFX { get; private set; }
+
+    [field: Header("Jumping SFX")]
+    [field: SerializeField] public EventReference JumpSFX { get; private set; }
 
     [field: Header("Grow SFX")]
-    [field: SerializeField] public EventReference Grow { get; private set; }
+    [field: SerializeField] public EventReference GrowSFX { get; private set; }
 
     [field: Header("Shrink SFX")]
-    [field: SerializeField] public EventReference Shrink { get; private set; }
+    [field: SerializeField] public EventReference ShrinkSFX { get; private set; }
+
+    [field: Header("Glide SFX")]
+    [field: SerializeField] public EventReference GlideSFX { get; private set; }
 
     [field: Header("UI Click SFX")]
-    [field: SerializeField] public EventReference UI_Click { get; private set; }
+    [field: SerializeField] public EventReference UI_ClickSFX { get; private set; }
 
 
     public static FMODEvents instance { get; private set; }

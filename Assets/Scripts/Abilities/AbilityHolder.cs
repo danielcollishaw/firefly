@@ -96,21 +96,18 @@ public class AbilityHolder : MonoBehaviour
 
         if (col.gameObject.tag.Equals("Roll"))
         {
-            AudioManager.instance.PlayOneShot(FMODEvents.instance.Firefly_Interact, col.transform.position);
             ability = roll;
             // col.gameObject.transform.parent = gameObject.transform;
             wasFirefly = true;
         }
         else if (col.gameObject.tag.Equals("Glide"))
         {
-            AudioManager.instance.PlayOneShot(FMODEvents.instance.Firefly_Interact, col.transform.position);
             ability = glide;
             // col.gameObject.transform.parent = gameObject.transform;
             wasFirefly = true;
         }
         else if (col.gameObject.tag.Equals("Grow"))
         {
-            AudioManager.instance.PlayOneShot(FMODEvents.instance.Firefly_Interact, col.transform.position);
             ability = grow;
             wasFirefly = true;
         }
@@ -132,6 +129,7 @@ public class AbilityHolder : MonoBehaviour
 
     private void removeFirefly()
     {
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.FireflyInteract2SFX, this.transform.position);
         if (firefly != null)
         {
             firefly.SetActive(true);

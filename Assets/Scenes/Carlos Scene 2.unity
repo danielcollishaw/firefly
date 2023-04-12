@@ -2571,6 +2571,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 2029289359}
+    - target: {fileID: 4351931197616193921, guid: 61c07b096512e62458b5a394f144ff13, type: 3}
+      propertyPath: attenuationObject
+      value: 
+      objectReference: {fileID: 2029289359}
     - target: {fileID: 6571707043561662977, guid: 61c07b096512e62458b5a394f144ff13, type: 3}
       propertyPath: m_Name
       value: Base Camera
@@ -3611,7 +3615,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4491597157531278860, guid: e9e52aa791dec434c8fc77acffa9b9e3, type: 3}
       propertyPath: m_TagString
-      value: GreenFF
+      value: Grow
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9e52aa791dec434c8fc77acffa9b9e3, type: 3}
@@ -12971,6 +12975,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3490930834329334354, guid: 08bdb42a7413db34e867890b29e20ecd, type: 3}
   m_PrefabInstance: {fileID: 1323274837}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1206750700
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6592173752384395594, guid: 219323638401f4047a17b7a75c684edb, type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592173752384395604, guid: 219323638401f4047a17b7a75c684edb, type: 3}
+      propertyPath: m_RootOrder
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592173752384395604, guid: 219323638401f4047a17b7a75c684edb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 606.39624
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592173752384395604, guid: 219323638401f4047a17b7a75c684edb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 283.704
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592173752384395604, guid: 219323638401f4047a17b7a75c684edb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -468.9709
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592173752384395604, guid: 219323638401f4047a17b7a75c684edb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592173752384395604, guid: 219323638401f4047a17b7a75c684edb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592173752384395604, guid: 219323638401f4047a17b7a75c684edb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592173752384395604, guid: 219323638401f4047a17b7a75c684edb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592173752384395604, guid: 219323638401f4047a17b7a75c684edb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592173752384395604, guid: 219323638401f4047a17b7a75c684edb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592173752384395604, guid: 219323638401f4047a17b7a75c684edb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 219323638401f4047a17b7a75c684edb, type: 3}
 --- !u!1001 &1209180015
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21068,6 +21129,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3490930834329334354, guid: 08bdb42a7413db34e867890b29e20ecd, type: 3}
   m_PrefabInstance: {fileID: 293340395}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1936380412 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6571707043561662977, guid: 61c07b096512e62458b5a394f144ff13, type: 3}
+  m_PrefabInstance: {fileID: 231891876}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1944094860
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21572,7 +21638,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9514f8390dc99c7468f6a6d77968cbd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ability: {fileID: 11400000, guid: 739394f01e5f1484691390e56165782e, type: 2}
+  roll: {fileID: 11400000, guid: 739394f01e5f1484691390e56165782e, type: 2}
+  glide: {fileID: 11400000, guid: 9e0e8259990f6c6498e645a7680ffbde, type: 2}
+  grow: {fileID: 11400000, guid: d4b0d25f3c3a8654ca26f73c15193be7, type: 2}
+  doubleJump: {fileID: 11400000, guid: 98840f6bfc7d39446b0a8415425acbac, type: 2}
+  none: {fileID: 11400000, guid: 701ccf6c35f9bda488aa8352bb0cfc81, type: 2}
+  ability: {fileID: 0}
 --- !u!136 &2029289362
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -21617,10 +21688,12 @@ MonoBehaviour:
   playerCollisionFix: {fileID: 2029289362}
   player: {fileID: 2029289365}
   animator: {fileID: 2029289366}
+  camera: {fileID: 1936380412}
   speedDecrement: 10
   jumpSpeed: 20
   moveLimiter: 0.7
   gravityScale: 3
+  friction: 0.9
 --- !u!54 &2029289365
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -21658,6 +21731,30 @@ MonoBehaviour:
   devin: {fileID: 2029289359}
   totalTimeTrial: 20
   countdownTimer: {fileID: 1513282793}
+--- !u!4 &2029289368 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 22fe3de1ed5183a44ba7467a1220de2f, type: 3}
+  m_PrefabInstance: {fileID: 205134838}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2029289369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029289359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aa0f2bcba2122241a7bcd6f9ac37298, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHeight: 4
+  minHeight: 1
+  stretchSpeed: 1
+  mainCollision: {fileID: 2029289362}
+  collisionFix: {fileID: 2029289363}
+  meshInstance: {fileID: 2029289368}
+  playerMovement: {fileID: 2029289364}
 --- !u!1 &2035731423
 GameObject:
   m_ObjectHideFlags: 0

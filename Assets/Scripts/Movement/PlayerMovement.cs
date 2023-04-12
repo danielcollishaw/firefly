@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using FMOD.Studio;
 
 
 public class PlayerMovement : MonoBehaviour
@@ -46,12 +47,19 @@ public class PlayerMovement : MonoBehaviour
 
     private bool glide = false;
 
+    // Audio
+    private EventInstance playerFootsteps;
+    private EventInstance glideWind;
+
     void Start() 
     {
         originalSpeed = BaseSpeed;
         baseHeight = playerCollision.height;
        
         EventJump.AddListener(OnJump);
+
+        playerFootsteps = AudioManager.instance.CreateEventInstance(FMODEvents.instance.runSFX);
+        glideWind = AudioManager.instance.CreateEventInstance(FMODEvents.instance.GlideSFX);
     }
 
     // Update is called once per frame
@@ -65,6 +73,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (OnGround())
             {
+                AudioManager.instance.PlayOneShot(FMODEvents.instance.JumpSFX, this.transform.position);
                 jumped = true; 
             }
             else
@@ -94,6 +103,10 @@ public class PlayerMovement : MonoBehaviour
     // FixedUpdate is called on physic updates
     private void FixedUpdate()
     {
+        // Check if player is moving to start or stop footstep SFX
+        UpdateRunningSound();
+        UpdateGlideSound();
+
         // Makes gravity stronger
         player.AddForce(Physics.gravity * gravityScale, ForceMode.Acceleration);
 
@@ -120,6 +133,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             SetVelocity(new Vector3(GetVelocity().x * friction, GetVelocity().y, GetVelocity().z * friction));
+      
             animator.SetBool("IsRunning", false);
             SetSpeed(originalSpeed);
         }
@@ -190,14 +204,21 @@ public class PlayerMovement : MonoBehaviour
         glide = state;
     }
 
+    public bool getGlide()
+    {
+        return glide;
+    }
+
     public void SetGlideRate(float rate)
     {
         glideRate = rate;
     }
+
     public void ToggleDoubleJump(bool activated)
     {
         canDoubleJump = activated;
     }
+
     private void SetLookRotation(Vector3 direction)
     {
         player.rotation = Quaternion.LookRotation(direction);
@@ -255,5 +276,45 @@ public class PlayerMovement : MonoBehaviour
 
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position + offset + Vector3.down * dist, radius);
+    }
+
+    private void UpdateRunningSound()
+    {
+        // Start footsteps audio event if the player is moving and on the ground
+        if((x != 0 || z != 0 ) && OnGround())
+        {
+            PLAYBACK_STATE playbackState;
+            playerFootsteps.getPlaybackState(out playbackState);
+
+            if(playbackState.Equals(PLAYBACK_STATE.STOPPED))
+            {
+                playerFootsteps.start();
+            }
+        }
+        // Stop event if otherwise
+        else
+        {
+            playerFootsteps.stop(STOP_MODE.ALLOWFADEOUT);
+        }
+    }
+
+    private void UpdateGlideSound()
+    {
+        // Start wind audio event if the player is gliding
+        if (getGlide())
+        {
+            PLAYBACK_STATE playbackState;
+            glideWind.getPlaybackState(out playbackState);
+
+            if (playbackState.Equals(PLAYBACK_STATE.STOPPED))
+            {
+                glideWind.start();
+            }
+        }
+        // Stop event if otherwise
+        else
+        {
+            glideWind.stop(STOP_MODE.ALLOWFADEOUT);
+        }
     }
 }

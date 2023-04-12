@@ -44,28 +44,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd958bec454db624d9c2d70f7399a202, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Firefly_Interact>k__BackingField:
+  <FireflyInteractSFX>k__BackingField:
     Guid:
       Data1: 1602098284
       Data2: 1126642904
       Data3: -378697846
       Data4: -366190356
     Path: event:/Firefly_Interact
-  <Grow>k__BackingField:
+  <FireflyInteract2SFX>k__BackingField:
+    Guid:
+      Data1: 1037406853
+      Data2: 1116518011
+      Data3: 383065997
+      Data4: -673823550
+    Path: event:/Firefly_Interact2
+  <runSFX>k__BackingField:
+    Guid:
+      Data1: -1138102722
+      Data2: 1298586777
+      Data3: 227497344
+      Data4: 849409952
+    Path: event:/Running
+  <JumpSFX>k__BackingField:
+    Guid:
+      Data1: 1006451790
+      Data2: 1263002278
+      Data3: 33138365
+      Data4: -1453596901
+    Path: event:/Jump
+  <GrowSFX>k__BackingField:
     Guid:
       Data1: -625660854
       Data2: 1209500877
       Data3: -1029390969
       Data4: 102653689
     Path: event:/Grow
-  <Shrink>k__BackingField:
+  <ShrinkSFX>k__BackingField:
     Guid:
       Data1: 206867435
       Data2: 1242060900
       Data3: -1053532762
       Data4: -805870945
     Path: event:/Shrink
-  <UI_Click>k__BackingField:
+  <GlideSFX>k__BackingField:
+    Guid:
+      Data1: -48235827
+      Data2: 1076031050
+      Data3: -1142742610
+      Data4: 1612793988
+    Path: event:/Glide
+  <UI_ClickSFX>k__BackingField:
     Guid:
       Data1: 458364950
       Data2: 1182489754
