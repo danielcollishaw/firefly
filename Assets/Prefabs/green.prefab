@@ -746,7 +746,7 @@ GameObject:
   - component: {fileID: -7116850130628584158}
   m_Layer: 6
   m_Name: green
-  m_TagString: Untagged
+  m_TagString: Grow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -760,7 +760,7 @@ Transform:
   m_GameObject: {fileID: 4491597157531278860}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 12.74, y: 13.93, z: 3.340311}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5309284568096166952}
@@ -799,16 +799,16 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 2
+  m_Speed: 1.5
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 70
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 3
-  m_BaseOffset: 3
+  m_Height: 1.5
+  m_BaseOffset: 2
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &3644592977572406506
@@ -824,7 +824,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 3644592977572406517}
-  randomDist: 10
+  offset: 10
+  speed: 8
+  player: {fileID: 0}
 --- !u!135 &-7196015582595400275
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -836,7 +838,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!108 &-7116850130628584158
 Light:
