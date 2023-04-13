@@ -15,17 +15,17 @@ using UnityEngine.Events;
 
 public class StretchMechanic : MonoBehaviour
 {
-    [Tooltip("Assign the stretch action to an input mapping.")]
-    [SerializeField]
-    private string stretchAction;
-
     [Tooltip("How much the player can stretch as the capsule's height.")]
     [SerializeField]
-    private float maxHeight = 30.0f;
+    private float maxHeight = 4.0f;
+
+    [Tooltip("How small the player can stretch back to as the mesh's min height.")]
+    [SerializeField]
+    private float minHeight = 1.0f;
 
     [Tooltip("How fast the player increases in height and decreases in height.")]
     [SerializeField]
-    private float stretchSpeed = 1.5f;
+    private float stretchSpeed = 1.0f;
 
     [Tooltip("The player collision that stretches.")]
     [SerializeField]
@@ -35,7 +35,7 @@ public class StretchMechanic : MonoBehaviour
 
     [Tooltip("The visual instance of the player that will stretch.")]
     [SerializeField]
-    private MeshFilter meshInstance = null;
+    Transform meshInstance;
 
     [Tooltip("Needed to connect jumping event signal.")]
     [SerializeField]
@@ -83,14 +83,6 @@ public class StretchMechanic : MonoBehaviour
         // When it's 1, the button is being pressed.
         if (stretchInput) IncreaseHeight();
         else DecreaseHeight();
-
-        if (stretchingAndShrinking)
-        {
-            //Debug.Log("Stretch offset: " + stretchOffset);
-            // Can resize mesh here when something suitable is equipped.
-            //Mesh mesh = MeshInstance.mesh;
-            //mesh.RecalculateBounds
-        }
     }
     private void OnStretchBegin()
     {
@@ -131,7 +123,17 @@ public class StretchMechanic : MonoBehaviour
             mainCollision.height += calc;
             collisionFix.height += calc;
 
-            stretchOffset = (float)Extend.MapRangeClamped(mainCollision.height, originalHeight, maxHeight);
+            // Scales mesh in only the Y direction using the same growing collider logic
+            Vector3 newScale = meshInstance.localScale;
+
+            // Max height 
+            if (newScale.y < maxHeight)
+            {
+                newScale.x += calc;
+                newScale.y += calc;
+                newScale.z += calc;
+                meshInstance.localScale = newScale;
+            }
 
             //Debug.Log($"Height is increasing: {Collision.height} |");
         }
@@ -163,7 +165,26 @@ public class StretchMechanic : MonoBehaviour
             mainCollision.height -= calc;
             collisionFix.height -= calc;
 
-            stretchOffset = (float)Extend.MapRangeClamped(mainCollision.height, originalHeight, maxHeight);
+            // Retrieve current transform and scale down to 1 
+            Vector3 newScale = meshInstance.localScale;
+
+            // Stop shrinking once back at scale factor of 1 
+            if (newScale.y > minHeight)
+            {
+                newScale.x -= calc;
+                newScale.y -= calc;
+                newScale.z -= calc;
+                meshInstance.localScale = newScale;
+            }
+            // Floating point numbers will happen as newScale approaches 1 (minHeight)
+            // Set newScale to 1 once newScale < 1
+            else
+            {
+                newScale.x = minHeight;
+                newScale.y = minHeight;
+                newScale.z = minHeight;
+                meshInstance.localScale = newScale;
+            }
 
             //Debug.Log($"Height is decreasing: {Collision.height} |");
         }

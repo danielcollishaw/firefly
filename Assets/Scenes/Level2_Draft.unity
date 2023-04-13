@@ -3298,13 +3298,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aa0f2bcba2122241a7bcd6f9ac37298, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stretchAction: 
-  maxHeight: 10
-  stretchSpeed: 1.5
+  maxHeight: 4
+  minHeight: 1
+  stretchSpeed: 1
   mainCollision: {fileID: 1550971787}
   collisionFix: {fileID: 1550971788}
-  meshInstance: {fileID: 0}
+  meshInstance: {fileID: 1550971792}
   playerMovement: {fileID: 1550971784}
+--- !u!4 &1550971792 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 22fe3de1ed5183a44ba7467a1220de2f, type: 3}
+  m_PrefabInstance: {fileID: 875433765}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1562203187 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1025681519537473006, guid: aa99a810914c5b84b9bc5d51f95dd05c, type: 3}
