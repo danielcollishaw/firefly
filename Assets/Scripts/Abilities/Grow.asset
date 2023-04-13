@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Grow
   m_EditorClassIdentifier: 
   abilityName: Grow
-  cooldownTime: 2
+  cooldownTime: 0.1
   activeTime: -1

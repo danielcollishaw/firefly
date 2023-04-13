@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18263856, g: 0.22834891, b: 0.30714613, a: 1}
+  m_IndirectSpecularColor: {r: 0.18263797, g: 0.22834826, b: 0.30714473, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3952,6 +3952,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1803859494471383958, guid: 51724ba590af9d641a87cf24f45f5ef8, type: 3}
   m_PrefabInstance: {fileID: 1570051438393788898}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &919132148821340789 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1570051436991773293, guid: 51724ba590af9d641a87cf24f45f5ef8, type: 3}
+  m_PrefabInstance: {fileID: 1570051438393788898}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148821340788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aa0f2bcba2122241a7bcd6f9ac37298, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1570051438393788898
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4007,6 +4018,14 @@ PrefabInstance:
       propertyPath: camera
       value: 
       objectReference: {fileID: 1730425511}
+    - target: {fileID: 1570051436991773290, guid: 51724ba590af9d641a87cf24f45f5ef8, type: 3}
+      propertyPath: stretchMechanic
+      value: 
+      objectReference: {fileID: 919132148821340789}
+    - target: {fileID: 1570051436991773293, guid: 51724ba590af9d641a87cf24f45f5ef8, type: 3}
+      propertyPath: stretchSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1803859494471383958, guid: 51724ba590af9d641a87cf24f45f5ef8, type: 3}
       propertyPath: m_Name
       value: Devin

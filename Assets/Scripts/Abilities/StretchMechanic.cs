@@ -54,6 +54,12 @@ public class StretchMechanic : MonoBehaviour
     {
         get => stretchingAndShrinking;
     }
+    public bool IsGrown
+    {
+        get => isGrown;
+    }
+
+    private bool isGrown = false;
 
     private float stretchOffset = 0.0f;
     private bool stretchingAndShrinking = false;
@@ -92,11 +98,14 @@ public class StretchMechanic : MonoBehaviour
     private void OnStretchEnd()
     {
         Debug.Log("Stretch ended.");
+        isGrown = true;
     }
     private void OnShrinkBegin()
     {
-        playerMovement.EventJump?.Invoke();
+        //playerMovement.EventJump?.Invoke();
         Debug.Log("Shrink began.");
+
+        isGrown = false;
     }
     private void OnShrinkEnd()
     {
@@ -119,7 +128,7 @@ public class StretchMechanic : MonoBehaviour
 
             // I need to check if this is necessary since Update()
             // might already be running at a fixed rate.
-            float calc = stretchSpeed * Time.fixedDeltaTime;
+            float calc = stretchSpeed * Time.deltaTime;
 
             mainCollision.height += calc;
             collisionFix.height += calc;
@@ -162,7 +171,7 @@ public class StretchMechanic : MonoBehaviour
                 EventShrinkBegin.Invoke();
             }
 
-            float calc = stretchSpeed * Time.fixedDeltaTime;
+            float calc = stretchSpeed * Time.deltaTime;
             mainCollision.height -= calc;
             collisionFix.height -= calc;
 

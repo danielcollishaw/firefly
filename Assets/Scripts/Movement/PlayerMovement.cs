@@ -15,6 +15,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private CapsuleCollider playerCollisionFix;
 
+    [SerializeField]
+    private StretchMechanic stretchMechanic;
+
     public float BaseSpeed { get; set; } = 15f;
     public float BaseHeight
     {
@@ -321,7 +324,13 @@ public class PlayerMovement : MonoBehaviour
     private void UpdateJumpSound()
     {
         // Start wind audio event if the player is gliding
-        if (OnGround() && !jumped)
+        if (OnGround() && !jumped && !stretchMechanic.IsGrown)
+        {
             AudioManager.instance.PlayOneShot(FMODEvents.instance.JumpSmallSFX, this.transform.position);
+        }
+        else if (OnGround() && !jumped && stretchMechanic.IsGrown)
+        {
+            AudioManager.instance.PlayOneShot(FMODEvents.instance.JumpBigSFX, this.transform.position);
+        }
     }
 }
