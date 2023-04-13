@@ -357,10 +357,10 @@ MonoBehaviour:
   m_Name: FMODStudioSettings
   m_EditorClassIdentifier: 
   switchSettingsMigration: 1
-  HasSourceProject: 1
-  HasPlatforms: 1
+  HasSourceProject: 0
+  HasPlatforms: 0
   sourceProjectPath: ../../audio-system-fmod-firefly/audio-system-fmod-firefly.fspro
-  sourceBankPath: ../../audio-system-fmod-firefly/Build
+  sourceBankPath: Assets/FMODBanks
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
