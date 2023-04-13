@@ -14,8 +14,11 @@ public class FMODEvents : MonoBehaviour
     [field: Header("Running SFX")]
     [field: SerializeField] public EventReference runSFX { get; private set; }
 
-    [field: Header("Jumping SFX")]
-    [field: SerializeField] public EventReference JumpSFX { get; private set; }
+    [field: Header("Jumping Big SFX")]
+    [field: SerializeField] public EventReference JumpBigSFX { get; private set; }
+
+    [field: Header("Jumping Small SFX")]
+    [field: SerializeField] public EventReference JumpSmallSFX { get; private set; }
 
     [field: Header("Grow SFX")]
     [field: SerializeField] public EventReference GrowSFX { get; private set; }

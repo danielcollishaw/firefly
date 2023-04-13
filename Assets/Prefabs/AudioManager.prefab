@@ -65,13 +65,20 @@ MonoBehaviour:
       Data3: 227497344
       Data4: 849409952
     Path: event:/Running
-  <JumpSFX>k__BackingField:
+  <JumpBigSFX>k__BackingField:
     Guid:
       Data1: 1006451790
       Data2: 1263002278
       Data3: 33138365
       Data4: -1453596901
-    Path: event:/Jump
+    Path: event:/Jump_Big
+  <JumpSmallSFX>k__BackingField:
+    Guid:
+      Data1: -1627457838
+      Data2: 1196424598
+      Data3: 1883668355
+      Data4: 1315932785
+    Path: event:/Jump_Small
   <GrowSFX>k__BackingField:
     Guid:
       Data1: -625660854

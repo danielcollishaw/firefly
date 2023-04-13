@@ -71,9 +71,10 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump"))
         {
+            UpdateJumpSound();
+
             if (OnGround())
             {
-                AudioManager.instance.PlayOneShot(FMODEvents.instance.JumpSFX, this.transform.position);
                 jumped = true; 
             }
             else
@@ -316,5 +317,11 @@ public class PlayerMovement : MonoBehaviour
         {
             glideWind.stop(STOP_MODE.ALLOWFADEOUT);
         }
+    }
+    private void UpdateJumpSound()
+    {
+        // Start wind audio event if the player is gliding
+        if (OnGround() && !jumped)
+            AudioManager.instance.PlayOneShot(FMODEvents.instance.JumpSmallSFX, this.transform.position);
     }
 }
