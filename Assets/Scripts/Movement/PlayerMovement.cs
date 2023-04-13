@@ -233,7 +233,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Checks if player is grounded by shooting a sphere to check for collisions
-    private bool OnGround()
+    public bool OnGround()
     {
         Vector3 offset = new Vector3(0, .7f, 0)  / (playerCollision.height / baseHeight);
         RaycastHit hit;
