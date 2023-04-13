@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 5b65bb07b2b067e4786150c2051cda3e, type: 2}
 --- !u!4 &1302296 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7377095519007739099, guid: be88c7fc3a9666b4ab747bd04a3b27cb, type: 3}
@@ -749,6 +749,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1046369406}
     m_Modifications:
+    - target: {fileID: 7377095518992242982, guid: be88c7fc3a9666b4ab747bd04a3b27cb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7377095519007739099, guid: be88c7fc3a9666b4ab747bd04a3b27cb, type: 3}
       propertyPath: m_RootOrder
       value: 138
@@ -3668,6 +3672,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1046369406}
     m_Modifications:
+    - target: {fileID: 556938326748781955, guid: 50bc647be5b0a9d408bb480feb63a863, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 556938326748781955, guid: 50bc647be5b0a9d408bb480feb63a863, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 556938326748843285, guid: 50bc647be5b0a9d408bb480feb63a863, type: 3}
       propertyPath: m_Name
       value: Stonehenge_05 (4) Variant (1)
@@ -3675,6 +3687,14 @@ PrefabInstance:
     - target: {fileID: 556938326748843285, guid: 50bc647be5b0a9d408bb480feb63a863, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 556938326748843285, guid: 50bc647be5b0a9d408bb480feb63a863, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 556938326748843285, guid: 50bc647be5b0a9d408bb480feb63a863, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 556938326749205203, guid: 50bc647be5b0a9d408bb480feb63a863, type: 3}
       propertyPath: m_RootOrder
@@ -4879,6 +4899,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1046369406}
     m_Modifications:
+    - target: {fileID: 556938326748781955, guid: 50bc647be5b0a9d408bb480feb63a863, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 556938326748781955, guid: 50bc647be5b0a9d408bb480feb63a863, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 556938326748843285, guid: 50bc647be5b0a9d408bb480feb63a863, type: 3}
       propertyPath: m_Name
       value: Stonehenge_05 (4) Variant
@@ -4886,6 +4914,14 @@ PrefabInstance:
     - target: {fileID: 556938326748843285, guid: 50bc647be5b0a9d408bb480feb63a863, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 556938326748843285, guid: 50bc647be5b0a9d408bb480feb63a863, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 556938326748843285, guid: 50bc647be5b0a9d408bb480feb63a863, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 556938326749205203, guid: 50bc647be5b0a9d408bb480feb63a863, type: 3}
       propertyPath: m_RootOrder
@@ -6894,6 +6930,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1046369406}
     m_Modifications:
+    - target: {fileID: 7377095518992242982, guid: be88c7fc3a9666b4ab747bd04a3b27cb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7377095519007739099, guid: be88c7fc3a9666b4ab747bd04a3b27cb, type: 3}
       propertyPath: m_RootOrder
       value: 136
@@ -12792,6 +12832,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1046369406}
     m_Modifications:
+    - target: {fileID: 7377095518992242982, guid: be88c7fc3a9666b4ab747bd04a3b27cb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7377095519007739099, guid: be88c7fc3a9666b4ab747bd04a3b27cb, type: 3}
       propertyPath: m_RootOrder
       value: 139
@@ -13382,6 +13426,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1046369406}
     m_Modifications:
+    - target: {fileID: 7377095518992242982, guid: be88c7fc3a9666b4ab747bd04a3b27cb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7377095519007739099, guid: be88c7fc3a9666b4ab747bd04a3b27cb, type: 3}
       propertyPath: m_RootOrder
       value: 134

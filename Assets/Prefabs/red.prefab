@@ -95,7 +95,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 1143330361253958375}
   offset: 10
-  speed: 8
+  speed: 12
   player: {fileID: 0}
 --- !u!135 &2408092174934182847
 SphereCollider:
