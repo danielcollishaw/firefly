@@ -14,6 +14,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private CapsuleCollider playerCollisionFix;
 
+    [SerializeField]
+    private AbilityHolder abilityHolder;
+    [SerializeField]
+    private StretchMechanic stretchMechanic;
+
     public float BaseSpeed { get; set; } = 15f;
     public float BaseHeight
     {
@@ -24,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
 
     public Rigidbody player;
     public Animator animator;
-    public GameObject camera;
+    public GameObject playerCamera;
 
     public float speedDecrement = 10f;
     public float jumpSpeed = 20f;
@@ -109,7 +114,7 @@ public class PlayerMovement : MonoBehaviour
         if (x != 0 || z != 0)
         {
             Vector3 move = new Vector3(x * BaseSpeed, 0, z * BaseSpeed);
-            move = camera.transform.TransformDirection(move);
+            move = playerCamera.transform.TransformDirection(move);
             move = Vector3.ProjectOnPlane(move, Vector3.up);
             move = move + new Vector3(0, GetVelocity().y, 0);
             SetVelocity(move);
@@ -126,7 +131,16 @@ public class PlayerMovement : MonoBehaviour
 
         if (jumped && canJump)
         {
-            SetVelocity(GetVelocity() + new Vector3(0, jumpSpeed, 0));
+            float multiplier = 1.0f;
+
+            if (stretchMechanic.ReadyToJump)
+            {
+                stretchMechanic.ReadyToJump = false;
+                abilityHolder.State = AbilityHolder.AbilityState.AbilityChange;
+                multiplier = 1.5f;
+            }
+
+            SetVelocity(GetVelocity() + new Vector3(0, jumpSpeed * multiplier, 0));
             jumped = false;
             canJump = false;
             animator.SetBool("IsJumping", true);
@@ -153,7 +167,6 @@ public class PlayerMovement : MonoBehaviour
                 player.AddForce(Physics.gravity * gravityScale * -glideRate);    
         }
     }
-
     private IEnumerator JumpDelay()
     {
         yield return new WaitForSeconds(1.0f); // Change this delay to suit your needs

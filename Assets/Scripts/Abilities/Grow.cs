@@ -11,8 +11,11 @@ public class Grow : Ability
         StretchMechanic stretch = parent.GetComponent<StretchMechanic>();
         stretch.SetInput(true);
     }
-
     public override void Deactivate(GameObject parent)
+    {
+        
+    }
+    public override void AbilityChange(GameObject parent, int id)
     {
         StretchMechanic stretch = parent.GetComponent<StretchMechanic>();
         stretch.SetInput(false);
