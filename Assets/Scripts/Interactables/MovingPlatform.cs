@@ -12,15 +12,19 @@ public class MovingPlatform : MonoBehaviour
     private bool moveToEnd;
     private float threshold; 
     private float buffer = 3;
-    
+
+    GameObject MovingPlatformObject;
+
     // Start is called before the first frame update
     void Start()
     {
-        GameObject destinationMarker = gameObject.transform.GetChild(0).gameObject;
-        destinationMarker.SetActive(false);
+        MovingPlatformObject = gameObject.transform.GetChild(0).gameObject;
+        GameObject DestinationMarker = MovingPlatformObject.transform.GetChild(0).gameObject;
 
-        start = gameObject.transform.position;
-        end = destinationMarker.transform.position;
+        DestinationMarker.SetActive(false);
+
+        start = MovingPlatformObject.transform.position;
+        end = DestinationMarker.transform.position;
         direction = end - start;
         direction.Normalize();
 
@@ -30,18 +34,20 @@ public class MovingPlatform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameObject.transform.position += direction * speed * Time.deltaTime; 
-        
+        // gameObject.transform.position += direction * speed * Time.deltaTime;
+        MovingPlatformObject.transform.Translate(direction * speed * Time.deltaTime);
+
         if (platformWithinEndPoints())
         {
             direction *= -1;
-            gameObject.transform.position += direction * speed * Time.deltaTime; 
+            // gameObject.transform.position += direction * speed * Time.deltaTime;
+            MovingPlatformObject.transform.Translate(direction * speed * Time.deltaTime);
         }
             
     }
 
     private bool platformWithinEndPoints()
     {
-        return Vector3.Distance(gameObject.transform.position, start) < threshold || Vector3.Distance(gameObject.transform.position, end) < threshold;
+        return Vector3.Distance(MovingPlatformObject.transform.position, start) < threshold || Vector3.Distance(MovingPlatformObject.transform.position, end) < threshold;
     }
 }

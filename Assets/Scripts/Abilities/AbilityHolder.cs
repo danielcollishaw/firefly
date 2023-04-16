@@ -136,7 +136,7 @@ public class AbilityHolder : MonoBehaviour
         }
 
         if (!wasFirefly) return;
-
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.FireflyInteract2SFX, this.transform.position);
         // Freeing past firefly
         RemoveFirefly();
         
