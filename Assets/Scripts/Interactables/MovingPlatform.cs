@@ -4,50 +4,55 @@ using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour
 {
-    public float speed = 5f;
+    [SerializeField]
+    private BoxCollider stepTrigger;
 
     private Vector3 direction;
     private Vector3 start;
     private Vector3 end;
-    private bool moveToEnd;
-    private float threshold; 
+    
+    private float threshold;
+    public float speed = 5f;
     private float buffer = 3;
 
-    GameObject MovingPlatformObject;
+    private GameObject parent;
+    private GameObject platformMesh;
+    private GameObject destinationMarker;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        MovingPlatformObject = gameObject.transform.GetChild(0).gameObject;
-        GameObject DestinationMarker = MovingPlatformObject.transform.GetChild(0).gameObject;
+        parent = transform.parent.gameObject;
+        platformMesh = gameObject;
+        destinationMarker = platformMesh.transform.GetChild(0).gameObject;
 
-        DestinationMarker.SetActive(false);
+        destinationMarker.SetActive(false);
 
-        start = MovingPlatformObject.transform.position;
-        end = DestinationMarker.transform.position;
+        start = parent.transform.position;
+        end = destinationMarker.transform.position;
         direction = end - start;
         direction.Normalize();
-
         threshold = buffer * speed * Time.deltaTime;
     }
-
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        // gameObject.transform.position += direction * speed * Time.deltaTime;
-        MovingPlatformObject.transform.Translate(direction * speed * Time.deltaTime);
+        parent.transform.position += direction * speed * Time.deltaTime;
 
-        if (platformWithinEndPoints())
+        if (PlatformWithinEndPoints())
         {
             direction *= -1;
-            // gameObject.transform.position += direction * speed * Time.deltaTime;
-            MovingPlatformObject.transform.Translate(direction * speed * Time.deltaTime);
+            parent.transform.position += direction * speed * Time.deltaTime;
         }
-            
     }
-
-    private bool platformWithinEndPoints()
+    private void OnTriggerEnter(Collider other)
     {
-        return Vector3.Distance(MovingPlatformObject.transform.position, start) < threshold || Vector3.Distance(MovingPlatformObject.transform.position, end) < threshold;
+        other.gameObject.transform.SetParent(parent.transform);
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        other.gameObject.transform.parent = null;
+    }
+    private bool PlatformWithinEndPoints()
+    {
+        return Vector3.Distance(parent.transform.position, start) < threshold || Vector3.Distance(parent.transform.position, end) < threshold;
     }
 }
