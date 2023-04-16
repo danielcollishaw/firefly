@@ -145,7 +145,7 @@ public class StretchMechanic : MonoBehaviour
             stretchBeginGate = true;
         }
     }
-    private void DecreaseHeight()
+    public void DecreaseHeight()
     {
         if (mainCollision.height >= originalHeight)
         //if (!Mathf.Approximately(Collision.height, originalHeight))

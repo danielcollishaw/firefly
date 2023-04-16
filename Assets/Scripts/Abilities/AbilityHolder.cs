@@ -114,23 +114,27 @@ public class AbilityHolder : MonoBehaviour
 
         if (col.gameObject.tag.Equals("Roll"))
         {
+            ability.Deactivate(gameObject);
             ability = roll;
             // col.gameObject.transform.parent = gameObject.transform;
             wasFirefly = true;
         }
         else if (col.gameObject.tag.Equals("Glide"))
         {
+            ability.Deactivate(gameObject);
             ability = glide;
             // col.gameObject.transform.parent = gameObject.transform;
             wasFirefly = true;
         }
         else if (col.gameObject.tag.Equals("Grow"))
         {
+            ability.Deactivate(gameObject);
             ability = grow;
             wasFirefly = true;
         }
         else if (col.gameObject.tag.Equals("DoubleJump"))
         {
+            ability.Deactivate(gameObject);
             ability = doubleJump;
             wasFirefly = true;
         }
@@ -158,6 +162,7 @@ public class AbilityHolder : MonoBehaviour
 
     public void RemovePower()
     {
+        ability.Deactivate(gameObject);
         RemoveFirefly();
         ability = none;
     }
