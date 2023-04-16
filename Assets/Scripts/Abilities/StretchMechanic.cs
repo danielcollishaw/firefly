@@ -123,7 +123,7 @@ public class StretchMechanic : MonoBehaviour
 
             // I need to check if this is necessary since Update()
             // might already be running at a fixed rate.
-            float calc = stretchSpeed * Time.fixedDeltaTime;
+            float calc = stretchSpeed * Time.deltaTime;
 
             mainCollision.height += calc;
             collisionFix.height += calc;
@@ -166,7 +166,7 @@ public class StretchMechanic : MonoBehaviour
                 EventShrinkBegin.Invoke();
             }
 
-            float calc = stretchSpeed * Time.fixedDeltaTime;
+            float calc = stretchSpeed * Time.deltaTime;
             mainCollision.height -= calc;
             collisionFix.height -= calc;
 
