@@ -145,6 +145,7 @@ public class AbilityHolder : MonoBehaviour
 
     public void removePower()
     {
+        ability.Deactivate(gameObject);
         removeFirefly();
         ability = none;
     }
