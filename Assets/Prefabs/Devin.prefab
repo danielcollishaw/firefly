@@ -1404,7 +1404,6 @@ GameObject:
   - component: {fileID: 5865838463187177802}
   - component: {fileID: 5865838463187177806}
   - component: {fileID: 5865838463187177807}
-  - component: {fileID: 5865838463187177804}
   - component: {fileID: 5865838463187177801}
   m_Layer: 2
   m_Name: Devin
@@ -1533,30 +1532,10 @@ MonoBehaviour:
   roll: {fileID: 11400000, guid: 739394f01e5f1484691390e56165782e, type: 2}
   glide: {fileID: 11400000, guid: 9e0e8259990f6c6498e645a7680ffbde, type: 2}
   grow: {fileID: 11400000, guid: d4b0d25f3c3a8654ca26f73c15193be7, type: 2}
-  doubleJump: {fileID: 0}
-  none: {fileID: 0}
+  doubleJump: {fileID: 11400000, guid: 98840f6bfc7d39446b0a8415425acbac, type: 2}
+  none: {fileID: 11400000, guid: 701ccf6c35f9bda488aa8352bb0cfc81, type: 2}
   ability: {fileID: 11400000, guid: 701ccf6c35f9bda488aa8352bb0cfc81, type: 2}
   stretchMechanic: {fileID: 5865838463187177801}
---- !u!114 &5865838463187177804
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6748306291699650738}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e348b1324d212494c855a12fbbb7a1db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fireflycountText: {fileID: 0}
-  winTextObject: {fileID: 0}
-  finalJar: {fileID: 0}
-  firefly: {fileID: 2843234968580044483, guid: 83e68e0c877faaa4790ff415bd175697, type: 3}
-  numberOfCollectableFireflies: 5
-  levelCompleted: 0
-  totalTimeTrial: 20
-  textTimer: 5
 --- !u!114 &5865838463187177801
 MonoBehaviour:
   m_ObjectHideFlags: 0
