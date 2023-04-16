@@ -335,7 +335,7 @@ public class PlayerMovement : MonoBehaviour
         {
             AudioManager.instance.PlayOneShot(FMODEvents.instance.JumpSmallSFX, this.transform.position);
         }
-        else if (OnGround() && !jumped && stretchMechanic.IsGrown)
+        else if (OnGround() && !jumped && stretchMechanic.ReadyToJump)
         {
             AudioManager.instance.PlayOneShot(FMODEvents.instance.JumpBigSFX, this.transform.position);
         }
