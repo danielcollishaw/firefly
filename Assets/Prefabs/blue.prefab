@@ -523,7 +523,7 @@ GameObject:
   - component: {fileID: 8274919925847793374}
   m_Layer: 6
   m_Name: blue
-  m_TagString: Untagged
+  m_TagString: Roll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

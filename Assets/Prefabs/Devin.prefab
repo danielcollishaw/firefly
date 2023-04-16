@@ -1571,7 +1571,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHeight: 4
   minHeight: 1
-  stretchSpeed: 1
+  stretchSpeed: 5
   mainCollision: {fileID: 5865838463187177805}
   collisionFix: {fileID: 5865838463187177802}
   meshInstance: {fileID: 6263693983746804232}

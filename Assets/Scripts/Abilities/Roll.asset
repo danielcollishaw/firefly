@@ -16,4 +16,4 @@ MonoBehaviour:
   cooldownTime: 1
   activeTime: 1
   heightMultiplier: 0.5
-  speedMultiplier: 2.5
+  speedMultiplier: 3
