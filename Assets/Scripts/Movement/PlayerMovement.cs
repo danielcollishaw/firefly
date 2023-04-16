@@ -331,7 +331,7 @@ public class PlayerMovement : MonoBehaviour
     private void UpdateJumpSound()
     {
         // Start wind audio event if the player is gliding
-        if (OnGround() && !jumped && !stretchMechanic.IsGrown)
+        if (OnGround() && !jumped && !stretchMechanic.ReadyToJump)
         {
             AudioManager.instance.PlayOneShot(FMODEvents.instance.JumpSmallSFX, this.transform.position);
         }

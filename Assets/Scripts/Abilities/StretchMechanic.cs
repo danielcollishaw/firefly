@@ -52,13 +52,7 @@ public class StretchMechanic : MonoBehaviour
         get => readyToJump;
         set => readyToJump = value;
     }
-    public bool IsGrown
-    {
-        get => isGrown;
-    }
-
-    private bool isGrown = false;
-
+   
     private bool readyToJump = false;
 
     private bool stretchBeginGate = true;
@@ -100,8 +94,6 @@ public class StretchMechanic : MonoBehaviour
     {
         //playerMovement.EventJump?.Invoke();
         Debug.Log("Shrink began.");
-
-        isGrown = false;
     }
     private void OnShrinkEnd()
     {
