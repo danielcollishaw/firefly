@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using FMOD.Studio;
 
 
 public class PlayerMovement : MonoBehaviour
@@ -14,6 +15,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private CapsuleCollider playerCollisionFix;
 
+    [SerializeField]
+    private AbilityHolder abilityHolder;
+    [SerializeField]
+    private StretchMechanic stretchMechanic;
+
     public float BaseSpeed { get; set; } = 15f;
     public float BaseHeight
     {
@@ -24,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
 
     public Rigidbody player;
     public Animator animator;
-    public GameObject camera;
+    public GameObject playerCamera;
 
     public float speedDecrement = 10f;
     public float jumpSpeed = 20f;
@@ -46,12 +52,19 @@ public class PlayerMovement : MonoBehaviour
 
     private bool glide = false;
 
+    // Audio
+    private EventInstance playerFootsteps;
+    private EventInstance glideWind;
+
     void Start() 
     {
         originalSpeed = BaseSpeed;
         baseHeight = playerCollision.height;
        
         EventJump.AddListener(OnJump);
+
+        playerFootsteps = AudioManager.instance.CreateEventInstance(FMODEvents.instance.runSFX);
+        glideWind = AudioManager.instance.CreateEventInstance(FMODEvents.instance.GlideSFX);
     }
 
     // Update is called once per frame
@@ -63,6 +76,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump"))
         {
+            UpdateJumpSound();
+
             if (OnGround())
             {
                 jumped = true; 
@@ -94,6 +109,10 @@ public class PlayerMovement : MonoBehaviour
     // FixedUpdate is called on physic updates
     private void FixedUpdate()
     {
+        // Check if player is moving to start or stop footstep SFX
+        UpdateRunningSound();
+        UpdateGlideSound();
+
         // Makes gravity stronger
         player.AddForce(Physics.gravity * gravityScale, ForceMode.Acceleration);
 
@@ -109,7 +128,7 @@ public class PlayerMovement : MonoBehaviour
         if (x != 0 || z != 0)
         {
             Vector3 move = new Vector3(x * BaseSpeed, 0, z * BaseSpeed);
-            move = camera.transform.TransformDirection(move);
+            move = playerCamera.transform.TransformDirection(move);
             move = Vector3.ProjectOnPlane(move, Vector3.up);
             move = move + new Vector3(0, GetVelocity().y, 0);
             SetVelocity(move);
@@ -126,7 +145,16 @@ public class PlayerMovement : MonoBehaviour
 
         if (jumped && canJump)
         {
-            SetVelocity(GetVelocity() + new Vector3(0, jumpSpeed, 0));
+            float multiplier = 1.0f;
+
+            if (stretchMechanic.ReadyToJump)
+            {
+                stretchMechanic.ReadyToJump = false;
+                abilityHolder.State = AbilityHolder.AbilityState.AbilityChange;
+                multiplier = 1.5f;
+            }
+
+            SetVelocity(GetVelocity() + new Vector3(0, jumpSpeed * multiplier, 0));
             jumped = false;
             canJump = false;
             animator.SetBool("IsJumping", true);
@@ -153,7 +181,6 @@ public class PlayerMovement : MonoBehaviour
                 player.AddForce(Physics.gravity * gravityScale * -glideRate);    
         }
     }
-
     private IEnumerator JumpDelay()
     {
         yield return new WaitForSeconds(1.0f); // Change this delay to suit your needs
@@ -188,6 +215,11 @@ public class PlayerMovement : MonoBehaviour
     public void SetGlide(bool state)
     {
         glide = state;
+    }
+
+    public bool getGlide()
+    {
+        return glide;
     }
 
     public void SetGlideRate(float rate)
@@ -255,5 +287,57 @@ public class PlayerMovement : MonoBehaviour
 
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position + offset + Vector3.down * dist, radius);
+    }
+
+    private void UpdateRunningSound()
+    {
+        // Start footsteps audio event if the player is moving and on the ground
+        if ((x != 0 || z != 0) && OnGround())
+        {
+            PLAYBACK_STATE playbackState;
+            playerFootsteps.getPlaybackState(out playbackState);
+
+            if (playbackState.Equals(PLAYBACK_STATE.STOPPED))
+            {
+                playerFootsteps.start();
+            }
+        }
+        // Stop event if otherwise
+        else
+        {
+            playerFootsteps.stop(STOP_MODE.ALLOWFADEOUT);
+        }
+    }
+
+    private void UpdateGlideSound()
+    {
+        // Start wind audio event if the player is gliding
+        if (getGlide())
+        {
+            PLAYBACK_STATE playbackState;
+            glideWind.getPlaybackState(out playbackState);
+
+            if (playbackState.Equals(PLAYBACK_STATE.STOPPED))
+            {
+                glideWind.start();
+            }
+        }
+        // Stop event if otherwise
+        else
+        {
+            glideWind.stop(STOP_MODE.ALLOWFADEOUT);
+        }
+    }
+    private void UpdateJumpSound()
+    {
+        // Start wind audio event if the player is gliding
+        if (OnGround() && !jumped && !stretchMechanic.ReadyToJump)
+        {
+            AudioManager.instance.PlayOneShot(FMODEvents.instance.JumpSmallSFX, this.transform.position);
+        }
+        else if (OnGround() && !jumped && stretchMechanic.ReadyToJump)
+        {
+            AudioManager.instance.PlayOneShot(FMODEvents.instance.JumpBigSFX, this.transform.position);
+        }
     }
 }

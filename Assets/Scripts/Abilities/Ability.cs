@@ -22,4 +22,5 @@ public class Ability : ScriptableObject
 
     public virtual void Activate(GameObject parent) {  }
     public virtual void Deactivate(GameObject parent) {  }
+    public virtual void AbilityChange(GameObject parent, int id) {  }
 }

@@ -17,7 +17,7 @@ public class Reset : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         player.transform.position = spawn;
-        ability.removePower();
+        ability.RemovePower();
     }
 
     public void setSpawn(Vector3 pos)

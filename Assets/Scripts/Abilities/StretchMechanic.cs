@@ -10,6 +10,7 @@
 #endregion
 
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -46,17 +47,13 @@ public class StretchMechanic : MonoBehaviour
     public readonly UnityEvent EventShrinkBegin = new();
     public readonly UnityEvent EventShrinkEnd = new();
 
-    public float StretchOffset
+    public bool ReadyToJump
     {
-        get => stretchOffset;
+        get => readyToJump;
+        set => readyToJump = value;
     }
-    public bool StretchingAndShrinking
-    {
-        get => stretchingAndShrinking;
-    }
-
-    private float stretchOffset = 0.0f;
-    private bool stretchingAndShrinking = false;
+   
+    private bool readyToJump = false;
 
     private bool stretchBeginGate = true;
     private bool stretchEndGate = true;
@@ -86,21 +83,21 @@ public class StretchMechanic : MonoBehaviour
     }
     private void OnStretchBegin()
     {
-        stretchingAndShrinking = true;
         Debug.Log("Stretch began.");
     }
     private void OnStretchEnd()
     {
+        readyToJump = true;
         Debug.Log("Stretch ended.");
     }
     private void OnShrinkBegin()
     {
-        playerMovement.EventJump?.Invoke();
+        //playerMovement.EventJump?.Invoke();
         Debug.Log("Shrink began.");
     }
     private void OnShrinkEnd()
     {
-        stretchingAndShrinking = false;
+        //StartCoroutine(GrowJumpDelay());
         Debug.Log("Shrink ended.");
     }
     private void IncreaseHeight()
@@ -118,7 +115,7 @@ public class StretchMechanic : MonoBehaviour
 
             // I need to check if this is necessary since Update()
             // might already be running at a fixed rate.
-            float calc = stretchSpeed * Time.fixedDeltaTime;
+            float calc = stretchSpeed * Time.deltaTime;
 
             mainCollision.height += calc;
             collisionFix.height += calc;
@@ -161,7 +158,7 @@ public class StretchMechanic : MonoBehaviour
                 EventShrinkBegin.Invoke();
             }
 
-            float calc = stretchSpeed * Time.fixedDeltaTime;
+            float calc = stretchSpeed * Time.deltaTime;
             mainCollision.height -= calc;
             collisionFix.height -= calc;
 
@@ -198,6 +195,11 @@ public class StretchMechanic : MonoBehaviour
 
             shrinkBeginGate = true;
         }
+    }
+    private IEnumerator GrowJumpDelay()
+    {
+        yield return new WaitForSeconds(1.0f);
+        readyToJump = true;
     }
     public void SetInput(bool state)
     {
