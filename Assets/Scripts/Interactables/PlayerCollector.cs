@@ -55,6 +55,9 @@ public class PlayerCollector : MonoBehaviour
         // will be called when the player first touches a trigger collider (i.e the collectables)
         if(other.gameObject.CompareTag("Collectable"))
         {
+            // Audio sfx 
+            AudioManager.instance.PlayOneShot(FMODEvents.instance.FireflyInteractSFX, this.transform.position);
+
             other.gameObject.SetActive(false);
             collectableCount++;
             //called everytime it touches collider 

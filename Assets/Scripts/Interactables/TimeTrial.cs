@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
+using FMOD.Studio;
 
 public class TimeTrial : MonoBehaviour
 {
@@ -16,17 +17,25 @@ public class TimeTrial : MonoBehaviour
     private bool timerStarted = false;
     private float timeLeft;
 
+    // Audio
+    private EventInstance TimeTrialSFX;
+
     // Start is called before the first frame update
     void Start()
     {
         // Reference to playercollect script
         playerCollector = devin.GetComponent<PlayerCollector>();
+
+        // TimeTrial audio event
+        TimeTrialSFX = AudioManager.instance.CreateEventInstance(FMODEvents.instance.TimeTrial);
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+        // Stop time trial audio
+        UpdateTimeTrialSound();
+
         bool levelCompleted = playerCollector.levelCompleted;
         //Debug.Log("level complete is " + levelCompleted);
 
@@ -40,10 +49,12 @@ public class TimeTrial : MonoBehaviour
             if (levelCompleted)
             {
                 countdownTimer.text = "";
+                timerStarted = false;
             }
             // FIXME!!!: Restart level
             else if (timeLeft <= 0)
             {
+                timerStarted = false;
                 // Countdown has finished
                 // No need to keep this line once scene restarts
                 countdownTimer.text = "Time's up!";
@@ -55,11 +66,31 @@ public class TimeTrial : MonoBehaviour
     {
         // Check if green firefly has been activate and begin time trial 
         // Add roll mechanic as well
-        if (other.gameObject.CompareTag("GreenFF"))
+        if (other.gameObject.CompareTag("Grow"))
         {
             other.gameObject.SetActive(false);
             timeLeft = totalTimeTrial;
             timerStarted = true;
+        }
+    }
+
+    private void UpdateTimeTrialSound()
+    {
+        // Start footsteps audio event if the player is moving and on the ground
+        if (timerStarted)
+        {
+            PLAYBACK_STATE playbackState;
+            TimeTrialSFX.getPlaybackState(out playbackState);
+
+            if (playbackState.Equals(PLAYBACK_STATE.STOPPED))
+            {
+                TimeTrialSFX.start();
+            }
+        }
+        // Stop event if otherwise
+        else
+        {
+            TimeTrialSFX.stop(STOP_MODE.ALLOWFADEOUT);
         }
     }
 }

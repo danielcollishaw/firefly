@@ -5,6 +5,12 @@ using System.Collections.Generic;
 
 public class AbilityHolder : MonoBehaviour
 {
+    public AbilityState State
+    {
+        get => state;
+        set => state = value;
+    }
+
     private const string POWER_BUTTON = "ActivatePower";
 
     [SerializeField]
@@ -20,6 +26,9 @@ public class AbilityHolder : MonoBehaviour
     [SerializeField]
     private Ability ability;
 
+    [SerializeField]
+    private StretchMechanic stretchMechanic;
+
     private GameObject firefly = null;
     private Vector3 returnPoint = Vector3.zero;
 
@@ -27,18 +36,23 @@ public class AbilityHolder : MonoBehaviour
     private float activeTime; 
 
     // Which state ability is currently in.
-    enum AbilityState 
+    public enum AbilityState 
     {
         Activate, 
         Deactivate,
+        AbilityChange,
         Active,
         Cooldown,
     }
 
-    private AbilityState state = AbilityState.Activate; 
+    private AbilityState state = AbilityState.Activate;
 
+    private void Start()
+    {
+        
+    }
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         switch (state) 
         {
@@ -52,6 +66,10 @@ public class AbilityHolder : MonoBehaviour
                 break;
             case AbilityState.Deactivate:
                 ability.Deactivate(gameObject);
+                state = AbilityState.Activate;
+                break;
+            case AbilityState.AbilityChange:
+                ability.AbilityChange(gameObject, 0);
                 state = AbilityState.Activate;
                 break;
             case AbilityState.Active:
@@ -90,7 +108,6 @@ public class AbilityHolder : MonoBehaviour
                 break;
         } 
     }
-
     private void OnTriggerEnter(Collider col)
     {
         bool wasFirefly = false;
@@ -119,9 +136,9 @@ public class AbilityHolder : MonoBehaviour
         }
 
         if (!wasFirefly) return;
-
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.FireflyInteract2SFX, this.transform.position);
         // Freeing past firefly
-        removeFirefly();
+        RemoveFirefly();
         
         // Storing new one
         firefly = col.gameObject;
@@ -129,7 +146,7 @@ public class AbilityHolder : MonoBehaviour
         firefly.GetComponent<FireflyPathing>().EnableTargetting();
     }
 
-    private void removeFirefly()
+    private void RemoveFirefly()
     {
         if (firefly != null)
         {
@@ -139,9 +156,9 @@ public class AbilityHolder : MonoBehaviour
         firefly = null;
     }
 
-    public void removePower()
+    public void RemovePower()
     {
-        removeFirefly();
+        RemoveFirefly();
         ability = none;
     }
 }
