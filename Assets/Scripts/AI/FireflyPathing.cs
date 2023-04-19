@@ -18,6 +18,9 @@ public class FireflyPathing : MonoBehaviour
     {
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         AssignDestination();
+
+        // On start, play idle sound 
+        GetComponent<FMODUnity.StudioEventEmitter>().Play();
     }
 
     // Update is called once per frame
@@ -74,6 +77,9 @@ public class FireflyPathing : MonoBehaviour
             returning = false;
             agent.enabled = true;
             gameObject.GetComponent<SphereCollider>().enabled = true;
+
+            // Play idle sound, firefly no longer active
+            GetComponent<FMODUnity.StudioEventEmitter>().Play();
             return;
         }
 
