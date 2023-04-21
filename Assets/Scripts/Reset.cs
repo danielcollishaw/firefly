@@ -16,12 +16,21 @@ public class Reset : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        player.transform.position = spawn;
-        ability.RemovePower();
+        if (other.TryGetComponent<TimeTrial>(out var timetrial))
+        {
+            timetrial.ResetTimer();
+        }
+        ResetLevel();
     }
 
     public void setSpawn(Vector3 pos)
     {
         spawn = pos;
+    }
+
+    public void ResetLevel()
+    {
+        player.transform.position = spawn;
+        ability.RemovePower();
     }
 }
