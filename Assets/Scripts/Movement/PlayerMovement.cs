@@ -121,12 +121,12 @@ public class PlayerMovement : MonoBehaviour
         // Makes gravity stronger
         player.AddForce(Physics.gravity * gravityScale, ForceMode.Acceleration);
 
-        // Limit diagonal movement by avoiding compounding of speed when the a keyboard input.
-        if (x != 0 && z != 0)
-        {
-            x *= moveLimiter;
-            z *= moveLimiter;
-        }
+        //  // Limit diagonal movement by avoiding compounding of speed when the a keyboard input.
+        // if (x != 0 && z != 0)
+        // {
+        //     x *= moveLimiter;
+        //     z *= moveLimiter;
+        // }
 
         // Applies velocity change the reason it is encapsulated is because we do not want to set velocity instantly to zero
         // we want friction to handle this for smoother feeling (See rigid body drag)
