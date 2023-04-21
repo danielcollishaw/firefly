@@ -6,8 +6,9 @@ using TMPro;
 
 public class PlayerCollector : MonoBehaviour
 {
-    private int collectableCount;     
-   
+    private int collectableCount;
+    private readonly List<Collider> collectableList = new List<Collider>();
+
     //public TextMeshProUGUI countText;
     public TextMeshProUGUI fireflycountText;
     public GameObject winTextObject;
@@ -19,7 +20,6 @@ public class PlayerCollector : MonoBehaviour
     public float totalTimeTrial = 20.0f;
     public float textTimer = 5;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -27,34 +27,34 @@ public class PlayerCollector : MonoBehaviour
 
         SetCountText();
         winTextObject.SetActive(false);
-        finalJar.SetActive(false);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if(collectableCount >= numberOfCollectableFireflies) 
+        if (collectableCount >= numberOfCollectableFireflies)
         {
             levelCompleted = true;
 
             if (textTimer <= 0)
             {
-              winTextObject.SetActive(false);
+                winTextObject.SetActive(false);
             }
             else if (textTimer > 0)
             {
                 textTimer -= Time.deltaTime;
             }
-        }      
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        
         // will be called when the player first touches a trigger collider (i.e the collectables)
-        if(other.gameObject.CompareTag("Collectable"))
+        if (other.gameObject.CompareTag("Collectable"))
         {
+            collectableList.Add(other);
             // Audio sfx 
             AudioManager.instance.PlayOneShot(FMODEvents.instance.FireflyInteractSFX, this.transform.position);
 
@@ -63,20 +63,29 @@ public class PlayerCollector : MonoBehaviour
             //called everytime it touches collider 
             SetCountText();
         }
-
         // using TAGS to correctly disable the collectables and not other objects 
     }
 
-    private void SetCountText() 
+    private void SetCountText()
     {
         fireflycountText.text = "Fireflies Collected: \t\t" + collectableCount.ToString() + "/" + numberOfCollectableFireflies.ToString();
 
-        if(collectableCount >= numberOfCollectableFireflies) 
+        if (collectableCount >= numberOfCollectableFireflies)
         {
             winTextObject.SetActive(true);
             firefly.SetActive(true);
-            finalJar.SetActive(true);
             fireflycountText.text = "";
         }
+    }
+    public void ResetCount()
+    {
+        for(int i = 0; i < collectableList.Count; i++)
+        {
+            collectableList[i].gameObject.SetActive(true);
+        }
+
+        winTextObject.SetActive(false);
+        collectableCount = 0;
+        fireflycountText.text = "Fireflies Collected: \t\t" + collectableCount.ToString() + "/" + numberOfCollectableFireflies.ToString();
     }
 }

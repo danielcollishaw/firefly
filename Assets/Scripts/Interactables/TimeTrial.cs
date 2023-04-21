@@ -7,15 +7,21 @@ using FMOD.Studio;
 
 public class TimeTrial : MonoBehaviour
 {
-    public PlayerCollector playerCollector;
     public GameObject devin;
 
     public float totalTimeTrial = 20.0f;
     public TextMeshProUGUI countdownTimer;
 
-
     private bool timerStarted = false;
     private float timeLeft;
+
+    private Collider abilityFireFly;
+
+    [SerializeField]
+    private Reset reset;
+
+    [SerializeField]
+    private PlayerCollector playerCollector;
 
     // Audio
     private EventInstance TimeTrialSFX;
@@ -58,6 +64,8 @@ public class TimeTrial : MonoBehaviour
                 // Countdown has finished
                 // No need to keep this line once scene restarts
                 countdownTimer.text = "Time's up!";
+                reset.ResetLevel();
+                ResetTimer();
             }
         }
     }
@@ -66,12 +74,20 @@ public class TimeTrial : MonoBehaviour
     {
         // Check if green firefly has been activate and begin time trial 
         // Add roll mechanic as well
-        if (other.gameObject.CompareTag("Grow"))
+        if (other.gameObject.CompareTag("Roll"))
         {
-            other.gameObject.SetActive(false);
+            abilityFireFly = other;
             timeLeft = totalTimeTrial;
             timerStarted = true;
         }
+    }
+    public void ResetTimer()
+    {
+        // abilityFireFly.gameObject.SetActive(true);
+        timerStarted = false;
+        timeLeft = totalTimeTrial;
+        countdownTimer.text = "";
+        playerCollector.ResetCount();
     }
 
     private void UpdateTimeTrialSound()

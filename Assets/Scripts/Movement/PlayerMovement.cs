@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private StretchMechanic stretchMechanic;
 
+    private const float RAY_LENGTH = 2.75f;
+
     public float BaseSpeed { get; set; } = 15f;
     public float BaseHeight
     {
@@ -37,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
     public float moveLimiter = 0.7f;
     public float gravityScale = 3f;
     public float friction = 0.9f;
-    
+
     private float originalSpeed;
     private float glideRate = 0;
     private float x, z;
@@ -56,11 +58,11 @@ public class PlayerMovement : MonoBehaviour
     private EventInstance playerFootsteps;
     private EventInstance glideWind;
 
-    void Start() 
+    void Start()
     {
         originalSpeed = BaseSpeed;
         baseHeight = playerCollision.height;
-       
+
         EventJump.AddListener(OnJump);
 
         playerFootsteps = AudioManager.instance.CreateEventInstance(FMODEvents.instance.runSFX);
@@ -78,9 +80,12 @@ public class PlayerMovement : MonoBehaviour
         {
             UpdateJumpSound();
 
+            bool checkOnGround = OnGround();
+            Debug.Log("Is on ground: " + checkOnGround);
+
             if (OnGround())
             {
-                jumped = true; 
+                jumped = true;
             }
             else
             {
@@ -95,13 +100,13 @@ public class PlayerMovement : MonoBehaviour
                 doubleJumpIsOnGround = true;
             }
         }
-            
-        if (OnGround()) 
+
+        if (OnGround())
         {
             SetGlide(false);
             animator.SetBool("IsGliding", false);
         }
-            
+
 
         NormalizeSpeed();
     }
@@ -145,6 +150,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (jumped && canJump)
         {
+            jumped = false;
             float multiplier = 1.0f;
 
             if (stretchMechanic.ReadyToJump)
@@ -155,7 +161,6 @@ public class PlayerMovement : MonoBehaviour
             }
 
             SetVelocity(GetVelocity() + new Vector3(0, jumpSpeed * multiplier, 0));
-            jumped = false;
             canJump = false;
             animator.SetBool("IsJumping", true);
             StartCoroutine(JumpDelay());
@@ -178,7 +183,7 @@ public class PlayerMovement : MonoBehaviour
         if (glide)
         {
             if (!(player.velocity.y > 0))
-                player.AddForce(Physics.gravity * gravityScale * -glideRate);    
+                player.AddForce(Physics.gravity * gravityScale * -glideRate);
         }
     }
     private IEnumerator JumpDelay()
@@ -246,42 +251,35 @@ public class PlayerMovement : MonoBehaviour
             BaseSpeed = originalSpeed;
         }
     }
-
     private void OnJump()
     {
         jumped = true;
     }
-
     private void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.tag.Equals("Platform"))
-            gameObject.transform.parent = col.transform;
+        //if (col.gameObject.tag.Equals("Platform"))
+        //gameObject.transform.parent = col.transform;
     }
-
     private void OnTriggerExit(Collider col)
     {
-        if (col.gameObject.tag.Equals("Platform"))
-            gameObject.transform.parent = null;
+        //if (col.gameObject.tag.Equals("Platform"))
+        //gameObject.transform.parent = null;
     }
-
     // Checks if player is grounded by shooting a sphere to check for collisions
     public bool OnGround()
     {
-        Vector3 offset = new Vector3(0, .7f, 0)  / (playerCollision.height / baseHeight);
-        RaycastHit hit;
-        float radius = .5f;
-        float dist = .75f;
+        Vector3 offset = new Vector3(0, .7f, 0) / (playerCollision.height / baseHeight);
+        float radius = 0.5f;
 
         //return Physics.Raycast(transform.position + offset, Vector3.down, dist);
-        
-        return Physics.SphereCast(transform.position + offset, radius, Vector3.down, out hit, dist);
+        return Physics.SphereCast(transform.position + offset, radius, Vector3.down, out var hit, RAY_LENGTH);
     }
 
     // Visualize raycast when gizmos show is selected
     void OnDrawGizmos()
     {
-        
-        Vector3 offset = new Vector3(0, .7f, 0)  / (playerCollision.height / baseHeight);
+
+        Vector3 offset = new Vector3(0, .7f, 0) / (playerCollision.height / baseHeight);
         float radius = .5f;
         float dist = .75f;
 

@@ -102,8 +102,8 @@ MonoBehaviour:
       Value: 
       HasValue: 0
     SpeakerMode:
-      Value: 0
-      HasValue: 0
+      Value: 3
+      HasValue: 1
     VirtualChannelCount:
       Value: 0
       HasValue: 0
@@ -385,6 +385,7 @@ MonoBehaviour:
   - Master
   Banks:
   - Ambient
+  - Bank A
   - SFX
   BanksToLoad:
   - Master
