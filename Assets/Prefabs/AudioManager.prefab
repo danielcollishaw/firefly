@@ -95,11 +95,11 @@ MonoBehaviour:
     Path: event:/Shrink
   <GlideSFX>k__BackingField:
     Guid:
-      Data1: -48235827
-      Data2: 1076031050
-      Data3: -1142742610
-      Data4: 1612793988
-    Path: event:/WindAmbient
+      Data1: -1229463268
+      Data2: 1198641450
+      Data3: 1885618349
+      Data4: 877980246
+    Path: event:/GravityField
   <TimeTrial>k__BackingField:
     Guid:
       Data1: 880831707
@@ -107,6 +107,13 @@ MonoBehaviour:
       Data3: -527776323
       Data4: 2007781898
     Path: event:/TimeTrial
+  <PressurePlate>k__BackingField:
+    Guid:
+      Data1: 791177396
+      Data2: 1118076853
+      Data3: 559878043
+      Data4: 1509283540
+    Path: event:/PressurePlate
   <UI_ClickSFX>k__BackingField:
     Guid:
       Data1: 458364950
