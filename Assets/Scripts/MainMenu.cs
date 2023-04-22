@@ -8,14 +8,15 @@ public class MainMenu : MonoBehaviour
     // New game loads the index of the first level in Build settings
     public void NewGame()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("overworld/scenes/overworld", LoadSceneMode.Single);
     }
 
     // This will need a fix!!!
     // Save latest scene user achieved and load that scene
     public void ContinueGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("overworld/scenes/overworld", LoadSceneMode.Single);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     // FIXME:
