@@ -924,7 +924,7 @@ MonoBehaviour:
       Data4: -209615635
     Path: event:/AbilityFireflyIdle
   Event: 
-  PlayEvent: 1
+  PlayEvent: 0
   StopEvent: 3
   AllowFadeout: 1
   TriggerOnce: 0
