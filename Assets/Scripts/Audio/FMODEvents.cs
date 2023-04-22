@@ -32,6 +32,9 @@ public class FMODEvents : MonoBehaviour
     [field: Header("Time trial SFX")]
     [field: SerializeField] public EventReference TimeTrial { get; private set; }
 
+    [field: Header("Pressure Plate SFX")]
+    [field: SerializeField] public EventReference PressurePlate { get; private set; }
+
     [field: Header("UI Click SFX")]
     [field: SerializeField] public EventReference UI_ClickSFX { get; private set; }
 
