@@ -10,48 +10,35 @@
 #endregion
 
 using System;
+using System.Text.Json;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    // To access LevelManager, go through the singleton var and connect 
-    // appropriate signals for level wide events.
-    public static LevelManager Single { get; private set; }
-
-    public readonly LoadLevelEvent EventLoadLevel = new();
-    public readonly UnityEvent EventLevelComplete = new();
-
-    void Start()
+    public static LevelManager Instance
     {
-        // Checks if LevelManager has been instanced before, and if it has, then that means
-        // an error has occurred because this should only be instanced once so this handles
-        // that.
-        if (Single != null)
+        get => instance;
+    }
+
+    private static LevelManager instance;
+
+    private void Awake()
+    {
+        if (instance != null)
         {
-            Debug.Log("There shouldn't be more than one instance of LevelManager!");
+            Debug.Log("LevelManager>There should only be one total instance of LevelManager in all scenes.");
             return;
         }
 
-        EventLoadLevel.AddListener(OnLoadLevel);
-        EventLevelComplete.AddListener(OnLevelComplete);
-
-        Single = this;
-
-        //EventLoadLevel.Invoke("Shader Proto");
+        instance = this;
+        DontDestroyOnLoad(gameObject);
 
         Scene activeScene = SceneManager.GetActiveScene();
-        Debug.Log($"Welcome to {activeScene.name}! There are {SceneManager.sceneCount} loaded scenes.");
+        Debug.Log($"Welcome to {activeScene.name}!");
     }
-    private void OnLoadLevel(string levelName)
+    private bool Save()
     {
-        SceneManager.LoadScene(levelName, LoadSceneMode.Single);
-    }
-    private void OnLevelComplete()
-    {
-        Debug.Log("Level completed, yay!");
+        return false;
     }
 }
-[Serializable]
-public class LoadLevelEvent : UnityEvent<string> { }
