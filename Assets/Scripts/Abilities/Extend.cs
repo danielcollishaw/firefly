@@ -10,6 +10,7 @@
 #endregion
 
 using System;
+using UnityEngine;
 
 public static class Extend
 {
@@ -19,5 +20,21 @@ public static class Extend
         if (value > inRangeB) result = outRangeB;
         else if (value < inRangeA) result = outRangeA;
         return result;
+    }
+    public static string GetComponentNames(GameObject owningObject)
+    {
+        Component[] components = owningObject.GetComponents<Component>();
+        int count = components.Length;
+        string output = "";
+
+        output += $"Component count: {count} |\n";
+
+        for (int i = 0; i < components.Length; i++)
+        {
+            Component comp = components[i];
+            output += $"Type: {comp.GetType()}, component name: {comp.name}, index: {i}, toString: {comp} |\n";
+        }
+
+        return output;
     }
 }
