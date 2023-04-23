@@ -15386,14 +15386,14 @@ MonoBehaviour:
   CollisionTag: Player
   EventReference:
     Guid:
-      Data1: 791177396
-      Data2: 1118076853
-      Data3: 559878043
-      Data4: 1509283540
+      Data1: -563728477
+      Data2: 1102259755
+      Data3: 1408732811
+      Data4: -1347974921
     Path: event:/PressurePlate
   Event: 
   PlayEvent: 3
-  StopEvent: 4
+  StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 1
   Preload: 0

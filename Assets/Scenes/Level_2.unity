@@ -7803,6 +7803,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6592173752134973674, guid: 219323638401f4047a17b7a75c684edb, type: 3}
+      propertyPath: <PressurePlate>k__BackingField.Path
+      value: event:/PressurePlate 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592173752134973674, guid: 219323638401f4047a17b7a75c684edb, type: 3}
+      propertyPath: <PressurePlate>k__BackingField.Guid.Data1
+      value: -563728477
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592173752134973674, guid: 219323638401f4047a17b7a75c684edb, type: 3}
+      propertyPath: <PressurePlate>k__BackingField.Guid.Data2
+      value: 1102259755
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592173752134973674, guid: 219323638401f4047a17b7a75c684edb, type: 3}
+      propertyPath: <PressurePlate>k__BackingField.Guid.Data3
+      value: 1408732811
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592173752134973674, guid: 219323638401f4047a17b7a75c684edb, type: 3}
+      propertyPath: <PressurePlate>k__BackingField.Guid.Data4
+      value: -1347974921
+      objectReference: {fileID: 0}
     - target: {fileID: 6592173752384395594, guid: 219323638401f4047a17b7a75c684edb, type: 3}
       propertyPath: m_Name
       value: AudioManager
@@ -8149,42 +8169,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 6b3e08b19a8a5bc42aca2b30611da807, type: 3}
---- !u!1 &1028384303 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4491597157531278860, guid: e9e52aa791dec434c8fc77acffa9b9e3, type: 3}
-  m_PrefabInstance: {fileID: 1598807777}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1028384310
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1028384303}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: Player
-  EventReference:
-    Guid:
-      Data1: -1096981952
-      Data2: 1116511799
-      Data3: 62631851
-      Data4: -209615635
-    Path: event:/AbilityFireflyIdle
-  Event: 
-  PlayEvent: 1
-  StopEvent: 3
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  AllowNonRigidbodyDoppler: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!1001 &1030157015
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18808,14 +18792,14 @@ MonoBehaviour:
   CollisionTag: Player
   EventReference:
     Guid:
-      Data1: 791177396
-      Data2: 1118076853
-      Data3: 559878043
-      Data4: 1509283540
+      Data1: -563728477
+      Data2: 1102259755
+      Data3: 1408732811
+      Data4: -1347974921
     Path: event:/PressurePlate
   Event: 
   PlayEvent: 3
-  StopEvent: 4
+  StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 1
   Preload: 0
