@@ -201,8 +201,8 @@ MonoBehaviour:
   Preload: 0
   AllowNonRigidbodyDoppler: 0
   Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
+  OverrideAttenuation: 1
+  OverrideMinDistance: 8
   OverrideMaxDistance: 20
 --- !u!1 &311187542766610219
 GameObject:

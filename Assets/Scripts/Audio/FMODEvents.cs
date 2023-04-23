@@ -14,6 +14,9 @@ public class FMODEvents : MonoBehaviour
     [field: Header("Running SFX")]
     [field: SerializeField] public EventReference runSFX { get; private set; }
 
+    [field: Header("Running Grown SFX")]
+    [field: SerializeField] public EventReference runGrownSFX { get; private set; }
+
     [field: Header("Jumping Big SFX")]
     [field: SerializeField] public EventReference JumpBigSFX { get; private set; }
 
@@ -38,6 +41,11 @@ public class FMODEvents : MonoBehaviour
     [field: Header("UI Click SFX")]
     [field: SerializeField] public EventReference UI_ClickSFX { get; private set; }
 
+    [field: Header("Gravity Field Ambient")]
+    [field: SerializeField] public EventReference GravityField { get; private set; }
+
+    [field: Header("Level 5 Music")]
+    [field: SerializeField] public EventReference Level5Music { get; private set; }
 
     public static FMODEvents instance { get; private set; }
 

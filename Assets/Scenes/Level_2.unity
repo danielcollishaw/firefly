@@ -7803,26 +7803,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6592173752134973674, guid: 219323638401f4047a17b7a75c684edb, type: 3}
-      propertyPath: <PressurePlate>k__BackingField.Path
-      value: event:/PressurePlate 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6592173752134973674, guid: 219323638401f4047a17b7a75c684edb, type: 3}
-      propertyPath: <PressurePlate>k__BackingField.Guid.Data1
-      value: -563728477
-      objectReference: {fileID: 0}
-    - target: {fileID: 6592173752134973674, guid: 219323638401f4047a17b7a75c684edb, type: 3}
-      propertyPath: <PressurePlate>k__BackingField.Guid.Data2
-      value: 1102259755
-      objectReference: {fileID: 0}
-    - target: {fileID: 6592173752134973674, guid: 219323638401f4047a17b7a75c684edb, type: 3}
-      propertyPath: <PressurePlate>k__BackingField.Guid.Data3
-      value: 1408732811
-      objectReference: {fileID: 0}
-    - target: {fileID: 6592173752134973674, guid: 219323638401f4047a17b7a75c684edb, type: 3}
-      propertyPath: <PressurePlate>k__BackingField.Guid.Data4
-      value: -1347974921
-      objectReference: {fileID: 0}
     - target: {fileID: 6592173752384395594, guid: 219323638401f4047a17b7a75c684edb, type: 3}
       propertyPath: m_Name
       value: AudioManager

@@ -72,7 +72,7 @@ public class StretchMechanic : MonoBehaviour
         EventShrinkBegin.AddListener(OnShrinkBegin);
         EventShrinkEnd.AddListener(OnShrinkEnd);
 
-        Debug.Log("Stretch mechanic equipped!");
+        // Debug.Log("Stretch mechanic equipped!");
     }
     void Update()
     {

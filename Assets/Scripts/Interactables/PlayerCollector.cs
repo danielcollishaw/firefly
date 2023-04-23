@@ -82,6 +82,7 @@ public class PlayerCollector : MonoBehaviour
         for(int i = 0; i < collectableList.Count; i++)
         {
             collectableList[i].gameObject.SetActive(true);
+            collectableList[i].gameObject.GetComponent<FMODUnity.StudioEventEmitter>().Play();
         }
 
         winTextObject.SetActive(false);

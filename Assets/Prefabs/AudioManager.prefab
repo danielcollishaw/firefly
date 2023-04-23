@@ -65,6 +65,13 @@ MonoBehaviour:
       Data3: 227497344
       Data4: 849409952
     Path: event:/RunningSmall
+  <runGrownSFX>k__BackingField:
+    Guid:
+      Data1: 853248044
+      Data2: 1180041263
+      Data3: -1730218077
+      Data4: 554058317
+    Path: event:/RunningBig
   <JumpBigSFX>k__BackingField:
     Guid:
       Data1: 1006451790
@@ -95,11 +102,11 @@ MonoBehaviour:
     Path: event:/Shrink
   <GlideSFX>k__BackingField:
     Guid:
-      Data1: -1229463268
-      Data2: 1198641450
-      Data3: 1885618349
-      Data4: 877980246
-    Path: event:/GravityField
+      Data1: 206867435
+      Data2: 1242060900
+      Data3: -1053532762
+      Data4: -805870945
+    Path: event:/Shrink
   <TimeTrial>k__BackingField:
     Guid:
       Data1: 880831707
@@ -109,10 +116,10 @@ MonoBehaviour:
     Path: event:/TimeTrial
   <PressurePlate>k__BackingField:
     Guid:
-      Data1: 791177396
-      Data2: 1118076853
-      Data3: 559878043
-      Data4: 1509283540
+      Data1: -563728477
+      Data2: 1102259755
+      Data3: 1408732811
+      Data4: -1347974921
     Path: event:/PressurePlate
   <UI_ClickSFX>k__BackingField:
     Guid:
@@ -121,6 +128,20 @@ MonoBehaviour:
       Data3: 687570572
       Data4: -1090587717
     Path: event:/UIClick
+  <GravityField>k__BackingField:
+    Guid:
+      Data1: -1229463268
+      Data2: 1198641450
+      Data3: 1885618349
+      Data4: 877980246
+    Path: event:/GravityField
+  <Level5Music>k__BackingField:
+    Guid:
+      Data1: -2066471737
+      Data2: 1201129947
+      Data3: 176806810
+      Data4: -1480636758
+    Path: event:/Level5
 --- !u!1 &6592173752384395594
 GameObject:
   m_ObjectHideFlags: 0
