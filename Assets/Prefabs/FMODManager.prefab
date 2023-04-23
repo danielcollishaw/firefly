@@ -49,5 +49,6 @@ MonoBehaviour:
   Banks:
   - SFX
   - Ambient
+  - Music
   CollisionTag: 
   PreloadSamples: 1

@@ -1,17 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 [RequireComponent(typeof(Collider))]
+[RequireComponent(typeof(StudioEventEmitter))]
 public class GravityField : MonoBehaviour
 {
     public float force = 75f;
 
 	protected Collider m_collider;
 
+	private StudioEventEmitter emitter;
+
     // Start is called before the first frame update
     void Start()
     {
+		emitter = AudioManager.instance.InitializeEventEmitter(FMODEvents.instance.GravityField, this.gameObject);
+		emitter.Play();
+
         m_collider = GetComponent<Collider>();
 		m_collider.isTrigger = true;
     }
