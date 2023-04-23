@@ -23,7 +23,7 @@ public class ObjectiveTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log($"Trigger {other.name} entered!");
-        LevelManager.Single.EventLevelComplete.Invoke();
+        //LevelManager.Instance.EventLevelComplete.Invoke();
     }
 
 

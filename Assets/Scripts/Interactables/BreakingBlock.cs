@@ -9,7 +9,7 @@ public class BreakingBlock : MonoBehaviour
     [SerializeField]
     private GameObject breakingMesh;
 
-    private const float DELAY = 5.0f;
+    private const float DELAY = 4.5f;
 
     private readonly List<GameObject> allBreakablePieces = new();
 
@@ -24,7 +24,7 @@ public class BreakingBlock : MonoBehaviour
         }
 
         ToggleBreakable(false);
-        BreakApart();
+        
     }
     private void Update()
     {
@@ -34,7 +34,7 @@ public class BreakingBlock : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") && collision.gameObject.GetComponent<Animator>().GetBool("IsRolling"))
         {
-            //BreakApart();
+            BreakApart();
         }
     }
     private void ToggleBreakable(bool activated)
@@ -62,12 +62,17 @@ public class BreakingBlock : MonoBehaviour
             {
                 meshCollider.enabled = activated;
             }
+
+            if (breakablePiece.TryGetComponent<Rigidbody>(out var rigidBody))
+            {
+                rigidBody.useGravity = activated;
+            }
         }
     }
     private void BreakApart()
     {
         ToggleBreakable(true);
-        //StartCoroutine(DestroyDelay());
+        StartCoroutine(DestroyDelay());
     }
     private IEnumerator DestroyDelay()
     {
@@ -78,6 +83,8 @@ public class BreakingBlock : MonoBehaviour
             Destroy(allBreakablePieces[i]);
         }
 
+        Destroy(breakingMesh);
+        Destroy(regularMesh);
         Destroy(this);
     }
 }
