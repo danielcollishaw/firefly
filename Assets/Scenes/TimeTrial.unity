@@ -244,6 +244,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9183699493144805100, guid: aa3555115ca73704fbc11a2dd6023d26, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa3555115ca73704fbc11a2dd6023d26, type: 3}
 --- !u!1001 &20004053
@@ -774,11 +778,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7030073787162373675, guid: 485fc736b00cdda40b8176bdcca094cc, type: 3}
   m_PrefabInstance: {fileID: 167906975}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &185492573 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8022141580945908566, guid: ef8f80a46292b2d48b8f5911538fbc06, type: 3}
-  m_PrefabInstance: {fileID: 1820562320}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &233054533
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1063,11 +1062,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83e68e0c877faaa4790ff415bd175697, type: 3}
---- !u!1 &370171729 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2843234968580044483, guid: 83e68e0c877faaa4790ff415bd175697, type: 3}
-  m_PrefabInstance: {fileID: 370171728}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &444073253
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1590,6 +1584,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8717200268732440239, guid: aa3555115ca73704fbc11a2dd6023d26, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8950241155860821775, guid: aa3555115ca73704fbc11a2dd6023d26, type: 3}
+      propertyPath: PlayEvent
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9183699493144805100, guid: aa3555115ca73704fbc11a2dd6023d26, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2483,6 +2485,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9183699493144805100, guid: aa3555115ca73704fbc11a2dd6023d26, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa3555115ca73704fbc11a2dd6023d26, type: 3}
 --- !u!1001 &1005827314
@@ -2550,6 +2556,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8717200268732440239, guid: aa3555115ca73704fbc11a2dd6023d26, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9183699493144805100, guid: aa3555115ca73704fbc11a2dd6023d26, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2621,37 +2631,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8022141580945948534, guid: ef8f80a46292b2d48b8f5911538fbc06, type: 3}
   m_PrefabInstance: {fileID: 1820562320}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1107083530
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 185492573}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: -527011006
-      Data2: 1158722378
-      Data3: 1023786647
-      Data4: 527742372
-    Path: event:/CampFire
-  Event: 
-  PlayEvent: 1
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  AllowNonRigidbodyDoppler: 0
-  Params: []
-  OverrideAttenuation: 1
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 28
 --- !u!1001 &1157475771
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3251,37 +3230,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3188235790914088057, guid: 83e68e0c877faaa4790ff415bd175697, type: 3}
   m_PrefabInstance: {fileID: 370171728}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1403074255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 370171729}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: Player
-  EventReference:
-    Guid:
-      Data1: -1096981952
-      Data2: 1116511799
-      Data3: 62631851
-      Data4: -209615635
-    Path: event:/FireflyIdle
-  Event: 
-  PlayEvent: 0
-  StopEvent: 3
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  AllowNonRigidbodyDoppler: 0
-  Params: []
-  OverrideAttenuation: 1
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 25
 --- !u!1001 &1441532303
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4114,6 +4062,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8717200268732440239, guid: aa3555115ca73704fbc11a2dd6023d26, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8950241155860821775, guid: aa3555115ca73704fbc11a2dd6023d26, type: 3}
+      propertyPath: PlayEvent
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9183699493144805100, guid: aa3555115ca73704fbc11a2dd6023d26, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
