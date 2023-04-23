@@ -385,6 +385,7 @@ MonoBehaviour:
   - Master
   Banks:
   - Ambient
+  - Music
   - SFX
   BanksToLoad:
   - Master

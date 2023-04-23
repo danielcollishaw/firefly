@@ -65,6 +65,7 @@ public class TimeTrial : MonoBehaviour
                 // No need to keep this line once scene restarts
                 countdownTimer.text = "Time's up!";
                 reset.ResetLevel();
+                ResetTimer();
             }
         }
     }
@@ -76,14 +77,13 @@ public class TimeTrial : MonoBehaviour
         if (other.gameObject.CompareTag("Roll"))
         {
             abilityFireFly = other;
-            abilityFireFly.gameObject.SetActive(false);
             timeLeft = totalTimeTrial;
             timerStarted = true;
         }
     }
     public void ResetTimer()
     {
-        abilityFireFly.gameObject.SetActive(true);
+        // abilityFireFly.gameObject.SetActive(true);
         timerStarted = false;
         timeLeft = totalTimeTrial;
         countdownTimer.text = "";

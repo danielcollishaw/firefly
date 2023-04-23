@@ -56,6 +56,7 @@ public class PlayerMovement : MonoBehaviour
 
     // Audio
     private EventInstance playerFootsteps;
+    private EventInstance playerFootstepsGrown;
     private EventInstance glideWind;
 
     void Start()
@@ -66,7 +67,8 @@ public class PlayerMovement : MonoBehaviour
         EventJump.AddListener(OnJump);
 
         playerFootsteps = AudioManager.instance.CreateEventInstance(FMODEvents.instance.runSFX);
-        glideWind = AudioManager.instance.CreateEventInstance(FMODEvents.instance.GlideSFX);
+        playerFootstepsGrown = AudioManager.instance.CreateEventInstance(FMODEvents.instance.runGrownSFX);
+        // glideWind = AudioManager.instance.CreateEventInstance(FMODEvents.instance.GlideSFX);
     }
 
     // Update is called once per frame
@@ -121,12 +123,12 @@ public class PlayerMovement : MonoBehaviour
         // Makes gravity stronger
         player.AddForce(Physics.gravity * gravityScale, ForceMode.Acceleration);
 
-        // Limit diagonal movement by avoiding compounding of speed when the a keyboard input.
-        if (x != 0 && z != 0)
-        {
-            x *= moveLimiter;
-            z *= moveLimiter;
-        }
+        //  // Limit diagonal movement by avoiding compounding of speed when the a keyboard input.
+        // if (x != 0 && z != 0)
+        // {
+        //     x *= moveLimiter;
+        //     z *= moveLimiter;
+        // }
 
         // Applies velocity change the reason it is encapsulated is because we do not want to set velocity instantly to zero
         // we want friction to handle this for smoother feeling (See rigid body drag)
@@ -290,7 +292,7 @@ public class PlayerMovement : MonoBehaviour
     private void UpdateRunningSound()
     {
         // Start footsteps audio event if the player is moving and on the ground
-        if ((x != 0 || z != 0) && OnGround())
+        if ((x != 0 || z != 0) && OnGround() && !stretchMechanic.ReadyToJump)
         {
             PLAYBACK_STATE playbackState;
             playerFootsteps.getPlaybackState(out playbackState);
@@ -300,10 +302,21 @@ public class PlayerMovement : MonoBehaviour
                 playerFootsteps.start();
             }
         }
+        else if ((x != 0 || z != 0) && OnGround() && stretchMechanic.ReadyToJump)
+        {
+            PLAYBACK_STATE playbackState;
+            playerFootstepsGrown.getPlaybackState(out playbackState);
+
+            if (playbackState.Equals(PLAYBACK_STATE.STOPPED))
+            {
+                playerFootstepsGrown.start();
+            }
+        }
         // Stop event if otherwise
         else
         {
             playerFootsteps.stop(STOP_MODE.ALLOWFADEOUT);
+            playerFootstepsGrown.stop(STOP_MODE.ALLOWFADEOUT);
         }
     }
 
