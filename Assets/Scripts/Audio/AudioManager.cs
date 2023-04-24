@@ -50,17 +50,16 @@ public class AudioManager : MonoBehaviour
     {
         // Minus 1 for offset
         int level = SceneManager.GetActiveScene().buildIndex;
-        Debug.Log("Build Index: " + level);
 
         switch (level)
         {
             case 0:
                 InitializeMusic(FMODEvents.instance.MenuMusic);
                 break;
-           /* case 1:
+            case 1:
                 InitializeMusic(FMODEvents.instance.OverWorldMusic);
                 break;
-            case 2: 
+            case 2:
                 InitializeMusic(FMODEvents.instance.Level1Music);
                 break;
             case 3:
@@ -83,7 +82,7 @@ public class AudioManager : MonoBehaviour
                 break;
             case 9:
                 InitializeMusic(FMODEvents.instance.Level8Music);
-                break;*/
+                break;
             default:
                 Debug.LogError("Found mystery scene: " + level);
                 break;

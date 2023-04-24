@@ -47,7 +47,7 @@ public class FMODEvents : MonoBehaviour
     // Music for levels
     [field: Header("Menu Music")]
     [field: SerializeField] public EventReference MenuMusic { get; private set; }
-/*
+
     [field: Header("OverWorld Music")]
     [field: SerializeField] public EventReference OverWorldMusic { get; private set; }
 
@@ -73,7 +73,7 @@ public class FMODEvents : MonoBehaviour
     [field: SerializeField] public EventReference Level7Music { get; private set; }
 
     [field: Header("Level 8Music")]
-    [field: SerializeField] public EventReference Level8Music { get; private set; }*/
+    [field: SerializeField] public EventReference Level8Music { get; private set; }
 
     public static FMODEvents instance { get; private set; }
 
