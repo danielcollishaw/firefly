@@ -78,7 +78,9 @@ public class AudioManager : MonoBehaviour
                 InitializeMusic(FMODEvents.instance.Level6Music);
                 break;
             case 8:
-                InitializeMusic(FMODEvents.instance.Level7Music);
+                // Special TimeTrial case
+                // Start music once ability firefly is interacted with
+                // InitializeMusic(FMODEvents.instance.Level7Music);
                 break;
             case 9:
                 InitializeMusic(FMODEvents.instance.Level8Music);
@@ -124,7 +126,14 @@ public class AudioManager : MonoBehaviour
         musicEventInstance = CreateEventInstance(musicEventReference);
         musicEventInstance.start();
     }
-
+    public void TimeTrialMusicStart()
+    {
+        InitializeMusic(FMODEvents.instance.Level7Music);
+    }
+    public void TimeTrialMusicStop()
+    {
+        musicEventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+    }
     private void CleanUp()
     {
         // Stop and release any created instances

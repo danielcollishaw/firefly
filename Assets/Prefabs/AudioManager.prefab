@@ -186,25 +186,25 @@ MonoBehaviour:
     Path: event:/Music/Level5Music
   <Level6Music>k__BackingField:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 585735188
+      Data2: 1121546850
+      Data3: 795992511
+      Data4: -263882566
+    Path: event:/Music/Level6Music
   <Level7Music>k__BackingField:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 1168763465
+      Data2: 1184022628
+      Data3: 1874794430
+      Data4: -32796517
+    Path: event:/Music/Level7Music
   <Level8Music>k__BackingField:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 381015126
+      Data2: 1099863880
+      Data3: -1338659674
+      Data4: -1831496094
+    Path: event:/Music/Level8Music
 --- !u!1 &6592173752384395594
 GameObject:
   m_ObjectHideFlags: 0
