@@ -41,11 +41,39 @@ public class FMODEvents : MonoBehaviour
     [field: Header("UI Click SFX")]
     [field: SerializeField] public EventReference UI_ClickSFX { get; private set; }
 
-    [field: Header("Gravity Field Ambient")]
+    [field: Header("Gravity Field SFX")]
     [field: SerializeField] public EventReference GravityField { get; private set; }
+
+    // Music for levels
+    [field: Header("Menu Music")]
+    [field: SerializeField] public EventReference MenuMusic { get; private set; }
+/*
+    [field: Header("OverWorld Music")]
+    [field: SerializeField] public EventReference OverWorldMusic { get; private set; }
+
+    [field: Header("Level 1 Music")]
+    [field: SerializeField] public EventReference Level1Music { get; private set; }
+
+    [field: Header("Level 2 Music")]
+    [field: SerializeField] public EventReference Level2Music { get; private set; }
+
+    [field: Header("Level 3 Music")]
+    [field: SerializeField] public EventReference Level3Music { get; private set; }
+
+    [field: Header("Level 4 Music")]
+    [field: SerializeField] public EventReference Level4Music { get; private set; }
 
     [field: Header("Level 5 Music")]
     [field: SerializeField] public EventReference Level5Music { get; private set; }
+
+    [field: Header("Level 6 Music")]
+    [field: SerializeField] public EventReference Level6Music { get; private set; }
+
+    [field: Header("Level 7Music")]
+    [field: SerializeField] public EventReference Level7Music { get; private set; }
+
+    [field: Header("Level 8Music")]
+    [field: SerializeField] public EventReference Level8Music { get; private set; }*/
 
     public static FMODEvents instance { get; private set; }
 

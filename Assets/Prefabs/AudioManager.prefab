@@ -50,49 +50,49 @@ MonoBehaviour:
       Data2: 1126642904
       Data3: -378697846
       Data4: -366190356
-    Path: event:/FireflyInteract
+    Path: event:/SFX/Interactables/FireflyInteract
   <FireflyInteract2SFX>k__BackingField:
     Guid:
       Data1: 1037406853
       Data2: 1116518011
       Data3: 383065997
       Data4: -673823550
-    Path: event:/FireflyInteract2
+    Path: event:/SFX/Interactables/FireflyInteract2
   <runSFX>k__BackingField:
     Guid:
       Data1: -1138102722
       Data2: 1298586777
       Data3: 227497344
       Data4: 849409952
-    Path: event:/RunningSmall
+    Path: event:/SFX/Player/RunningSmall
   <runGrownSFX>k__BackingField:
     Guid:
       Data1: 853248044
       Data2: 1180041263
       Data3: -1730218077
       Data4: 554058317
-    Path: event:/RunningBig
+    Path: event:/SFX/Player/RunningBig
   <JumpBigSFX>k__BackingField:
     Guid:
       Data1: 1006451790
       Data2: 1263002278
       Data3: 33138365
       Data4: -1453596901
-    Path: event:/JumpBig
+    Path: event:/SFX/Player/JumpBig
   <JumpSmallSFX>k__BackingField:
     Guid:
       Data1: -1627457838
       Data2: 1196424598
       Data3: 1883668355
       Data4: 1315932785
-    Path: event:/JumpSmall
+    Path: event:/SFX/Player/JumpSmall
   <GrowSFX>k__BackingField:
     Guid:
       Data1: -625660854
       Data2: 1209500877
       Data3: -1029390969
       Data4: 102653689
-    Path: event:/Grow
+    Path: event:/SFX/Player/Grow
   <ShrinkSFX>k__BackingField:
     Guid:
       Data1: 206867435
@@ -120,28 +120,91 @@ MonoBehaviour:
       Data2: 1102259755
       Data3: 1408732811
       Data4: -1347974921
-    Path: event:/PressurePlate
+    Path: event:/SFX/Interactables/PressurePlate
   <UI_ClickSFX>k__BackingField:
     Guid:
       Data1: 458364950
       Data2: 1182489754
       Data3: 687570572
       Data4: -1090587717
-    Path: event:/UIClick
+    Path: event:/SFX/Menu/UIClick
   <GravityField>k__BackingField:
     Guid:
       Data1: -1229463268
       Data2: 1198641450
       Data3: 1885618349
       Data4: 877980246
-    Path: event:/GravityField
+    Path: event:/SFX/Interactables/GravityField
+  <MenuMusic>k__BackingField:
+    Guid:
+      Data1: 632043583
+      Data2: 1315726446
+      Data3: 227617183
+      Data4: 378960810
+    Path: event:/Music/Menu
+  <OverWorldMusic>k__BackingField:
+    Guid:
+      Data1: -691658602
+      Data2: 1220002035
+      Data3: -334853994
+      Data4: 1849818184
+    Path: event:/Music/OverWorld
+  <Level1Music>k__BackingField:
+    Guid:
+      Data1: -94700048
+      Data2: 1191536294
+      Data3: -402189151
+      Data4: 1452032520
+    Path: event:/Music/Level1
+  <Level2Music>k__BackingField:
+    Guid:
+      Data1: -1295499925
+      Data2: 1123394835
+      Data3: -1970975050
+      Data4: 25746568
+    Path: event:/Music/Level2
+  <Level3Music>k__BackingField:
+    Guid:
+      Data1: -1340044901
+      Data2: 1206001768
+      Data3: -1744325733
+      Data4: 1869963552
+    Path: event:/Music/Level3
+  <Level4Music>k__BackingField:
+    Guid:
+      Data1: -1155355289
+      Data2: 1172659470
+      Data3: 1711978402
+      Data4: 529568208
+    Path: event:/Music/Level4
   <Level5Music>k__BackingField:
     Guid:
       Data1: -2066471737
       Data2: 1201129947
       Data3: 176806810
       Data4: -1480636758
-    Path: event:/Level5
+    Path: event:/Music/Level5
+  <Level6Music>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <Level7Music>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <Level8Music>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1 &6592173752384395594
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,3 +250,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b6ca7f5cd047574aafca14d8fa121c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  masterVolume: 1
+  musicVolume: 1
+  sfxVolume: 1
