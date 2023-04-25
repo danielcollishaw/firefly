@@ -21,8 +21,6 @@ public class TimeTrial : MonoBehaviour
     [SerializeField]
     private PlayerCollector playerCollector;
 
-    private bool levelCompleted = false;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -36,7 +34,8 @@ public class TimeTrial : MonoBehaviour
         // Stop time trial audio
         //dateTimeTrialSound();
 
-        levelCompleted = playerCollector.GetLevelCompleted();
+        bool levelCompleted = playerCollector.levelCompleted;
+        //Debug.Log("level complete is " + levelCompleted);
 
         // Began countdown if level mechanic is triggered
         if (timerStarted)
@@ -81,7 +80,6 @@ public class TimeTrial : MonoBehaviour
         timerStarted = false;
         timeLeft = totalTimeTrial;
         countdownTimer.text = "";
-        levelCompleted = false;
         playerCollector.ResetCount();
 
         // TimeTrial Music ends

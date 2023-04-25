@@ -1406,7 +1406,6 @@ GameObject:
   - component: {fileID: 5865838463187177807}
   - component: {fileID: 5865838463187177804}
   - component: {fileID: 5865838463187177801}
-  - component: {fileID: 8565372159384268380}
   m_Layer: 2
   m_Name: Devin
   m_TagString: Player
@@ -1552,8 +1551,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireflycountText: {fileID: 0}
   winTextObject: {fileID: 0}
-  numberOfCollectableFireflies: 7
-  WintextTimer: 5
+  finalJar: {fileID: 0}
+  firefly: {fileID: 2843234968580044483, guid: 83e68e0c877faaa4790ff415bd175697, type: 3}
+  numberOfCollectableFireflies: 5
+  levelCompleted: 0
+  totalTimeTrial: 20
+  textTimer: 5
 --- !u!114 &5865838463187177801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1573,23 +1576,6 @@ MonoBehaviour:
   collisionFix: {fileID: 5865838463187177802}
   meshInstance: {fileID: 6263693983746804232}
   playerMovement: {fileID: 5865838463187177806}
---- !u!114 &8565372159384268380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6748306291699650738}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1307088d1d91af34c8f88200302d152a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  devin: {fileID: 6748306291699650738}
-  totalTimeTrial: 45
-  countdownTimer: {fileID: 0}
-  reset: {fileID: 0}
-  playerCollector: {fileID: 5865838463187177804}
 --- !u!1 &6801180477323178985
 GameObject:
   m_ObjectHideFlags: 0
