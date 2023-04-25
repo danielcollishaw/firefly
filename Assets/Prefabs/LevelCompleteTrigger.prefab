@@ -59,6 +59,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collision: {fileID: 8097916028521093413}
+  chooseLevelCompPrefab: {fileID: 4062741050915917432, guid: be4bd624431d3cd49bd04a335b8c279f, type: 3}
+  baseCamera: {fileID: 0}
 --- !u!1 &7374684010647990544
 GameObject:
   m_ObjectHideFlags: 0

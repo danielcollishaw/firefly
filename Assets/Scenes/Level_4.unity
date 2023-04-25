@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17305318, g: 0.21628338, b: 0.29828143, a: 1}
+  m_IndirectSpecularColor: {r: 0.17305282, g: 0.21628276, b: 0.2982799, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -16704,6 +16704,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelCompleteTrigger
       objectReference: {fileID: 0}
+    - target: {fileID: 7745128550520264224, guid: 3a479e9d924941e448feab3954d31602, type: 3}
+      propertyPath: levelId
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7745128550520264224, guid: 3a479e9d924941e448feab3954d31602, type: 3}
+      propertyPath: baseCamera
+      value: 
+      objectReference: {fileID: 1280646499}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a479e9d924941e448feab3954d31602, type: 3}
 --- !u!1001 &1353216942

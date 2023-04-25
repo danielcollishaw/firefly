@@ -214,7 +214,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -6758535891718695188, guid: 0cfd1314fdfe30b4daa4323a8f7f8295, type: 3}
       propertyPath: levelName
-      value: Carlos Scene 1
+      value: Tutorial Level
       objectReference: {fileID: 0}
     - target: {fileID: -6758535891718695188, guid: 0cfd1314fdfe30b4daa4323a8f7f8295, type: 3}
       propertyPath: baseCamera
@@ -761,7 +761,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -6758535891718695188, guid: 0cfd1314fdfe30b4daa4323a8f7f8295, type: 3}
       propertyPath: levelName
-      value: Carlos Scene 2
+      value: Level_2
       objectReference: {fileID: 0}
     - target: {fileID: -6758535891718695188, guid: 0cfd1314fdfe30b4daa4323a8f7f8295, type: 3}
       propertyPath: baseCamera

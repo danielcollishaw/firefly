@@ -94,7 +94,10 @@ public class OverworldLevel : MonoBehaviour
 
                 if (pressed)
                 {
-                    LoadLevel();
+                    if (unlocked)
+                    {
+                        LoadLevel();
+                    }
                 }
             }
         }
@@ -143,7 +146,16 @@ public class OverworldLevel : MonoBehaviour
         {
             this.chooseLevelComp = chooseLevelComp;
             chooseLevelComp.Init(gameObject);
-            chooseLevelComp.SetLevelText(levelName);
+
+            if (unlocked)
+            {
+                chooseLevelComp.SetLevelText(levelName);
+            }
+            else
+            {
+                chooseLevelComp.SetLevelText("LOCKED\n" + levelName);
+            }
+            
             chooseLevelComp.SetCanvasCamera(devinCamera);
         }
         else
