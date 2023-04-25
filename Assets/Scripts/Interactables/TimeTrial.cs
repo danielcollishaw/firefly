@@ -40,7 +40,7 @@ public class TimeTrial : MonoBehaviour
     void Update()
     {
         // Stop time trial audio
-        UpdateTimeTrialSound();
+        //dateTimeTrialSound();
 
         bool levelCompleted = playerCollector.levelCompleted;
         //Debug.Log("level complete is " + levelCompleted);
@@ -79,6 +79,9 @@ public class TimeTrial : MonoBehaviour
             abilityFireFly = other;
             timeLeft = totalTimeTrial;
             timerStarted = true;
+
+            // TimeTrial Music begins
+            AudioManager.instance.TimeTrialMusicStart();
         }
     }
     public void ResetTimer()
@@ -88,9 +91,12 @@ public class TimeTrial : MonoBehaviour
         timeLeft = totalTimeTrial;
         countdownTimer.text = "";
         playerCollector.ResetCount();
+
+        // TimeTrial Music ends
+        AudioManager.instance.TimeTrialMusicStop();
     }
 
-    private void UpdateTimeTrialSound()
+    /*private void UpdateTimeTrialSound()
     {
         // Start footsteps audio event if the player is moving and on the ground
         if (timerStarted)
@@ -108,6 +114,6 @@ public class TimeTrial : MonoBehaviour
         {
             TimeTrialSFX.stop(STOP_MODE.ALLOWFADEOUT);
         }
-    }
+    }*/
 }
 

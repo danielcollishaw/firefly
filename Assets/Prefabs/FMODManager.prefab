@@ -48,7 +48,6 @@ MonoBehaviour:
   UnloadEvent: 2
   Banks:
   - SFX
-  - Ambient
   - Music
   CollisionTag: 
   PreloadSamples: 1

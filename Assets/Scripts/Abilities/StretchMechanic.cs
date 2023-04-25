@@ -67,10 +67,10 @@ public class StretchMechanic : MonoBehaviour
     {
         originalHeight = mainCollision.height;
 
-        EventStretchBegin.AddListener(OnStretchBegin);
+        //EventStretchBegin.AddListener(OnStretchBegin);
         EventStretchEnd.AddListener(OnStretchEnd);
-        EventShrinkBegin.AddListener(OnShrinkBegin);
-        EventShrinkEnd.AddListener(OnShrinkEnd);
+        //EventShrinkBegin.AddListener(OnShrinkBegin);
+        //EventShrinkEnd.AddListener(OnShrinkEnd);
 
         // Debug.Log("Stretch mechanic equipped!");
     }
@@ -81,25 +81,25 @@ public class StretchMechanic : MonoBehaviour
         if (stretchInput) IncreaseHeight();
         else DecreaseHeight();
     }
-    private void OnStretchBegin()
+    /*private void OnStretchBegin()
     {
         Debug.Log("Stretch began.");
-    }
+    }*/
     private void OnStretchEnd()
     {
         readyToJump = true;
         Debug.Log("Stretch ended.");
     }
-    private void OnShrinkBegin()
+    /*private void OnShrinkBegin()
     {
         //playerMovement.EventJump?.Invoke();
         Debug.Log("Shrink began.");
-    }
-    private void OnShrinkEnd()
+    }*/
+    /*private void OnShrinkEnd()
     {
         //StartCoroutine(GrowJumpDelay());
         Debug.Log("Shrink ended.");
-    }
+    }*/
     private void IncreaseHeight()
     {
         if (mainCollision.height <= maxHeight)
