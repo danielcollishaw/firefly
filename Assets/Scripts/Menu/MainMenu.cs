@@ -8,6 +8,8 @@ public class MainMenu : MonoBehaviour
     [Header("Audio Menu Settings")]
     [SerializeField] private AudioMenuSettings audioMenuSettings;
 
+    [Header("Menu Settings")]
+    [SerializeField] private GameObject menuSettings;
     private bool InSettings = false;
 
     private void Update()
@@ -19,10 +21,18 @@ public class MainMenu : MonoBehaviour
         else if (Input.GetButtonDown("MenuToggle") && !InSettings)
         {
             Settings();
+            InSettings = true;
+            menuSettings.SetActive(false);
         }
         else if(Input.GetButtonDown("Exit"))
         {
             ExitGame();
+        }
+        else if(InSettings && Input.GetButtonDown("MenuToggle") || Input.GetButtonDown("Back"))
+        {
+            Settings();
+            menuSettings.SetActive(true);
+            InSettings = false;
         }
     }
 
