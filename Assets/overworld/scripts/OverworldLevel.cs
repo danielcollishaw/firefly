@@ -44,6 +44,8 @@ public class OverworldLevel : MonoBehaviour
     private bool canLoad = true;
     private bool canChooseLevel = false;
     private bool levelLoading = false;
+
+    private bool unlocked;
     
     private void Start()
     {
@@ -74,18 +76,11 @@ public class OverworldLevel : MonoBehaviour
             Debug.Log("OverworldLevel>Couldn't get devinCamera.");
         }
     }
-    public void Init(string levelName)
+    public void Init(bool unlocked)
     {
-        /*this.levelName = levelName;
+        this.unlocked = unlocked;
 
-        if (levelTextComp.TryGetComponent<TextMeshPro>(out var levelText))
-        {
-            levelText.text = levelName;
-        }
-        else
-        {
-            Debug.Log("Level text wasn't found!");
-        }*/
+        Debug.Log(levelName + "- unlocked: " + unlocked); // DEBUG
     }
     private void Update()
     {

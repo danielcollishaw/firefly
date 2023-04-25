@@ -10,7 +10,8 @@
 #endregion
 
 using System;
-using System.Text.Json;
+using System.Linq;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -20,8 +21,18 @@ public class LevelManager : MonoBehaviour
     {
         get => instance;
     }
+    public GameSave GameSave
+    {
+        get => gameSave;
+    }
+    public List<bool> UnlockedLevels
+    {
+        get => unlockedLevels;
+    }
 
     private static LevelManager instance;
+    private GameSave gameSave;
+    private List<bool> unlockedLevels;
 
     private void Awake()
     {
@@ -34,11 +45,15 @@ public class LevelManager : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(gameObject);
 
+        gameSave = GameSave.LoadGameSave();
+        unlockedLevels = gameSave.LevelsUnlocked.ToList();
+
         Scene activeScene = SceneManager.GetActiveScene();
         Debug.Log($"Welcome to {activeScene.name}!");
     }
-    private bool Save()
+    private void OnDestroy()
     {
-        return false;
+        gameSave.LevelsUnlocked = unlockedLevels.ToArray();
+        GameSave.SaveGameSave(gameSave);
     }
 }

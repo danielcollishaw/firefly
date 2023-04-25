@@ -11,7 +11,6 @@
 
 using System;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 
 public class Overworld : MonoBehaviour
@@ -25,10 +24,19 @@ public class Overworld : MonoBehaviour
     private void DetectLevels()
     {
         OverworldLevel[] foundOverworldLevels = FindObjectsOfType<OverworldLevel>();
+        List<bool> unlockedLevels = LevelManager.Instance.UnlockedLevels;
 
         for (int i = 0; i < foundOverworldLevels.Length; i++)
         {
-            allOverworldLevels.Add(foundOverworldLevels[i]);
+            OverworldLevel level = foundOverworldLevels[i];
+
+            if (unlockedLevels.Count <= i)
+            {
+                unlockedLevels.Add(false);
+            }
+
+            level.Init(unlockedLevels[i]);
+            allOverworldLevels.Add(level);
         }
     }
 }
