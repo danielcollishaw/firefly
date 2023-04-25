@@ -23,8 +23,8 @@ public class ShowUI : MonoBehaviour
     IEnumerator WaitForSec() 
     {
         yield return new WaitForSeconds(5);
-        Destroy(uiObject);
-        Destroy(gameObject);
+        uiObject.SetActive(false);
+        gameObject.SetActive(true);
     }
 
     // Update is called once per frame
