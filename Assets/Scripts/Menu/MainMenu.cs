@@ -5,25 +5,38 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    // New game loads the index of the first level in Build settings
-    public void NewGame()
+    [Header("Audio Menu Settings")]
+    [SerializeField] private AudioMenuSettings audioMenuSettings;
+
+    private bool InSettings = false;
+
+    private void Update()
     {
-        SceneManager.LoadScene("overworld/scenes/overworld", LoadSceneMode.Single);
+        if (Input.GetButtonDown("Jump"))
+        {
+            StartGame();
+        }
+        else if (Input.GetButtonDown("MenuToggle") && !InSettings)
+        {
+            Settings();
+        }
+        else if(Input.GetButtonDown("Exit"))
+        {
+            ExitGame();
+        }
     }
 
-    // This will need a fix!!!
-    // Save latest scene user achieved and load that scene
-    public void ContinueGame()
+    // Start game 
+    public void StartGame()
     {
         SceneManager.LoadScene("overworld/scenes/overworld", LoadSceneMode.Single);
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     // FIXME:
     // We need to brainstorm ideas for this!!
     public void Settings()
     {
-        
+        audioMenuSettings.MainMenuSettings();
     }
 
     // Exits game

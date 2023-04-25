@@ -15,25 +15,17 @@ public class TimeTrial : MonoBehaviour
     private bool timerStarted = false;
     private float timeLeft;
 
-    private Collider abilityFireFly;
-
     [SerializeField]
     private Reset reset;
 
     [SerializeField]
     private PlayerCollector playerCollector;
 
-    // Audio
-    private EventInstance TimeTrialSFX;
-
     // Start is called before the first frame update
     void Start()
     {
         // Reference to playercollect script
         playerCollector = devin.GetComponent<PlayerCollector>();
-
-        // TimeTrial audio event
-        TimeTrialSFX = AudioManager.instance.CreateEventInstance(FMODEvents.instance.TimeTrial);
     }
 
     // Update is called once per frame
@@ -57,7 +49,7 @@ public class TimeTrial : MonoBehaviour
                 countdownTimer.text = "";
                 timerStarted = false;
             }
-            // FIXME!!!: Restart level
+            // Restart level
             else if (timeLeft <= 0)
             {
                 timerStarted = false;
@@ -76,7 +68,6 @@ public class TimeTrial : MonoBehaviour
         // Add roll mechanic as well
         if (other.gameObject.CompareTag("Roll"))
         {
-            abilityFireFly = other;
             timeLeft = totalTimeTrial;
             timerStarted = true;
 
@@ -86,7 +77,6 @@ public class TimeTrial : MonoBehaviour
     }
     public void ResetTimer()
     {
-        // abilityFireFly.gameObject.SetActive(true);
         timerStarted = false;
         timeLeft = totalTimeTrial;
         countdownTimer.text = "";
@@ -95,25 +85,5 @@ public class TimeTrial : MonoBehaviour
         // TimeTrial Music ends
         AudioManager.instance.TimeTrialMusicStop();
     }
-
-    /*private void UpdateTimeTrialSound()
-    {
-        // Start footsteps audio event if the player is moving and on the ground
-        if (timerStarted)
-        {
-            PLAYBACK_STATE playbackState;
-            TimeTrialSFX.getPlaybackState(out playbackState);
-
-            if (playbackState.Equals(PLAYBACK_STATE.STOPPED))
-            {
-                TimeTrialSFX.start();
-            }
-        }
-        // Stop event if otherwise
-        else
-        {
-            TimeTrialSFX.stop(STOP_MODE.ALLOWFADEOUT);
-        }
-    }*/
 }
 
