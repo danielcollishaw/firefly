@@ -16,11 +16,15 @@ public class Reset : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent<TimeTrial>(out var timetrial))
+        if(other.gameObject.CompareTag("Player"))
         {
+            if (other.TryGetComponent<TimeTrial>(out var timetrial))
+            {
             timetrial.ResetTimer();
+            }
+            ResetLevel();
+
         }
-        ResetLevel();
     }
 
     public void setSpawn(Vector3 pos)
