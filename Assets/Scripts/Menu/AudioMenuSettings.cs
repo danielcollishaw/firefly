@@ -12,7 +12,7 @@ public class AudioMenuSettings : MonoBehaviour
 
     private bool InMenu = false;
 
-    private void Start()
+    void Start()
     {
         menu.SetActive(false);
     }
