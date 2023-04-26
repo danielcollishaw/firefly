@@ -51,6 +51,9 @@ public class FMODEvents : MonoBehaviour
     [field: Header("OverWorld Music")]
     [field: SerializeField] public EventReference OverWorldMusic { get; private set; }
 
+    [field: Header("Tutorial Music")]
+    [field: SerializeField] public EventReference TutorialMusic { get; private set; }
+
     [field: Header("Level 1 Music")]
     [field: SerializeField] public EventReference Level1Music { get; private set; }
 
