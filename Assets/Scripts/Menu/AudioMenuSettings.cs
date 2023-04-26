@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class AudioMenuSettings : MonoBehaviour
@@ -11,15 +12,17 @@ public class AudioMenuSettings : MonoBehaviour
     [SerializeField] private PlayerMovement playerMovement;
 
     private bool InMenu = false;
+    private int level;
 
     private void Start()
     {
+        level = SceneManager.GetActiveScene().buildIndex;
         menu.SetActive(false);
     }
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("MenuToggle"))
+        if (level > 0 && Input.GetButtonDown("MenuToggle"))
         {
             ToggleAudioMenu();
             InMenu = true;

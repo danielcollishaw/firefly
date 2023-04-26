@@ -11,6 +11,7 @@ public class MainMenu : MonoBehaviour
 
     [Header("Menu Settings")]
     [SerializeField] private GameObject menuSettings;
+
     private bool InSettings = false;
 
     private void Update()
@@ -19,17 +20,17 @@ public class MainMenu : MonoBehaviour
         {
             StartGame();
         }
-        else if (Input.GetButtonDown("MenuToggle") && !InSettings)
+        else if (Input.GetButtonDown("Back") && !InSettings)
         {
-            Settings();
             InSettings = true;
             menuSettings.SetActive(false);
+            Settings();
         }
         else if (Input.GetButtonDown("Exit"))
         {
             ExitGame();
         }
-        else if (InSettings && Input.GetButtonDown("MenuToggle") || Input.GetButtonDown("Back"))
+        else if (InSettings &&  Input.GetButtonDown("Back"))
         {
             Settings();
             menuSettings.SetActive(true);
