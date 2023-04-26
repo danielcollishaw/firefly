@@ -116,6 +116,7 @@ public class PlayerMovement : MonoBehaviour
 
             NormalizeSpeed();
         }
+        
     }
 
     // FixedUpdate is called on physic updates
@@ -137,7 +138,7 @@ public class PlayerMovement : MonoBehaviour
 
         // Applies velocity change the reason it is encapsulated is because we do not want to set velocity instantly to zero
         // we want friction to handle this for smoother feeling (See rigid body drag)
-        if (x != 0 || z != 0)
+        if ((x != 0 || z != 0) && movementEnabled)
         {
             Vector3 move = new Vector3(x * BaseSpeed, 0, z * BaseSpeed);
             move = playerCamera.transform.TransformDirection(move);
@@ -306,7 +307,7 @@ public class PlayerMovement : MonoBehaviour
     private void UpdateRunningSound()
     {
         // Start footsteps audio event if the player is moving and on the ground
-        if ((x != 0 || z != 0) && OnGround() && !stretchMechanic.ReadyToJump)
+        if ((x != 0 || z != 0) && OnGround() && !stretchMechanic.ReadyToJump && movementEnabled)
         {
             PLAYBACK_STATE playbackState;
             playerFootsteps.getPlaybackState(out playbackState);
@@ -316,7 +317,7 @@ public class PlayerMovement : MonoBehaviour
                 playerFootsteps.start();
             }
         }
-        else if ((x != 0 || z != 0) && OnGround() && stretchMechanic.ReadyToJump)
+        else if ((x != 0 || z != 0) && OnGround() && stretchMechanic.ReadyToJump && movementEnabled)
         {
             PLAYBACK_STATE playbackState;
             playerFootstepsGrown.getPlaybackState(out playbackState);

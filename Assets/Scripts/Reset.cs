@@ -18,12 +18,12 @@ public class Reset : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
+            AudioManager.instance.PlayOneShot(FMODEvents.instance.DeathSFX, other.transform.position);
             if (other.TryGetComponent<TimeTrial>(out var timetrial))
             {
-            timetrial.ResetTimer();
+                timetrial.ResetTimer();
             }
             ResetLevel();
-
         }
     }
 

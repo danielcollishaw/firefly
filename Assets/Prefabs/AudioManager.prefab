@@ -93,20 +93,13 @@ MonoBehaviour:
       Data3: -1029390969
       Data4: 102653689
     Path: event:/SFX/Player/Grow
-  <ShrinkSFX>k__BackingField:
+  <RollSFX>k__BackingField:
     Guid:
-      Data1: 206867435
-      Data2: 1242060900
-      Data3: -1053532762
-      Data4: -805870945
-    Path: event:/Shrink
-  <GlideSFX>k__BackingField:
-    Guid:
-      Data1: 206867435
-      Data2: 1242060900
-      Data3: -1053532762
-      Data4: -805870945
-    Path: event:/Shrink
+      Data1: -1444129160
+      Data2: 1252322652
+      Data3: -794121578
+      Data4: 1537054278
+    Path: event:/SFX/Player/Roll
   <TimeTrial>k__BackingField:
     Guid:
       Data1: 880831707
@@ -135,6 +128,13 @@ MonoBehaviour:
       Data3: 1885618349
       Data4: 877980246
     Path: event:/SFX/Interactables/GravityField
+  <DeathSFX>k__BackingField:
+    Guid:
+      Data1: 1246797782
+      Data2: 1331817884
+      Data3: 1905479861
+      Data4: -308203735
+    Path: event:/SFX/Player/Death
   <MenuMusic>k__BackingField:
     Guid:
       Data1: -1884657229
@@ -205,6 +205,13 @@ MonoBehaviour:
       Data3: 1874794430
       Data4: -32796517
     Path: event:/Music/Level7Music
+  <Level7Timer>k__BackingField:
+    Guid:
+      Data1: -1098067934
+      Data2: 1208691518
+      Data3: 227042195
+      Data4: 2041279197
+    Path: event:/Music/Level7Music2
   <Level8Music>k__BackingField:
     Guid:
       Data1: 381015126

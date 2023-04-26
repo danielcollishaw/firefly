@@ -35,6 +35,8 @@ public class RollingAbility : Ability
         movement.SetSpeed(activeSpeed * speedMultiplier);
         movement.MultHeight(heightMultiplier);
 
+        // Audio SFX
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.RollSFX, parent.transform.position);
         //Debug.Log($"Height: {movement.BaseHeight}, Speed: {movement.BaseSpeed}"); // DEBUG
     }
     public override void Deactivate(GameObject parent)

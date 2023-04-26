@@ -42,3 +42,7 @@ For the model creation, rigging, and animation of the main player and the firefl
   - [Free Low Poly Nature Forest](https://assetstore.unity.com/packages/3d/environments/landscapes/free-low-poly-nature-forest-205742)
   - [Simple Low Poly Nature Pack](https://assetstore.unity.com/packages/3d/environments/landscapes/simple-low-poly-nature-pack-157552)
   - [Mixamo](https://www.mixamo.com/#/)
+  - [Epidemicsound](https://www.epidemicsound.com)
+  - [The 8-bit Jukebox Lite - Music Pack](https://assetstore.unity.com/packages/audio/music/electronic/the-8-bit-jukebox-lite-music-pack-70436)
+  - [Piaxbay 8-bit Arcade](https://pixabay.com/music/video-games-8-bit-arcade-138828/)
+  - [Piaxbay pixel death](https://pixabay.com/sound-effects/pixel-death-66829/)
