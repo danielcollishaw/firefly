@@ -22,7 +22,7 @@ public class ShowUI : MonoBehaviour
 
     IEnumerator WaitForSec() 
     {
-        yield return new WaitForSeconds(6);
+        yield return new WaitForSeconds(5);
         uiObject.SetActive(false);
         gameObject.SetActive(true);
     }
