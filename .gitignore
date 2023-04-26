@@ -78,3 +78,4 @@ crashlytics-build.properties
 fmod_editor.log
 
 /[Aa]ssets/save.json
+/[Aa]ssets/save.json.meta
