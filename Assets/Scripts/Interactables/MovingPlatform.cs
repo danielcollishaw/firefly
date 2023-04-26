@@ -32,6 +32,7 @@ public class MovingPlatform : MonoBehaviour
         direction = end - start;
         direction.Normalize();
         threshold = buffer * speed * Time.deltaTime;
+        parent.transform.position = start + ((end - start) / 2);
     }
     private void Update()
     {
