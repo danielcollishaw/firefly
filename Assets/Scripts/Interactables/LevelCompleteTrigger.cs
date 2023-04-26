@@ -85,10 +85,12 @@ public class LevelCompleteTrigger : MonoBehaviour
         if (!hasLoaded)
         {
             hasLoaded = true;
+            int nextLevelId = levelId + 1;
+
 
             try
             {
-                LevelManager.Instance.UnlockedLevels[levelId + 1] = true;
+                //LevelManager.Instance.GameSave.LevelsUnlocked[levelId + 1] = true;
             }
             catch (IndexOutOfRangeException ex)
             {

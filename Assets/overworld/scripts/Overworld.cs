@@ -24,7 +24,7 @@ public class Overworld : MonoBehaviour
     private void DetectLevels()
     {
         OverworldLevel[] foundOverworldLevels = FindObjectsOfType<OverworldLevel>();
-        List<bool> unlockedLevels = LevelManager.Instance.UnlockedLevels;
+        Dictionary<string, bool> unlockedLevels = LevelManager.Instance.GameSave.LevelsUnlocked;
 
         for (int i = 0; i < foundOverworldLevels.Length; i++)
         {
@@ -32,14 +32,14 @@ public class Overworld : MonoBehaviour
 
             if (unlockedLevels.Count <= i && i == 0)
             {
-                unlockedLevels.Add(true);
+                unlockedLevels.Add(level.LevelName, true);
             }
             else if (unlockedLevels.Count <= i)
             {
-                unlockedLevels.Add(false);
+                unlockedLevels.Add(level.LevelName, false);
             }
 
-            level.Init(unlockedLevels[i]);
+            level.Init(unlockedLevels[level.LevelName]);
             allOverworldLevels.Add(level);
         }
     }

@@ -10,7 +10,6 @@
 #endregion
 
 using System;
-using System.Net.Sockets;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -19,6 +18,10 @@ public class OverworldLevel : MonoBehaviour
     public Camera DevinCamera
     {
         get => devinCamera;
+    }
+    public string LevelName
+    {
+        get => levelName;
     }
 
     private const string BASE_LEVEL = "Scenes/";
@@ -34,10 +37,7 @@ public class OverworldLevel : MonoBehaviour
     private Camera devinCamera;
 
     private GameObject mesh;
-
     private GameObject chooseLevelCompObject;
-    private ChooseLevelComp chooseLevelComp;
-
     
     private float activeRotation = 0.0f;
 
@@ -144,7 +144,6 @@ public class OverworldLevel : MonoBehaviour
 
         if (chooseLevelCompObject.TryGetComponent<ChooseLevelComp>(out var chooseLevelComp))
         {
-            this.chooseLevelComp = chooseLevelComp;
             chooseLevelComp.Init(gameObject);
 
             if (unlocked)

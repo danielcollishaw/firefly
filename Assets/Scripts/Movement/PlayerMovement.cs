@@ -83,7 +83,6 @@ public class PlayerMovement : MonoBehaviour
             UpdateJumpSound();
 
             bool checkOnGround = OnGround();
-            Debug.Log("Is on ground: " + checkOnGround);
 
             if (OnGround())
             {
