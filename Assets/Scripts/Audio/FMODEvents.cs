@@ -26,11 +26,8 @@ public class FMODEvents : MonoBehaviour
     [field: Header("Grow SFX")]
     [field: SerializeField] public EventReference GrowSFX { get; private set; }
 
-    [field: Header("Shrink SFX")]
-    [field: SerializeField] public EventReference ShrinkSFX { get; private set; }
-
-    [field: Header("Glide SFX")]
-    [field: SerializeField] public EventReference GlideSFX { get; private set; }
+    [field: Header("Roll SFX")]
+    [field: SerializeField] public EventReference RollSFX { get; private set; }
 
     [field: Header("Time trial SFX")]
     [field: SerializeField] public EventReference TimeTrial { get; private set; }
@@ -43,6 +40,9 @@ public class FMODEvents : MonoBehaviour
 
     [field: Header("Gravity Field SFX")]
     [field: SerializeField] public EventReference GravityField { get; private set; }
+
+    [field: Header("Death SFX")]
+    [field: SerializeField] public EventReference DeathSFX { get; private set; }
 
     // Music for levels
     [field: Header("Menu Music")]

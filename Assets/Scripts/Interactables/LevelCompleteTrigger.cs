@@ -42,7 +42,7 @@ public class LevelCompleteTrigger : MonoBehaviour
                 mesh = child.gameObject;
             }
         }
-        
+
 
         if (baseCamera.TryGetComponent<Camera>(out var devinCamera))
         {
@@ -59,7 +59,7 @@ public class LevelCompleteTrigger : MonoBehaviour
         if (canLoad)
         {
             bool pressed = Input.GetButton("Confirm");
-            
+
             if (pressed)
             {
                 GoBackToOverworld();

@@ -1,17 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AudioMenuSettings : MonoBehaviour
 {
     [Header("Components")]
     [SerializeField] private GameObject menu;
-
+    [SerializeField] private GameObject firstSlider;
     [Header("Player")]
     [SerializeField] private PlayerMovement playerMovement;
 
-    private bool InMenu = false;
     private int level;
 
     private void Start()
@@ -23,12 +24,6 @@ public class AudioMenuSettings : MonoBehaviour
     void Update()
     {
         if (level > 0 && Input.GetButtonDown("MenuToggle"))
-        {
-            ToggleAudioMenu();
-            InMenu = true;
-        }
-
-        if(InMenu && Input.GetButtonDown("Back"))
         {
             ToggleAudioMenu();
         }
@@ -44,7 +39,6 @@ public class AudioMenuSettings : MonoBehaviour
         else
         {
             menu.SetActive(true);
-            // highlight first selected slider
             playerMovement.MovementDisabled();
         }
     }
@@ -59,6 +53,8 @@ public class AudioMenuSettings : MonoBehaviour
         {
             menu.SetActive(true);
             // highlight first selected slider
+            var eventSystem = EventSystem.current;
+            eventSystem.SetSelectedGameObject(firstSlider, new BaseEventData(eventSystem));
         }
     }
 }

@@ -38,7 +38,6 @@ public class OverworldLevel : MonoBehaviour
 
     private GameObject mesh;
     private GameObject chooseLevelCompObject;
-    
     private float activeRotation = 0.0f;
 
     private bool canLoad = true;
@@ -46,7 +45,7 @@ public class OverworldLevel : MonoBehaviour
     private bool levelLoading = false;
 
     private bool unlocked;
-    
+
     private void Start()
     {
         if (levelName == "")
@@ -154,7 +153,7 @@ public class OverworldLevel : MonoBehaviour
             {
                 chooseLevelComp.SetLevelText("LOCKED\n" + levelName);
             }
-            
+
             chooseLevelComp.SetCanvasCamera(devinCamera);
         }
         else

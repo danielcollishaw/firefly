@@ -16,7 +16,7 @@ using System.Collections.Generic;
 public class Overworld : MonoBehaviour
 {
     private readonly List<OverworldLevel> allOverworldLevels = new();
-    
+
     private void Start()
     {
         DetectLevels();
