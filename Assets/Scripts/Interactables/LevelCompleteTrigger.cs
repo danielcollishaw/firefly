@@ -70,14 +70,16 @@ public class LevelCompleteTrigger : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            ToggleChooseLevelComp(true);
+            canLoad = true;
+            //ToggleChooseLevelComp(true);
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            ToggleChooseLevelComp(false);
+            canLoad = false;
+            //ToggleChooseLevelComp(false);
         }
     }
     private void GoBackToOverworld()

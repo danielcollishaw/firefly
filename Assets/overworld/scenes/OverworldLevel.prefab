@@ -49,6 +49,7 @@ MonoBehaviour:
   levelName: 
   rotateSpeed: 25
   chooseLevelCompPrefab: {fileID: 4062741050915917432, guid: be4bd624431d3cd49bd04a335b8c279f, type: 3}
+  baseCamera: {fileID: 0}
 --- !u!135 &2029783431564212092
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -60,7 +61,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 20
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &8399842516711700853
 PrefabInstance:
