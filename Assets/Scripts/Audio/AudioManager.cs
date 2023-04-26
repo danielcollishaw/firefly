@@ -60,29 +60,32 @@ public class AudioManager : MonoBehaviour
                 InitializeMusic(FMODEvents.instance.OverWorldMusic);
                 break;
             case 2:
-                InitializeMusic(FMODEvents.instance.Level1Music);
+                InitializeMusic(FMODEvents.instance.TutorialMusic);
                 break;
             case 3:
-                InitializeMusic(FMODEvents.instance.Level2Music);
+                InitializeMusic(FMODEvents.instance.Level1Music);
                 break;
             case 4:
-                InitializeMusic(FMODEvents.instance.Level3Music);
+                InitializeMusic(FMODEvents.instance.Level2Music);
                 break;
             case 5:
-                InitializeMusic(FMODEvents.instance.Level4Music);
+                InitializeMusic(FMODEvents.instance.Level3Music);
                 break;
             case 6:
-                InitializeMusic(FMODEvents.instance.Level5Music);
+                InitializeMusic(FMODEvents.instance.Level4Music);
                 break;
             case 7:
-                InitializeMusic(FMODEvents.instance.Level6Music);
+                InitializeMusic(FMODEvents.instance.Level5Music);
                 break;
             case 8:
+                InitializeMusic(FMODEvents.instance.Level6Music);
+                break;
+            case 9:
                 // Special TimeTrial case
                 // Start music once ability firefly is interacted with
                 // InitializeMusic(FMODEvents.instance.Level7Music);
                 break;
-            case 9:
+            case 10:
                 InitializeMusic(FMODEvents.instance.Level8Music);
                 break;
             default:

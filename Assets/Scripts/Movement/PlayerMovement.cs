@@ -58,6 +58,9 @@ public class PlayerMovement : MonoBehaviour
     private EventInstance playerFootsteps;
     private EventInstance playerFootstepsGrown;
     private EventInstance glideWind;
+    
+    // Movement flag for when in menu settings
+    private bool movementEnabled = true;
 
     void Start()
     {
@@ -74,42 +77,48 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Takes current input direction vector values [-1, 1];
-        x = Input.GetAxisRaw("Horizontal");
-        z = Input.GetAxisRaw("Vertical");
-
-        if (Input.GetButtonDown("Jump"))
+        if(movementEnabled)
         {
             UpdateJumpSound();
-
             bool checkOnGround = OnGround();
+            
+            // Takes current input direction vector values [-1, 1];
+            x = Input.GetAxisRaw("Horizontal");
+            z = Input.GetAxisRaw("Vertical");
+
+            if (Input.GetButtonDown("Jump"))
+            {
+                UpdateJumpSound();
+
+                bool checkOnGround = OnGround();
+                Debug.Log("Is on ground: " + checkOnGround);
+
+                if (OnGround())
+                {
+                    jumped = true;
+                }
+                else
+                {
+                    doubleJumped = true;
+                }
+            }
+
+            if (doubleJumpDelay)
+            {
+                if (OnGround())
+                {
+                    doubleJumpIsOnGround = true;
+                }
+            }
 
             if (OnGround())
             {
-                jumped = true;
+                SetGlide(false);
+                animator.SetBool("IsGliding", false);
             }
-            else
-            {
-                doubleJumped = true;
-            }
+
+            NormalizeSpeed();
         }
-
-        if (doubleJumpDelay)
-        {
-            if (OnGround())
-            {
-                doubleJumpIsOnGround = true;
-            }
-        }
-
-        if (OnGround())
-        {
-            SetGlide(false);
-            animator.SetBool("IsGliding", false);
-        }
-
-
-        NormalizeSpeed();
     }
 
     // FixedUpdate is called on physic updates
@@ -186,6 +195,15 @@ public class PlayerMovement : MonoBehaviour
             if (!(player.velocity.y > 0))
                 player.AddForce(Physics.gravity * gravityScale * -glideRate);
         }
+    }
+
+    public void MovementEnabled()
+    {
+        movementEnabled = true;
+    }
+    public void MovementDisabled()
+    {
+        movementEnabled=false;
     }
     private IEnumerator JumpDelay()
     {
