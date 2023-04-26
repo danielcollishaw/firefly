@@ -85,7 +85,7 @@ public class LevelCompleteTrigger : MonoBehaviour
         if (!hasLoaded)
         {
             hasLoaded = true;
-
+            
             try
             {
                 LevelManager.Instance.GameSave.LevelsUnlocked[nextLevel] = true;

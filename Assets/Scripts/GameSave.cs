@@ -18,7 +18,6 @@ using System.Collections.Generic;
 public class GameSave
 {
     public Dictionary<string, bool> LevelsUnlocked { get; set; } = new Dictionary<string, bool>();
-
     public float MasterSlider { get; set; } = 1;
     public float MusicSlider { get; set; } = 1;
     public float SFXSlider { get; set; } = 1;
@@ -77,3 +76,4 @@ public class GameSave
     private static string SerializeGameSave(GameSave gameSave) => JsonConvert.SerializeObject(gameSave, CreateSettings());
     private static GameSave DeserializeGameSave(string jsonData) => JsonConvert.DeserializeObject<GameSave>(jsonData, CreateSettings());
 }
+

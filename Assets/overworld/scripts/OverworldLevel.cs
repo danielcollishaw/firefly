@@ -38,7 +38,6 @@ public class OverworldLevel : MonoBehaviour
 
     private GameObject mesh;
     private GameObject chooseLevelCompObject;
-
     private float activeRotation = 0.0f;
 
     private bool canLoad = true;
