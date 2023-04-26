@@ -255,7 +255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menu: {fileID: 2499239023723433645}
   firstSlider: {fileID: 2837499179499613933}
-  playerMovement: {fileID: 0}
+  playerMovement: {fileID: 5865838463187177806, guid: f05d41c05d15296408c06bc70e870305, type: 3}
 --- !u!1 &2996279785962438093
 GameObject:
   m_ObjectHideFlags: 0

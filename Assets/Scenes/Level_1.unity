@@ -1205,7 +1205,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 177434660}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
@@ -14055,7 +14055,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Devin
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5865838463187177804, guid: f05d41c05d15296408c06bc70e870305, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f05d41c05d15296408c06bc70e870305, type: 3}
 --- !u!1 &1506386201 stripped
 GameObject:
@@ -14929,12 +14930,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7745128550520264224, guid: 3a479e9d924941e448feab3954d31602, type: 3}
       propertyPath: nextLevel
-      value: Level_1
+      value: Level_2
       objectReference: {fileID: 0}
     - target: {fileID: 7745128550520264224, guid: 3a479e9d924941e448feab3954d31602, type: 3}
       propertyPath: baseCamera
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 886866196}
     - target: {fileID: 8097916028521093413, guid: 3a479e9d924941e448feab3954d31602, type: 3}
       propertyPath: m_Size.x
       value: 14.6401825
