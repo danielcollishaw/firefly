@@ -13,10 +13,12 @@ using System;
 using UnityEngine;
 using Newtonsoft.Json;
 using System.IO;
+using System.Collections.Generic;
 
 public class GameSave
 {
-    public bool[] LevelsUnlocked { get; set; } = new bool[] { };
+    public Dictionary<string, bool> LevelsUnlocked { get; set; } = new Dictionary<string, bool>();
+    //public bool[] LevelsUnlocked { get; set; } = new bool[] { };
 
     private const string SAVE_PATH = "save.json";
     public GameSave() {  }
@@ -53,11 +55,20 @@ public class GameSave
     }
     private static string CreatePath()
     {
-        string path = string.Format("{0}{1}", Application.dataPath, SAVE_PATH);
+        string path = string.Format("{0}/{1}", Application.dataPath, SAVE_PATH);
         Debug.Log("Path created: " + path); // DEBUG
         return path;
     }
+    private static JsonSerializerSettings CreateSettings()
+    {
+        var options = new JsonSerializerSettings()
+        {
+            Formatting = Formatting.Indented
+        };
 
-    private static string SerializeGameSave(GameSave gameSave) => JsonConvert.SerializeObject(gameSave);
-    private static GameSave DeserializeGameSave(string jsonData) => JsonConvert.DeserializeObject<GameSave>(jsonData);
+        return options;
+    }
+
+    private static string SerializeGameSave(GameSave gameSave) => JsonConvert.SerializeObject(gameSave, CreateSettings());
+    private static GameSave DeserializeGameSave(string jsonData) => JsonConvert.DeserializeObject<GameSave>(jsonData, CreateSettings());
 }

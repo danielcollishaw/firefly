@@ -16,7 +16,7 @@ using UnityEngine.SceneManagement;
 public class LevelCompleteTrigger : MonoBehaviour
 {
     [SerializeField]
-    private int levelId = 1;
+    private string nextLevel = "";
     [SerializeField]
     private BoxCollider collision;
     [SerializeField]
@@ -85,14 +85,14 @@ public class LevelCompleteTrigger : MonoBehaviour
         if (!hasLoaded)
         {
             hasLoaded = true;
-
+            
             try
             {
-                LevelManager.Instance.UnlockedLevels[levelId + 1] = true;
+                LevelManager.Instance.GameSave.LevelsUnlocked[nextLevel] = true;
             }
-            catch (IndexOutOfRangeException ex)
+            catch (Exception ex)
             {
-                Debug.Log($"LevelCompleteTrigger>Index {levelId + 1} out of range. Error: {ex}");
+                Debug.Log($"LevelCompleteTrigger>Name: {nextLevel} doesn't exist. Error: {ex}");
                 return;
             }
 
