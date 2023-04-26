@@ -104,7 +104,7 @@ MonoBehaviour:
       Data2: 1158722378
       Data3: 1023786647
       Data4: 527742372
-    Path: event:/CampFire
+    Path: event:/SFX/Non-Interactables/CampFire
   Event: 
   PlayEvent: 1
   StopEvent: 2
@@ -113,9 +113,9 @@ MonoBehaviour:
   Preload: 0
   AllowNonRigidbodyDoppler: 0
   Params: []
-  OverrideAttenuation: 1
+  OverrideAttenuation: 0
   OverrideMinDistance: 1
-  OverrideMaxDistance: 28
+  OverrideMaxDistance: 10
 --- !u!1 &8022141581426973635
 GameObject:
   m_ObjectHideFlags: 0
