@@ -16,7 +16,7 @@ using UnityEngine.SceneManagement;
 public class LevelCompleteTrigger : MonoBehaviour
 {
     [SerializeField]
-    private int levelId = 1;
+    private string nextLevel = "";
     [SerializeField]
     private BoxCollider collision;
     [SerializeField]
@@ -42,7 +42,7 @@ public class LevelCompleteTrigger : MonoBehaviour
                 mesh = child.gameObject;
             }
         }
-        
+
 
         if (baseCamera.TryGetComponent<Camera>(out var devinCamera))
         {
@@ -59,7 +59,7 @@ public class LevelCompleteTrigger : MonoBehaviour
         if (canLoad)
         {
             bool pressed = Input.GetButton("Confirm");
-            
+
             if (pressed)
             {
                 GoBackToOverworld();
@@ -88,11 +88,11 @@ public class LevelCompleteTrigger : MonoBehaviour
 
             try
             {
-                LevelManager.Instance.UnlockedLevels[levelId + 1] = true;
+                LevelManager.Instance.GameSave.LevelsUnlocked[nextLevel] = true;
             }
-            catch (IndexOutOfRangeException ex)
+            catch (Exception ex)
             {
-                Debug.Log($"LevelCompleteTrigger>Index {levelId + 1} out of range. Error: {ex}");
+                Debug.Log($"LevelCompleteTrigger>Name: {nextLevel} doesn't exist. Error: {ex}");
                 return;
             }
 

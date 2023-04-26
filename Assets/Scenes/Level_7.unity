@@ -1995,6 +1995,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2996279785436310261, guid: b743b233d1f3ebc49a6da1a3058ebd47, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2996279785691371032, guid: b743b233d1f3ebc49a6da1a3058ebd47, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -2082,6 +2086,10 @@ PrefabInstance:
     - target: {fileID: 2996279785691371036, guid: b743b233d1f3ebc49a6da1a3058ebd47, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2996279785962438093, guid: b743b233d1f3ebc49a6da1a3058ebd47, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3352595340338259057, guid: b743b233d1f3ebc49a6da1a3058ebd47, type: 3}
       propertyPath: m_AnchorMax.x
