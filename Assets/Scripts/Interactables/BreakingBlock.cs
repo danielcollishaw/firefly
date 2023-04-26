@@ -30,13 +30,15 @@ public class BreakingBlock : MonoBehaviour
     {
         
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerStay(Collider collision)
     {
         if (collision.gameObject.CompareTag("Player") && collision.gameObject.GetComponent<Animator>().GetBool("IsRolling"))
         {
             BreakApart();
+            collision.gameObject.GetComponent<Animator>().SetBool("IsRolling", false);
         }
     }
+
     private void ToggleBreakable(bool activated)
     {
         if (regularMesh.TryGetComponent<MeshRenderer>(out var meshRenderer))
@@ -71,6 +73,8 @@ public class BreakingBlock : MonoBehaviour
     }
     private void BreakApart()
     {
+        gameObject.GetComponent<BoxCollider>().enabled = false;
+        regularMesh.GetComponent<BoxCollider>().enabled = false;
         ToggleBreakable(true);
         StartCoroutine(DestroyDelay());
     }
