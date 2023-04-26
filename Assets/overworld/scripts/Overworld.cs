@@ -30,7 +30,7 @@ public class Overworld : MonoBehaviour
         {
             OverworldLevel level = foundOverworldLevels[i];
 
-            if (unlockedLevels.Count <= i && i == 0)
+            if (unlockedLevels.Count <= i && level.LevelName == "Tutorial Level")
             {
                 unlockedLevels.Add(level.LevelName, true);
             }

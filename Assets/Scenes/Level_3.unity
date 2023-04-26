@@ -4534,6 +4534,10 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7745128550520264224, guid: 3a479e9d924941e448feab3954d31602, type: 3}
+      propertyPath: nextLevel
+      value: Level_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7745128550520264224, guid: 3a479e9d924941e448feab3954d31602, type: 3}
       propertyPath: baseCamera
       value: 
       objectReference: {fileID: 614194021}

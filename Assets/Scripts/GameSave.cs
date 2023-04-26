@@ -59,7 +59,16 @@ public class GameSave
         Debug.Log("Path created: " + path); // DEBUG
         return path;
     }
+    private static JsonSerializerSettings CreateSettings()
+    {
+        var options = new JsonSerializerSettings()
+        {
+            Formatting = Formatting.Indented
+        };
 
-    private static string SerializeGameSave(GameSave gameSave) => JsonConvert.SerializeObject(gameSave);
-    private static GameSave DeserializeGameSave(string jsonData) => JsonConvert.DeserializeObject<GameSave>(jsonData);
+        return options;
+    }
+
+    private static string SerializeGameSave(GameSave gameSave) => JsonConvert.SerializeObject(gameSave, CreateSettings());
+    private static GameSave DeserializeGameSave(string jsonData) => JsonConvert.DeserializeObject<GameSave>(jsonData, CreateSettings());
 }
