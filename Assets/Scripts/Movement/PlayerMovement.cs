@@ -79,9 +79,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if(movementEnabled)
         {
-            UpdateJumpSound();
-            bool checkOnGround = OnGround();
-            
             // Takes current input direction vector values [-1, 1];
             x = Input.GetAxisRaw("Horizontal");
             z = Input.GetAxisRaw("Vertical");
@@ -89,9 +86,7 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetButtonDown("Jump"))
             {
                 UpdateJumpSound();
-
                 bool checkOnGround = OnGround();
-                Debug.Log("Is on ground: " + checkOnGround);
 
                 if (OnGround())
                 {
