@@ -7,18 +7,15 @@ using TMPro;
 public class PlayerCollector : MonoBehaviour
 {
     private int collectableCount;
-    private readonly List<Collider> collectableList = new List<Collider>();
+    private readonly List<Collider> collectableList = new();
 
-    //public TextMeshProUGUI countText;
     public TextMeshProUGUI fireflycountText;
     public GameObject winTextObject;
-    public GameObject finalJar;
-    public GameObject firefly;
 
     public int numberOfCollectableFireflies;
-    public bool levelCompleted = false;
-    public float totalTimeTrial = 20.0f;
-    public float textTimer = 5;
+
+    private bool levelCompleted = false;
+    public float WintextTimer = 5;
 
     // Start is called before the first frame update
     void Start()
@@ -27,28 +24,27 @@ public class PlayerCollector : MonoBehaviour
 
         SetCountText();
         winTextObject.SetActive(false);
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        // if all collectable fireflies are collected
         if (collectableCount >= numberOfCollectableFireflies)
         {
             levelCompleted = true;
 
-            if (textTimer <= 0)
+            // Timer for wintext displayed
+            if (WintextTimer <= 0)
             {
                 winTextObject.SetActive(false);
             }
-            else if (textTimer > 0)
+            else if (WintextTimer > 0)
             {
-                textTimer -= Time.deltaTime;
+                WintextTimer -= Time.deltaTime;
             }
         }
     }
-
     private void OnTriggerEnter(Collider other)
     {
         // will be called when the player first touches a trigger collider (i.e the collectables)
@@ -73,20 +69,25 @@ public class PlayerCollector : MonoBehaviour
         if (collectableCount >= numberOfCollectableFireflies)
         {
             winTextObject.SetActive(true);
-            firefly.SetActive(true);
-            fireflycountText.text = "";
         }
     }
+
+    // Reset everything if Devin dies
     public void ResetCount()
     {
-        for(int i = 0; i < collectableList.Count; i++)
+        for (int i = 0; i < collectableList.Count; i++)
         {
             collectableList[i].gameObject.SetActive(true);
             collectableList[i].gameObject.GetComponent<FMODUnity.StudioEventEmitter>().Play();
         }
 
+        levelCompleted = false;
         winTextObject.SetActive(false);
         collectableCount = 0;
         fireflycountText.text = "Fireflies Collected: \t\t" + collectableCount.ToString() + "/" + numberOfCollectableFireflies.ToString();
+    }
+    public bool GetLevelCompleted()
+    {
+        return levelCompleted;
     }
 }
