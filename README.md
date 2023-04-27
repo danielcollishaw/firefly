@@ -34,6 +34,11 @@ For the model creation, rigging, and animation of the main player and the firefl
   - **Magdalena Dobinda** - *Project Lead and Developer* -
   - **Carlos Martinez** - *Audio and Modeling Lead, and Developer* -
   - **Daniel Collishaw** - *Art Lead, Level Designer, and Developer* -
+  
+## Potential Bugs
+  
+  - Unity's [rigid body system is flawed](https://forum.unity.com/threads/beating-dead-horse-rigidbodies-sticking-to-walls.335406/) and the character sticks to walls.     We applied a new friction system to minimize the error, although it still persists slightly.
+  - There are some weird load issues that may affect the character's ability to jump. The error occurs very sporadically, and we have yet to find a way to recreate and       fix the error. A simple solution is to reload the game or level by going to the overworld.
 
 ## Acknowledgments
 
