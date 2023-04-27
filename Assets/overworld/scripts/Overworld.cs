@@ -42,7 +42,7 @@ public class Overworld : MonoBehaviour
     }
     private IEnumerator LateStart()
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.1f);
         fallCountCanvas.UpdateFallCount(LevelManager.Instance.GameSave.FallCount);
     }
     private void DetectLevels()
