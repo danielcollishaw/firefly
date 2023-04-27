@@ -1865,7 +1865,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -439, y: 253}
+  m_AnchoredPosition: {x: -363, y: 253}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &185654623
@@ -1888,7 +1888,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "This firefly wants to give you powers! \nPress X to try \n"
+  m_text: "This firefly wants to give you powers! \nPress <size=50><sprite=4></size>
+    to try! \n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1907,7 +1908,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: 8d6604ba6ea0faa4f9b0e953989061a9, type: 2}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901
@@ -1922,7 +1923,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -8592,6 +8593,7 @@ Transform:
   - {fileID: 787142359}
   - {fileID: 1158131792}
   - {fileID: 719076632}
+  - {fileID: 4629564102409861726}
   - {fileID: 1418152798}
   - {fileID: 964509385}
   - {fileID: 215370180}
@@ -8614,7 +8616,6 @@ Transform:
   - {fileID: 2130477162}
   - {fileID: 469702652}
   - {fileID: 705128558}
-  - {fileID: 4629564102409861726}
   - {fileID: 1287508052}
   - {fileID: 1706129813}
   - {fileID: 138712377}
@@ -18829,7 +18830,7 @@ Transform:
   - {fileID: 4629564102411885367}
   - {fileID: 4629564102619072197}
   m_Father: {fileID: 1046369406}
-  m_RootOrder: 169
+  m_RootOrder: 147
   m_LocalEulerAnglesHint: {x: 0, y: -23.051, z: 0}
 --- !u!64 &4629564102411885360
 MeshCollider:
