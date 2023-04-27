@@ -9,6 +9,8 @@ public class Reset : MonoBehaviour
     private AbilityHolder ability;
     private Vector3 spawn;
 
+    private bool canReset = true;
+
     private void Start()
     {
         setSpawn(player.transform.position);
@@ -16,14 +18,21 @@ public class Reset : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
             AudioManager.instance.PlayOneShot(FMODEvents.instance.DeathSFX, other.transform.position);
+
             if (other.TryGetComponent<TimeTrial>(out var timetrial))
             {
                 timetrial.ResetTimer();
             }
-            ResetLevel();
+
+            if (canReset)
+            {
+                canReset = false;
+                ResetLevel();
+                StartCoroutine(ResetDelay());
+            }
         }
     }
 
@@ -36,5 +45,13 @@ public class Reset : MonoBehaviour
     {
         player.transform.position = spawn;
         ability.RemovePower();
+        LevelManager.Instance.GameSave.FallCount++;
+        int count = LevelManager.Instance.GameSave.FallCount;
+        Extend.FindFallCountCanvas(player).UpdateFallCount(count);
+    }
+    private IEnumerator ResetDelay()
+    {
+        yield return new WaitForSeconds(1.0f);
+        canReset = true;
     }
 }

@@ -723,6 +723,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5182310965225009768, guid: 3ab39a78b04ab7b46804a455a323b1a1, type: 3}
+      propertyPath: m_Colors.m_NormalColor.a
+      value: 0.43137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 5182310965225009768, guid: 3ab39a78b04ab7b46804a455a323b1a1, type: 3}
+      propertyPath: m_Colors.m_NormalColor.b
+      value: 0.4862745
+      objectReference: {fileID: 0}
+    - target: {fileID: 5182310965225009768, guid: 3ab39a78b04ab7b46804a455a323b1a1, type: 3}
+      propertyPath: m_Colors.m_NormalColor.g
+      value: 0.9254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 5221838828487452379, guid: 3ab39a78b04ab7b46804a455a323b1a1, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -108.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5221838828487452379, guid: 3ab39a78b04ab7b46804a455a323b1a1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -105
+      objectReference: {fileID: 0}
     - target: {fileID: 5582645849427954161, guid: 3ab39a78b04ab7b46804a455a323b1a1, type: 3}
       propertyPath: m_Name
       value: VolumeSettingsBackgroundImage
@@ -750,6 +770,30 @@ PrefabInstance:
     - target: {fileID: 7629362932973358068, guid: 3ab39a78b04ab7b46804a455a323b1a1, type: 3}
       propertyPath: m_AnchorMin.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7846363644452091497, guid: 3ab39a78b04ab7b46804a455a323b1a1, type: 3}
+      propertyPath: m_text
+      value: Settings
+      objectReference: {fileID: 0}
+    - target: {fileID: 8435228202487427955, guid: 3ab39a78b04ab7b46804a455a323b1a1, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 114.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8435228202487427955, guid: 3ab39a78b04ab7b46804a455a323b1a1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -105
+      objectReference: {fileID: 0}
+    - target: {fileID: 8494560730377366356, guid: 3ab39a78b04ab7b46804a455a323b1a1, type: 3}
+      propertyPath: m_Colors.m_NormalColor.a
+      value: 0.43137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 8494560730377366356, guid: 3ab39a78b04ab7b46804a455a323b1a1, type: 3}
+      propertyPath: m_Colors.m_NormalColor.b
+      value: 0.4862745
+      objectReference: {fileID: 0}
+    - target: {fileID: 8494560730377366356, guid: 3ab39a78b04ab7b46804a455a323b1a1, type: 3}
+      propertyPath: m_Colors.m_NormalColor.g
+      value: 0.9254902
       objectReference: {fileID: 0}
     - target: {fileID: 8738385568822455466, guid: 3ab39a78b04ab7b46804a455a323b1a1, type: 3}
       propertyPath: m_AnchorMax.x

@@ -78,8 +78,6 @@ public class OverworldLevel : MonoBehaviour
     public void Init(bool unlocked)
     {
         this.unlocked = unlocked;
-
-        Debug.Log(levelName + "- unlocked: " + unlocked); // DEBUG
     }
     private void Update()
     {

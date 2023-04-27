@@ -33,7 +33,7 @@ public class LevelManager : MonoBehaviour
     {
         if (instance != null)
         {
-            Debug.Log("LevelManager>There should only be one total instance of LevelManager in all scenes.");
+            Debug.Log($"LevelManager>There should only be one total instance of LevelManager in all scenes.\nowning object name: {gameObject.name} |");
             return;
         }
 
