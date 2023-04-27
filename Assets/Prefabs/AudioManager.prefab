@@ -149,26 +149,19 @@ MonoBehaviour:
       Data3: -94453117
       Data4: 230382085
     Path: event:/Music/OverWorld
-  <TutorialMusic>k__BackingField:
+  <Level1Music>k__BackingField:
     Guid:
       Data1: 1661010495
       Data2: 1230161628
       Data3: 1458079144
       Data4: -491394864
-    Path: event:/Music/LevelTutorialMusic
-  <Level1Music>k__BackingField:
+    Path: event:/Music/Level1Music
+  <Level2Music>k__BackingField:
     Guid:
       Data1: -1454625805
       Data2: 1209387363
       Data3: -2061599862
       Data4: 1607775191
-    Path: event:/Music/Level1Music
-  <Level2Music>k__BackingField:
-    Guid:
-      Data1: 1394785726
-      Data2: 1249499867
-      Data3: -360448115
-      Data4: -365157486
     Path: event:/Music/Level2Music
   <Level3Music>k__BackingField:
     Guid:

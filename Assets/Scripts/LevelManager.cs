@@ -47,6 +47,9 @@ public class LevelManager : MonoBehaviour
     }
     private void OnDestroy()
     {
-        GameSave.SaveGameSave(gameSave);
+        if (gameSave != null && gameSave.LevelsUnlocked.Count > 0)
+        {
+            GameSave.SaveGameSave(gameSave);
+        }
     }
 }
