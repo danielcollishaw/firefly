@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1838831, g: 0.2288535, b: 0.30208993, a: 1}
+  m_IndirectSpecularColor: {r: 0.18388267, g: 0.22885296, b: 0.30208898, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3622,6 +3622,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6748306291699650738, guid: f05d41c05d15296408c06bc70e870305, type: 3}
   m_PrefabInstance: {fileID: 337384030}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &337384032 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4322489874772442903, guid: f05d41c05d15296408c06bc70e870305, type: 3}
+  m_PrefabInstance: {fileID: 337384030}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &337384035 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5865838463187177806, guid: f05d41c05d15296408c06bc70e870305, type: 3}
@@ -6366,7 +6371,6 @@ GameObject:
   m_Component:
   - component: {fileID: 633880898}
   - component: {fileID: 633880897}
-  - component: {fileID: 633880899}
   m_Layer: 0
   m_Name: Overworld
   m_TagString: Untagged
@@ -6386,6 +6390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 311a0c0786c1a6b4fa8b3940b3ae193d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fallCountCanvasObject: {fileID: 337384032}
 --- !u!4 &633880898
 Transform:
   m_ObjectHideFlags: 0
@@ -6401,18 +6406,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &633880899
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 633880896}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea161042421d7c34e86ff6c9324769eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &638698419 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7377095519007739099, guid: be88c7fc3a9666b4ab747bd04a3b27cb, type: 3}
@@ -10423,7 +10416,7 @@ PrefabInstance:
       objectReference: {fileID: 917564675}
     - target: {fileID: 2029783431564212092, guid: 0cfd1314fdfe30b4daa4323a8f7f8295, type: 3}
       propertyPath: m_Radius
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5608549258896970094, guid: 0cfd1314fdfe30b4daa4323a8f7f8295, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18559,7 +18552,7 @@ PrefabInstance:
       objectReference: {fileID: 917564675}
     - target: {fileID: 2029783431564212092, guid: 0cfd1314fdfe30b4daa4323a8f7f8295, type: 3}
       propertyPath: m_Radius
-      value: 13
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7552807698705599665, guid: 0cfd1314fdfe30b4daa4323a8f7f8295, type: 3}
       propertyPath: m_RootOrder
@@ -19435,7 +19428,7 @@ PrefabInstance:
       objectReference: {fileID: 917564675}
     - target: {fileID: 2029783431564212092, guid: 0cfd1314fdfe30b4daa4323a8f7f8295, type: 3}
       propertyPath: m_Radius
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5608549258896970094, guid: 0cfd1314fdfe30b4daa4323a8f7f8295, type: 3}
       propertyPath: m_LocalPosition.x
@@ -22955,7 +22948,7 @@ PrefabInstance:
       objectReference: {fileID: 917564675}
     - target: {fileID: 2029783431564212092, guid: 0cfd1314fdfe30b4daa4323a8f7f8295, type: 3}
       propertyPath: m_Radius
-      value: 14
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7552807698705599665, guid: 0cfd1314fdfe30b4daa4323a8f7f8295, type: 3}
       propertyPath: m_RootOrder

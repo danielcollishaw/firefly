@@ -27,14 +27,50 @@ public static class Extend
         int count = components.Length;
         string output = "";
 
-        output += $"Component count: {count} |\n";
+        output += $"Owning object name: {owningObject.name}, type: {owningObject.GetType()}, component count: {count} |\n";
 
-        for (int i = 0; i < components.Length; i++)
+        for (int i = 0; i < count; i++)
         {
             Component comp = components[i];
-            output += $"Type: {comp.GetType()}, component name: {comp.name}, index: {i}, toString: {comp} |\n";
+            output += $"i: {i}, type: {comp.GetType()}, name: {comp.name} |\n";
         }
 
         return output;
+    }
+    public static FallCountCanvas FindFallCountCanvas(GameObject gameObject)
+    {
+        bool found = false;
+        GameObject fallCountCanvasObject = null;
+
+        // gameObject should be Devin.
+        for (int i = 0; i < gameObject.transform.childCount; i++)
+        {
+            // This game object should be FallCountCanvas.
+            fallCountCanvasObject = gameObject.transform.GetChild(i).gameObject;
+
+            if (fallCountCanvasObject.name == "FallCountCanvas")
+            {
+                found = true;
+                break;
+            }
+        }
+
+        if (found)
+        {
+            if (fallCountCanvasObject.TryGetComponent<FallCountCanvas>(out var fallCountCanvas))
+            {
+                return fallCountCanvas;
+            }
+            else
+            {
+                Debug.Log("Couldn't find FallCountCanvas.");
+                return null;
+            }
+        }
+        else
+        {
+            Debug.Log("Couldn't find FallCountCanvas game object.");
+            return null;
+        }
     }
 }

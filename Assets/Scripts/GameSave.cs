@@ -18,6 +18,7 @@ using System.Collections.Generic;
 public class GameSave
 {
     public Dictionary<string, bool> LevelsUnlocked { get; set; } = new Dictionary<string, bool>();
+    public int FallCount { get; set; } = 0;
     public float MasterSlider { get; set; } = 1;
     public float MusicSlider { get; set; } = 1;
     public float SFXSlider { get; set; } = 1;

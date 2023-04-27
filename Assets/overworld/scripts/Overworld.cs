@@ -12,14 +12,38 @@
 using System;
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
+using UnityEditor.VersionControl;
 
 public class Overworld : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject fallCountCanvasObject;
+    private FallCountCanvas fallCountCanvas;
+
     private readonly List<OverworldLevel> allOverworldLevels = new();
 
     private void Start()
     {
         DetectLevels();
+
+        if (fallCountCanvasObject.TryGetComponent<FallCountCanvas>(out var fallCountCanvas))
+        {
+            this.fallCountCanvas = fallCountCanvas;
+            fallCountCanvas.Toggle(true);
+            StartCoroutine(LateStart());
+        }
+        else
+        {
+            Debug.Log("Overworld>couldn't find FallCountCanvas.");
+        }
+
+        
+    }
+    private IEnumerator LateStart()
+    {
+        yield return new WaitForSeconds(1.0f);
+        fallCountCanvas.UpdateFallCount(LevelManager.Instance.GameSave.FallCount);
     }
     private void DetectLevels()
     {
