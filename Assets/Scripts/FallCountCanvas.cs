@@ -37,6 +37,6 @@ public class FallCountCanvas : MonoBehaviour
     }
     public void UpdateFallCount(int fallCount)
     {
-        fallCountTextMeshPro.text = string.Format("Fall Count: {0}", fallCount);
+        //fallCountTextMeshPro.text = string.Format("Fall Count: {0}", fallCount);
     }
 }

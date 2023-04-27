@@ -3551,6 +3551,14 @@ PrefabInstance:
       propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 227620525619694812, guid: f05d41c05d15296408c06bc70e870305, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5087414208735808350, guid: f05d41c05d15296408c06bc70e870305, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5865838463187177801, guid: f05d41c05d15296408c06bc70e870305, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -3611,9 +3619,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6628007213700183133, guid: f05d41c05d15296408c06bc70e870305, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6748306291699650738, guid: f05d41c05d15296408c06bc70e870305, type: 3}
       propertyPath: m_Name
       value: Devin
+      objectReference: {fileID: 0}
+    - target: {fileID: 8349942802753197745, guid: f05d41c05d15296408c06bc70e870305, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f05d41c05d15296408c06bc70e870305, type: 3}
