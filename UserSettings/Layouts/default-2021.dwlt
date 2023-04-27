@@ -23,7 +23,7 @@ MonoBehaviour:
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
-  m_Maximized: 0
+  m_Maximized: 1
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -69,7 +69,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1630.5
+    width: 1920
     height: 30
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
@@ -508,7 +508,7 @@ MonoBehaviour:
       collapsed: 0
       displayed: 1
       snapOffset: {x: -98.85712, y: -26.285706}
-      snapOffsetDelta: {x: 0, y: 0}
+      snapOffsetDelta: {x: -0.000061035156, y: 0}
       snapCorner: 3
       id: Tool Settings
       index: 0
@@ -834,7 +834,6 @@ MonoBehaviour:
   m_SceneVisActive: 1
   m_LastLockedObject: {fileID: 0}
   m_ViewIsLockedToObject: 0
---- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1165,7 +1164,7 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: 0.10742845, y: -0.8921909, z: 0.29633152, w: 0.32352284}
     speed: 2
-    m_Value: {x: 0.10742711, y: -0.8921798, z: 0.29632786, w: 0.3235188}
+    m_Value: {x: -0.10742711, y: 0.8921798, z: -0.29632786, w: -0.3235188}
   m_Size:
     m_Target: 9.813539
     speed: 2
